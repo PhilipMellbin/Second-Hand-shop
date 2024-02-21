@@ -1,0 +1,17 @@
+##################################################
+DEV. GUIDE: Add new page
+##################################################
+Note on file structure
+home.
+productpage.
+checkout.
+signup/login.
+standart/
+    header.
+    footer.
+products/
+sides/
+    cart.
+    region.
+    
+
