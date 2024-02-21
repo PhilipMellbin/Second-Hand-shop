@@ -1,8 +1,8 @@
 <?php
-require_once '/XAMPP/htdocs/Second_Academia_Shop/api/v1/app/modles/Product/ProductStandard.php';
-require_once '/XAMPP/htdocs/Second_Academia_Shop/api/v1/app/modles/Product/ProductSmall.php';
-require_once '/XAMPP/htdocs/Second_Academia_Shop/api/v1/app/views/View.php';
-require_once '/XAMPP/htdocs/Second_Academia_Shop/api/v1/app/views/ViewProduct.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductStandard.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductSmall.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/ViewProduct.php';
 
 
 class ProductController extends ABController
@@ -16,7 +16,7 @@ class ProductController extends ABController
     public function __construct()
     {
         $this->view = new View;
-        if(!isset($_GET['prod_id']))
+        if(!isset($_GET['prod_id'])) //if there is no product id, send to error.
         {
             header("Location: http://localhost:80/Second_Academia_Shop/api/v1/public_html/index.php?page=error&msg=404");
         }
@@ -28,7 +28,7 @@ class ProductController extends ABController
 
     private function show_main_product() //Main product info
     {
-        while($result = $this->model->res->fetch(PDO::FETCH_ASSOC))
+        while($result = $this->model->res->fetch(PDO::FETCH_ASSOC)) #!!! Should make shure that it also checks if results are valid
         {
             $this->product = new ViewProduct($result);
             $this->product->render_product("standard");
@@ -58,7 +58,7 @@ class ProductController extends ABController
         $this->show_main_product();
         $this->show_similar_product();
     }
-    public function add_to_cart()
+    public function add_to_cart() #!!! Is it better to have the function in product controller, or should it be added to the checkout controller?
     {
         $this->model = new ProductStandard($_GET['prod_id']);
         print_r($this->product);

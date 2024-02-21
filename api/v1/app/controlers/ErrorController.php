@@ -1,6 +1,6 @@
 <?php
-require_once '/XAMPP/htdocs/Second_Academia_Shop/api/v1/app/controlers/ABController.php';
-require_once '/XAMPP/htdocs/Second_Academia_Shop/api/v1/app/views/View.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php';
 class ErrorController extends ABController
 {
     private $view;
