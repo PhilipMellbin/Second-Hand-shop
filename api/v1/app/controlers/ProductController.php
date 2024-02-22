@@ -25,16 +25,19 @@ class ProductController extends ABController
             $this->model = new ProductStandard($_GET['prod_id']);
         }
     }
-
-    private function show_main_product() //Main product info
+    private function access_main_product()
     {
         while($result = $this->model->res->fetch(PDO::FETCH_ASSOC)) #!!! Should make shure that it also checks if results are valid
         {
             $this->product = new ViewProduct($result);
-            $this->product->render_product("standard");
-            $this->product_subject = $this->product->product_subject;
-            print_r($this->product);
         }
+    }
+
+    private function show_main_product() //Main product info
+    {
+        $this->access_main_product();
+        $this->product->render_product("standard");
+        $this->product_subject = $this->product->product_subject;
         $this->model->end();
         $this->model = new ProductSmall($this->product_subject, "BySubject");
     }
@@ -61,10 +64,10 @@ class ProductController extends ABController
     public function add_to_cart() #!!! Is it better to have the function in product controller, or should it be added to the checkout controller?
     {
         $this->model = new ProductStandard($_GET['prod_id']);
-        print_r($this->product);
-        /*$this->model->add_to_cart($this->product);
+        $this->access_main_product();
+        $this->model->add_to_cart($this->product);
         $this->model->end();
-        header('http://localhost:80/Second_Academia_Shop/api/v1/public_html/index.php?page=checkout');*/
+        header('http://localhost:2005/Second_Academia_Shop/api/v1/public_html/index.php?page=checkout');
     }
     public function show()
     {

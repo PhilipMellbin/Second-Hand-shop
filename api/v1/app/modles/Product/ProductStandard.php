@@ -16,25 +16,30 @@ class ProductStandard extends Cookie implements IProduct
     }
     function add_to_cart(ViewProduct $product)
     {
+        print_r($product);
+        $sess_id = session_id();
         $time = date('Y-m-d H:i:s');
         $this->db = new db;
-        $command = "INSERT INTO shopertrack (
-            session_id, 
+        $command = "INSERT INTO shoppertrack 
+        (
+            sess_id, 
             prod_id,
             prod_title,
             prod_img, 
             prod_price, 
             prod_publisher, 
-            date_added) 
-        VALUES(
-            session_id(),
-            $product->prod_id
-            $product->title
-            $product->img
-            $product->price
-            $product->publisher
-            $time('Y-m-d H:i:s');
-            )";
+            prod_added_date
+        ) 
+        VALUES
+        (
+            '$sess_id',
+            '$product->prod_id',
+            '$product->title',
+            '$product->img',
+            '$product->price',
+            '$product->publisher',
+            '$time'
+        )";
         $this->db->get_results($command);
     }
     public function end()
