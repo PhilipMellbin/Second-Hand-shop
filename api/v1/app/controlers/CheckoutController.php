@@ -44,15 +44,30 @@ class CheckoutController
     private function fill_credentials()
     {
         $this->model_customer = new Customer;
+        $this->model_customer->fill_credentials();
+        $_POST['credentials_filled'] = True;
+        //$this->model_customer->swish();
+        header('location: this_website');
         /* 
 
-        - use post variables and then clear them
-        - get new model
-        - use that model
+        - After fill credentials is compleated, load in this site again but with swish
+        - Indication: Use a post variable?
         */
     } 
+    private function get_swish()
+    {
+        if(isset($_POST['credentials_filled']))
+        {
+            //show the swish page
+        }
+        else
+        {
+            //show alternate page
+        }
+    }
     public function show()
     {
-
+        $this->view->render("/standard/header"); 
+        $this->view->render("/standard/footer"); 
     }
 }
