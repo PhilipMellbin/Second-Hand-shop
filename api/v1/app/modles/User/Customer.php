@@ -52,7 +52,7 @@ class Customer
         $this->user_email = $_POST['email'];
         $this->filled_credentials = true;
     }
-    private function compleate_payment()
+    public function compleate_payment()
     {
         /*acces recite database
         insert products

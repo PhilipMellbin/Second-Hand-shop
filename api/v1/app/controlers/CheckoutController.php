@@ -20,6 +20,7 @@ class CheckoutController
         if($this->model->res == null)
         {
             $this->view->render("no_product");
+            $this->view->render("/checkout/credentials/credentialsunfilled");
         }
         else
         {
@@ -32,7 +33,7 @@ class CheckoutController
                 $product->render_product("cart");
             }
             $this->view->render("products_end");
-            $this->view->render("credentials");
+            $this->view->render("/checkout/credentials/credentials");
             //for every object in $result
             //render
         }
@@ -58,16 +59,22 @@ class CheckoutController
     {
         if(isset($_POST['credentials_filled']))
         {
-            //show the swish page
+            $this->view->render("/checkout/swishcontainer");
         }
         else
         {
-            //show alternate page
+            $this->view->render("/checkout/swishunfilled");
         }
+    }
+    private function finish_payment()
+    {
+        $this->model_customer->compleate_payment();
     }
     public function show()
     {
         $this->view->render("/standard/header"); 
+        $this->get_cart_products();
+        $this->get_swish();
         $this->view->render("/standard/footer"); 
     }
 }
