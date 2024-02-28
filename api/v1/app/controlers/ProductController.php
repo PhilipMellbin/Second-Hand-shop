@@ -67,7 +67,7 @@ class ProductController extends ABController
         $this->access_main_product();
         $this->model->add_to_cart($this->product);
         $this->model->end();
-        header('location: http://localhost:2005/Second_Academia_Shop/api/v1/public_html/index.php?page=checkout');
+        header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=checkout');
     }
     public function show()
     {

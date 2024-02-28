@@ -9,6 +9,7 @@ session_start([
 include '../app/controlers/ErrorController.php';
 include '../app/controlers/HomeController.php';
 include '../app/controlers/ProductController.php';
+include '../app/controlers/CheckoutController.php';
 
 
 ini_set('display_errors', 1);
