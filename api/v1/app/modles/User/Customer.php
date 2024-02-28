@@ -44,12 +44,12 @@ class Customer
             $this->compleate_payment();
         }
     }*/
-    public function fill_credentials($sess_id, $username, $phonenumber, $email)
+    public function fill_credentials()
     {
-        $this->sess_id = $sess_id;
-        $this->user_name = $username;
-        $this->user_phone = $phonenumber;
-        $this->user_email = $email;
+        $this->sess_id = session_id();
+        $this->user_name = $_POST['name'];
+        $this->user_phone = $_POST['phone'];
+        $this->user_email = $_POST['email'];
         $this->filled_credentials = true;
     }
     private function compleate_payment()

@@ -5,6 +5,7 @@ class CheckoutController
 {
     private $view;
     private $model;
+    private $model_customer;
     private array $products;
 
     public function __construct()
@@ -31,6 +32,7 @@ class CheckoutController
                 $product->render_product("cart");
             }
             $this->view->render("products_end");
+            $this->view->render("credentials");
             //for every object in $result
             //render
         }
@@ -38,6 +40,16 @@ class CheckoutController
         //check results
         //if there are no results...render no_product
         //else render as per usual
+    }
+    private function fill_credentials()
+    {
+        $this->model_customer = new Customer;
+        /* 
+
+        - use post variables and then clear them
+        - get new model
+        - use that model
+        */
     } 
     public function show()
     {
