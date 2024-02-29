@@ -1,16 +1,22 @@
 <?php
-
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
 class ProductCart extends Cookie
 {
     public $res;
     protected $db;
-    private $sess_id;
-    private $prod_id;
 
-    function __construct($sess_id)
+    function __construct()
     {
-        $this->sess_id = $sess_id;
-        $command = "SELECT * FROM shopptertrack WHERE session_id='$this->sess_id'";
+        $con =  new PDO("mysql:host=". HOST. ";dbname=". DB , USER, PASS);
+        $sess_id = session_id();
+        $command = "SELECT * FROM shoppertrack WHERE sess_id='$sess_id'";
+        $a = $con->prepare($command);
+        $a->execute();
+        print_r($a);
+
+        echo($command);
         $this->db->get_results($command);
         if($this->db->command->rowCount() > 0)
         {
@@ -25,9 +31,10 @@ class ProductCart extends Cookie
     {
         $this->db->close(); 
     }
-    function delete($prod_id)
+    function delete($title)
     {
-        $command = "DELETE FROM shopertrack WHERE session_id='$this->sess_id'";
+        $sess_id = session_id();
+        $command = "DELETE FROM shoppertrack WHERE session_id='$sess_id' AND prod_title = '$title'";
         $this->db->get_results($command);
     }
     //same select function

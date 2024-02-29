@@ -1,8 +1,8 @@
 <?php
 //Need to require all of these files
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php';
-require_once '/XAMPP/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
-require_once '/XAMPP/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
 Class ProductSmall extends Cookie implements IProduct
 {
     //proposal:
@@ -10,8 +10,6 @@ Class ProductSmall extends Cookie implements IProduct
     */
     public $res;
     protected $db;
-    public string $subject;
-    public string $title;
     private function fill_results($command)
     {
         $this->db->get_results($command);

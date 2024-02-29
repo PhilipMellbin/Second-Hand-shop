@@ -1,6 +1,9 @@
 <?php
 
-
+require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductCart.php');
+require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/Customer.php');
+require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
+require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/ViewProduct.php');
 class CheckoutController
 {
     private $view;
@@ -11,7 +14,7 @@ class CheckoutController
     public function __construct()
     {
         $this->view = new View;
-        $this->model = new ProductCart(session_id());
+        $this->model = new ProductCart();
         $this->products = [];
         //fill in the models
     }
