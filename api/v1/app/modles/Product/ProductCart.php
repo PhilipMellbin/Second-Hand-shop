@@ -9,15 +9,11 @@ class ProductCart extends Cookie
 
     function __construct()
     {
-        $con =  new PDO("mysql:host=". HOST. ";dbname=". DB , USER, PASS);
+        $this->db = new db;
         $sess_id = session_id();
         $command = "SELECT * FROM shoppertrack WHERE sess_id='$sess_id'";
-        $a = $con->prepare($command);
-        $a->execute();
-        print_r($a);
-
-        echo($command);
         $this->db->get_results($command);
+        $this->res = $this->db->command;
         if($this->db->command->rowCount() > 0)
         {
             $this->res = $this->db->command; 
