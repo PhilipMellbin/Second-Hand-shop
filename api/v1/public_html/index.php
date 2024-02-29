@@ -41,8 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         case 'add_cart':
             $controller->add_to_cart();
             break;
-        case 'remove_from_cart':
+        case 'remove_cart':
             $controller->remove_from_cart();
+            break;
+        case 'swish':
+            $controller->swish();
             break;
     }
 

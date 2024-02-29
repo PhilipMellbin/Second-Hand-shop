@@ -1,10 +1,13 @@
 --------------------------------------------------
-NOTICE: UPON LOG IN, CHANGE YOUR PASSWORD IMEDIATLY.
-FAILURE TO DO THIS INCREASES THE SECURITYFRIET DRAMATICLY
+NOTICE: 
+* UPON LOG IN, CHANGE YOUR PASSWORD IMEDIATLY. FAILURE TO DO SO INCREASES THE RISK OF SUCCESSFULL CYBER ATTACKS
+* Check the documentation before making changes to the code.
+* ALWAYS HAVE A BACKUP WHILE EDITING THE CODE
+* If you stuble into problems, please contact Mellbin WebDev
 --------------------------------------------------
 Admin username: Your full name
 Password: $u?ÿ21__'*b*--4û~dE
-Email: Your outlook email.
-
-Upon login, you will recive a link to the webbsite through email.
-If this was not you, please change your credentials
+Email: The email you gave me
+--------------------------------------------------
+Upon login, you will recive a link to the Admin interface through email.
+Once there, you will recive further instructions on the websites functionality
