@@ -22,8 +22,8 @@ class CheckoutController
     {
         if($this->model->res == null)
         {
-            $this->view->render("no_product");
-            $this->view->render("/checkout/credentials/credentialsunfilled");
+            $this->view->render("/checkout/incart/incartnoproduct");
+            $this->view->render("/checkout/incart/incartend");
         }
         else
         {
@@ -35,7 +35,7 @@ class CheckoutController
             {
                 $product->render_product("cart");
             }
-            $this->view->render("products_end");
+            $this->view->render("/checkout/incart/incartend");
             $this->view->render("/checkout/credentials/credentials");
             //for every object in $result
             //render
@@ -45,7 +45,7 @@ class CheckoutController
         //if there are no results...render no_product
         //else render as per usual
     }
-    private function fill_credentials()
+    public function fill_credentials()
     {
         $this->model_customer = new Customer;
         $this->model_customer->fill_credentials();
@@ -62,14 +62,14 @@ class CheckoutController
     {
         if(isset($_POST['credentials_filled']))
         {
-            $this->view->render("/checkout/swishcontainer");
+            $this->view->render("/checkout/swish/swishcontainer");
         }
         else
         {
-            $this->view->render("/checkout/swishunfilled");
+            $this->view->render("/checkout/swish/swishunfilled");
         }
     }
-    private function finish_payment()
+    public function finish_payment()
     {
         $this->model_customer->compleate_payment();
     }

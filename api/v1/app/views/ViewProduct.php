@@ -10,6 +10,7 @@ class ViewProduct extends View
     public $product_subject;
     public $description;
     public $publisher;
+    public $publish_date;
     public $date_added;
     
     public function __construct(array $products)
@@ -21,7 +22,8 @@ class ViewProduct extends View
         $this->product_subject = $products['subject'];
         $this->description = $products['description'];
         $this->publisher = $products['publisher'];
-        $this->date_added = $products['publish_date'];
+        $this->publish_date = $products['publish_date'];
+        $this->date_added = $products['prod_date_added'];
         //set everything in the array
         //render product
     }
@@ -36,7 +38,7 @@ class ViewProduct extends View
                 $this->render("product/product");
                 break;
             case "cart":
-                $this->render("page", "dir");
+                $this->render("standard/cartproducts");
                 break;
             case "recite":
                 $this->render("page", "dir");

@@ -24,10 +24,10 @@ class ProductStandard extends Cookie implements IProduct
         (
             sess_id, 
             prod_id,
-            prod_title,
-            prod_img, 
-            prod_price, 
-            prod_publisher, 
+            title,
+            img, 
+            price, 
+            publisher, 
             prod_added_date
         ) 
         VALUES
