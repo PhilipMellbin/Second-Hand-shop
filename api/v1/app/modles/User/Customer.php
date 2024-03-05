@@ -47,7 +47,7 @@ class Customer
     public function fill_credentials()
     {
         $this->sess_id = session_id();
-        $this->user_name = $_POST['name'];
+        $this->user_name = $_POST['fullname'];
         $this->user_phone = $_POST['phone'];
         $this->user_email = $_POST['email'];
         $this->filled_credentials = true;

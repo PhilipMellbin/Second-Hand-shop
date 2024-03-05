@@ -15,15 +15,15 @@ class ViewProduct extends View
     
     public function __construct(array $products)
     {
-        $this->prod_id = $products['prod_id'];
-        $this->title = $products['title'];
-        $this->img = $products['img'];
-        $this->price = $products['price'];
-        $this->product_subject = $products['subject'];
-        $this->description = $products['description'];
-        $this->publisher = $products['publisher'];
-        $this->publish_date = $products['publish_date'];
-        $this->date_added = $products['prod_date_added'];
+        $this->prod_id = isset($products['prod_id']) ? $products['prod_id'] : null;
+        $this->title = isset($products['title']) ? $products['title'] : null;
+        $this->img = isset($products['img']) ? $products['img'] : null;
+        $this->price = isset($products['price']) ? $products['price'] : null;
+        $this->product_subject = isset($products['subject']) ? $products['subject'] : null;
+        $this->description = isset($products['description']) ? $products['description'] : null;
+        $this->publisher = isset($products['publisher']) ? $products['publisher'] : null;
+        $this->publish_date = isset($products['publish_date']) ? $products['publish_date'] : null;
+        $this->date_added = isset($products['prod_date_added']) ? $products['prod_date_added'] : null;
         //set everything in the array
         //render product
     }
