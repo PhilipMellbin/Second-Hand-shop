@@ -27,10 +27,10 @@ class ProductCart extends Cookie
     {
         $this->db->close(); 
     }
-    function delete($title)
+    function delete(string $prod_id)
     {
         $sess_id = session_id();
-        $command = "DELETE FROM shoppertrack WHERE session_id='$sess_id' AND prod_title = '$title'";
+        $command = "DELETE FROM shoppertrack WHERE session_id='$sess_id' AND prod_id = '$prod_id'";
         $this->db->get_results($command);
     }
     //same select function

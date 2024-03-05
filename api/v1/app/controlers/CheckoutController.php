@@ -73,6 +73,12 @@ class CheckoutController
     {
         $this->model_customer->compleate_payment();
     }
+    public function delete_cart($prod_id)
+    {
+        $this->model = new ProductCart();
+        $this->model->delete($prod_id);
+
+    }
     public function show()
     {
         $this->view->render("/standard/header"); 
