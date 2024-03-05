@@ -27,11 +27,13 @@ class ProductCart extends Cookie
     {
         $this->db->close(); 
     }
-    function delete(string $prod_id)
+    function delete()
     {
+        $prod_id = $_GET['prod_id'];
         $sess_id = session_id();
-        $command = "DELETE FROM shoppertrack WHERE session_id='$sess_id' AND prod_id = '$prod_id'";
+        $command = "DELETE FROM shoppertrack WHERE sess_id='$sess_id' AND prod_id = '$prod_id'";
         $this->db->get_results($command);
+        header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=checkout');
     }
     //same select function
     //maby i should have a product interface. like IProduct.php

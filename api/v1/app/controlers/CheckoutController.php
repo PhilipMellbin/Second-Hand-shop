@@ -73,10 +73,15 @@ class CheckoutController
     {
         $this->model_customer->compleate_payment();
     }
-    public function delete_cart($prod_id)
+    public function delete_cart()
     {
+        $prod_id = $_GET['prod_id'];
+        if(str_contains($prod_id, "'"))
+        {
+            header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=error');
+        }
         $this->model = new ProductCart();
-        $this->model->delete($prod_id);
+        $this->model->delete();
 
     }
     public function show()
