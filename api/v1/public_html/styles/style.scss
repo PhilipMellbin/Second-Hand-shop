@@ -4,9 +4,19 @@
 body
 {
     margin: 0;
-    background-color: rgb(244, 244, 244);
+    background-color: rgba(237, 237, 237, 0.897);
+}
+header, main, footer
+{
+    width: 100%;
+    max-width: 3000px;
+    margin:auto
 }
 p, a, h1, h2, h3
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1, h2, h3
+{
+    text-align: center;
 }

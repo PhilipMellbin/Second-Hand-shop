@@ -1,0 +1,107 @@
+body
+{
+    margin: 0;
+    background-color: rgba(237, 237, 237, 0.897);
+}
+header, main, footer
+{
+    width: 100%;
+    max-width: 3000px;
+    margin:auto
+}
+a, p, h1, h3
+{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+}
+a
+{
+    text-decoration: none;
+}
+header
+{
+    width: 100%;
+    max-width: 3000px;
+    .Logo 
+    {
+        text-align: center;
+        font-size: 50px;
+        img
+        {
+            width:200px;
+        }
+    }
+    .navbar
+    {
+        display:flex;
+        justify-content: space-evenly;
+        background-color: rgb(87, 166, 202);
+        height:40px; 
+        ul
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            li {
+                a {
+                    display: block;
+                    text-align: center;
+                    padding: 8px;
+                  }
+              }
+        }
+    }
+}
+.products
+{
+    background-color: whitesmoke;
+    width:80%;
+    max-width: 2400px;
+    margin: auto;
+    h3, h1
+    {
+        text-align: center;
+    }
+    .productcontainer
+    {
+        display: flex;  
+        flex-wrap: wrap;
+        .product
+        {
+            background-color: rgb(193, 225, 252);
+            border-radius: 2%;
+            padding: 4px;
+            p, img
+            {
+                width: 100px;
+            }
+        }
+    }
+    div.button, button
+    {
+        background-image: linear-gradient(to right, blue, purple, blue  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+        a
+        {
+            color: whitesmoke;
+        }
+        &:hover
+        {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}

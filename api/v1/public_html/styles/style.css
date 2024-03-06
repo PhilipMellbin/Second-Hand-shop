@@ -1,23 +1,52 @@
 header.top {
-  background-color: rgb(139, 139, 139);
+  background-color: rgba(117, 184, 255, 0.582);
 }
-header.top div {
+header.top div.Title {
   display: flex;
   justify-content: center;
 }
-header.top div h1 {
-  margin-top: auto;
+header.top div.Title div.pillar, header.top div.Title div.Logo {
+  float: left;
 }
-header.top div div.img img {
+header.top div.Title div.Logo div.logo {
+  width: 10%;
+  height: 10%;
+}
+header.top div.Title h1, header.top div.Title h2 {
+  text-align: center;
+}
+header.top div.Title .pillar img {
   width: 200px;
   margin: auto;
+}
+header.top div.Title .logo {
+  display: flex;
+}
+header.top div.Title .logo h1, header.top div.Title .logo h2 {
+  text-align: center;
+}
+header.top nav {
+  background-color: rgb(47, 255, 127);
+  box-shadow: 1px 2px 20px 4px;
+  display: flex;
+  justify-content: space-around;
 }
 
 body {
   margin: 0;
-  background-color: rgb(244, 244, 244);
+  background-color: rgba(237, 237, 237, 0.897);
+}
+
+header, main, footer {
+  width: 100%;
+  max-width: 3000px;
+  margin: auto;
 }
 
 p, a, h1, h2, h3 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3 {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
