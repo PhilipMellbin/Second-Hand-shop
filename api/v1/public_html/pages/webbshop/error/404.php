@@ -1,3 +1,8 @@
-<div>
-    <h1>Error!!</h1>
-</div>
+<main>
+    <h2>Hmm...How strange...</h2>
+    <h1>404</h1>
+    <p>Try again later. If the problem percists, please
+        contact the admin using the credentials below.
+    </p>
+    <a href="index.php?page=home">Go back to shop!</a>
+</main>
