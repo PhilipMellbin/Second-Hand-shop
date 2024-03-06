@@ -1,7 +1,7 @@
 <article class="checkout credentials">
     <header>
     <img src="" alt="3">
-        <h1>Swish</h1>
+        <h1>Paypal</h1>
     </header>
     <main>
         <h1>A swish code is now sent to <?="name"?>'s phone</h1>
