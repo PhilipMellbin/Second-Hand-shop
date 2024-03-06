@@ -1,0 +1,23 @@
+header.top {
+  background-color: rgb(139, 139, 139);
+}
+header.top div {
+  display: flex;
+  justify-content: center;
+}
+header.top div h1 {
+  margin-top: auto;
+}
+header.top div div.img img {
+  width: 200px;
+  margin: auto;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(244, 244, 244);
+}
+
+p, a, h1, h2, h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}/*# sourceMappingURL=style.css.map */
