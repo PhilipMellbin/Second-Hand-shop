@@ -6,7 +6,7 @@ use Olssonm\Swish\Payment;
 //create recite
 //fill credentials
 //pay
-class Customer
+class Customer extends ABCustomer
 {
     private string $sess_id;
     private string $user_name;
@@ -52,7 +52,7 @@ class Customer
         $this->user_email = $_POST['email'];
         $this->filled_credentials = true;
     }
-    public function compleate_payment()
+    public function payment()
     {
         /*acces recite database
         insert products

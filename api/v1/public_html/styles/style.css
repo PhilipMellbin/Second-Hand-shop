@@ -1,7 +1,10 @@
 header.top {
-  background-color: rgba(117, 184, 255, 0.582);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(45deg, rgb(2, 0, 36) 0%, rgb(73, 9, 121) 35%, rgb(0, 212, 255) 100%);
 }
 header.top div.Title {
+  height: 30%;
+  max-height: 190px;
   display: flex;
   justify-content: center;
 }
@@ -14,22 +17,30 @@ header.top div.Title div.Logo div.logo {
 }
 header.top div.Title h1, header.top div.Title h2 {
   text-align: center;
+  color: white;
 }
 header.top div.Title .pillar img {
   width: 200px;
   margin: auto;
 }
 header.top div.Title .logo {
-  display: flex;
+  margin-left: auto;
+  margin-right: auto;
 }
-header.top div.Title .logo h1, header.top div.Title .logo h2 {
-  text-align: center;
+header.top div.Title .logo img {
+  width: 100%;
+  max-width: 70px;
+  margin: auto;
 }
 header.top nav {
-  background-color: rgb(47, 255, 127);
+  background-color: rgba(47, 64, 255, 0.6);
   box-shadow: 1px 2px 20px 4px;
   display: flex;
   justify-content: space-around;
+}
+header.top nav .Button {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
 }
 
 body {

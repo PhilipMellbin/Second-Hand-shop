@@ -11,8 +11,8 @@
     <div class="Title">
         <div class="pillar"><img src="https://cdn-icons-png.flaticon.com/512/4793/4793297.png" alt="LOGO"></div>
         <div class="Logo">
-            <div class="logo"><img src="/Second-Hand-shop/api/v1/public_html/img/182956.png" alt=""></div>
             <h1>Second Academia</h1>
+            <div class="logo"><img src="/../Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/img/182956.png" alt=""></div>
             <h2>Second hand study equipment</h2>
         </div>
         <div class="pillar"><img src="https://cdn-icons-png.flaticon.com/512/4793/4793297.png" alt="LOGO"></div>
