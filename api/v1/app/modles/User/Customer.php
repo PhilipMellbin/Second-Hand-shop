@@ -6,6 +6,7 @@ use Olssonm\Swish\Payment;
 //create recite
 //fill credentials
 //pay
+require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/ABCustomer.php");
 class Customer extends ABCustomer
 {
     private string $sess_id;

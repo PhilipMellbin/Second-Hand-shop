@@ -19,16 +19,22 @@
         <!--<h1 class="end">Second Academia</h1>-->
         <!--<h1>SecondHand equipment</h1>-->
     </div>
-    <nav>
-        <a class="Button" href="index.php?page=home">home</a>
-        <p class="Button" onmouseover="//display categories">categories</p>
-        <form method="get" action="index.php?search=<?$inp?>">
-            <label for="">Search...</label>
-            <input type="text" name=<?$inp?>>
-            <input type="submit" value="submit">
-        </form>
-        <p class="Button"> select region</p>
-        <a href="index.php?page=login"></a>
-    </nav>
+    <div class="navbar">
+        <ul>
+            <li class="button"><a class="Button" href="index.php?page=home">home</a></li>
+            <li class="button"><a href="index.php?page=home">categories</a></li>
+            <li class="button"><a href="index.php?page=aboutus">About us</a></li>
+            <li class="search">
+                <form method="get" action="index.php?search=<?$inp?>">
+                    <label for="">Search...</label>
+                    <input type="text" name=<?$inp?>>
+                    <input type="submit" value="submit">
+                </form>
+            </li>
+            <li class="button"><a href="index.php?page=home">Cart</a></li>
+            <li class="button"><a href="index.php?page=home">Region</a></li>
+            <li class="button"><a href="index.php?page=home">Signup/Locin</a></li>
+        </ul>
+    </div>
    </header> 
 <main>

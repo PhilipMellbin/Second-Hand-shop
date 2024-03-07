@@ -32,15 +32,53 @@ header.top div.Title .logo img {
   max-width: 70px;
   margin: auto;
 }
-header.top nav {
+header.top .navbar {
+  display: flex;
+  justify-content: space-around;
   background-color: rgba(47, 64, 255, 0.6);
-  box-shadow: 1px 2px 20px 4px;
+  height: 40px;
+  box-shadow: -4px 8px 14px 4px;
+}
+header.top .navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   display: flex;
   justify-content: space-around;
 }
-header.top nav .Button {
-  background-color: rgb(255, 255, 255);
+header.top .navbar ul li.button {
+  width: 170px;
+  border-radius: 20%;
+}
+header.top .navbar ul li.button a {
+  display: block;
   text-align: center;
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+}
+header.top .navbar ul li.button a:hover {
+  border-radius: 4px;
+  background: rgb(172, 182, 0);
+  background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
+}
+header.top .navbar ul li.button :hover {
+  box-shadow: 1px 1px 20px 4px black;
+}
+header.top .navbar ul li.search {
+  width: 500px;
+  margin: auto;
+  margin-left: 90px;
+}
+header.top .navbar ul li.search form label {
+  color: white;
+}
+header.top .navbar ul li.search:hover {
+  box-shadow: 1px 1px 20px 4px black;
+  border-radius: 4px;
+  background: rgb(172, 182, 0);
+  background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
 }
 
 body {
