@@ -69,7 +69,7 @@ header.top .navbar ul li.button :hover {
 header.top .navbar ul li.search {
   width: 500px;
   margin: auto;
-  margin-left: 90px;
+  margin-left: 45px;
 }
 header.top .navbar ul li.search form label {
   color: white;
@@ -79,6 +79,50 @@ header.top .navbar ul li.search:hover {
   border-radius: 4px;
   background: rgb(172, 182, 0);
   background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
+}
+
+main section.home {
+  margin-top: 0;
+  width: 100%;
+  max-width: 3000px;
+  height: 400px;
+  max-height: 4000px;
+}
+main section.home section.slide {
+  background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  height: 100%;
+  max-height: 1000px;
+  margin: auto;
+}
+main section.home section.slide div {
+  float: left;
+  margin-top: 10%;
+}
+main section.home section.slide div h1, main section.home section.slide div h2, main section.home section.slide div a {
+  color: white;
+  text-align: left;
+}
+main section.home section.slide div a {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+}
+main section.home section.slide div a:hover {
+  border-radius: 4px;
+  background: rgb(172, 182, 0);
+  background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
+}
+main section.home section.slide div :hover {
+  box-shadow: 1px 1px 20px 4px black;
+}
+
+footer {
+  background-color: rgba(194, 194, 194, 0.897);
 }
 
 body {
