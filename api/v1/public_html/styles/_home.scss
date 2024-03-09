@@ -9,9 +9,7 @@ main
         max-height: 4000px;
         section.slide
         {
-            background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip");
             background-repeat: no-repeat;
-            background-attachment: fixed;
             background-size: 100% 100%;
             height: 100%;
             max-height: 1000px;
@@ -43,6 +41,18 @@ main
                       box-shadow: 1px 1px 20px 4px black;
                   }
             }
+        }
+        section#sec_1
+        {
+            background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip");
+        }
+        section#sec_2
+        {
+            background-image: url("https://www.thoughtco.com/thmb/PCVPjqDcfiY4az_kycvn-EJA-e8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/swarthmore-college-Eric-Behrens-flickr-5706ffe35f9b581408d48cb3.jpg");
+        }
+        section#sec_3
+        {
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/ec/Dartmouth_College_campus_2007-10-20_09.JPG");
         }
     }
 }
