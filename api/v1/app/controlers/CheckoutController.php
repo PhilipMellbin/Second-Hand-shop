@@ -51,7 +51,7 @@ class CheckoutController
         $this->model_customer->fill_credentials();
         $_POST['credentials_filled'] = True;
         //$this->model_customer->swish();
-        header('location: this_website');
+        header('location: Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=checkout');
         /* 
 
         - After fill credentials is compleated, load in this site again but with swish
@@ -63,6 +63,7 @@ class CheckoutController
         if(isset($_POST['credentials_filled']))
         {
             $this->view->render("/checkout/swish/swishcontainer");
+            //send_swish_code
         }
         else
         {
@@ -71,7 +72,7 @@ class CheckoutController
     }
     public function finish_payment()
     {
-        $this->model_customer->compleate_payment();
+        $this->model_customer->payment($this->products);
     }
     public function delete_cart() //Come up with a beter alternative!!
     {

@@ -7,29 +7,163 @@ main
         max-width: 3000px;
         height: 400px;
         max-height: 4000px;
-        section.slide
+        div.slide
         {
+            position: relative;
+            z-index:1;
             background-repeat: no-repeat;
             display: block;
+            position: relative;
             background-size: 100% 100%;
             height: 100%;
-            max-height: 1000px;
             margin: auto;
             div
             {
                 float: left;
-                margin-top: 10%;
+                width: 100%;
+                height: 100%;
                 h1, h2, a
                 {
-                color: white;
-                text-align: left;
+                    margin-top: 50px;
+                    margin-left: 50px;
+                    opacity: 1;
+                    color: white;
+                    text-align: left;
                 }
+                a {
+                    text-decoration: none;
+                    &:hover
+                    {
+                        border-radius: 4px;
+                        background: rgb(172,182,0);
+                        background: linear-gradient(45deg, rgba(172,182,0,1) 0%, rgba(2,197,185,1) 100%);
+                        box-shadow: 1px 1px 20px 4px black;
+                    }
+                  }
+            }
+        }
+        div#sec_1
+        {
+            background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip"); /* fallback */
+            div
+            {
+                margin: 0;
+                background: linear-gradient(#eb01a56d, #d136317a); /* W3C */
+            }
+        }
+        div#sec_2
+        {
+            display: none;
+            background: #eb01a5;
+            background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip"); /* fallback */
+            div
+            {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                background: linear-gradient(#eb01a5, #d13531); /* W3C */
+                opacity: 0.5;
+            }
+        }
+        div#sec_3
+        {
+            display: none;
+            background: #eb01a5;
+            background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip"); /* fallback */
+            div
+            {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                background: linear-gradient(#eb01a5, #d13531); /* W3C */
+                opacity: 0.5;
+            }
+        }
+        div.slideshow_control_panel
+            {
+                overflow: hidden;
+                background-color: rgba(7, 7, 66, 0.724);
+                display: flex;
+                justify-content: space-evenly;
+                margin: 0;
+                padding: 1rem 0;
+
+                position: absolute;
+        
+                list-style-type: none;
+                div
+                {
+                    overflow: hidden;
+                    width: 10%;
+                    height: 10%;
+                    max-height: 50px;
+                    max-width: 16px;
+                    border-radius: 50%;
+                    background-color: rgba(30, 21, 79, 0.594);
+                    a
+                    {
+                        text-align: center;
+                        color: white;
+                    }
+                }
+            }
+    }
+    section.products_view
+    {
+        overflow: hidden;
+        height: 20%;
+        background-color: white;
+        margin: auto;
+        border-radius: 10px;
+    }
+    section.products
+    {
+        width: 70%;
+        max-width: 2000px;
+        height: 40%;
+        max-height: 300px;
+        background-color: whitesmoke;
+        border-radius: 10px;
+        margin: auto;
+        display: flex;
+        align-self: center;
+        justify-content: space-evenly;
+        div.product
+        {
+            width: 50%;
+            height: 40%;
+            max-width: 135px;
+            max-height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: rgba(0, 128, 55, 0.781);
+            box-shadow: 5px 9px 7px 2px;
+            h1, p
+            {
+                text-align: center;
+            }
+            div.img
+            {
+                width: 50%;
+                height: 70%;
+                max-width: 50px;
+                max-height: 70px;
+                margin: auto;
+                img
+                {
+                    width: 50px;
+                    height: 70px;
+                }
+            }
+            div.button
+            {
                 a {
                     display: block;
                     text-align: center;
                     padding: 8px;
                     color: white;
                     text-decoration: none;
+                    background: linear-gradient(45deg, rgba(120, 120, 120, 0.557) 0%, rgba(201, 201, 201, 0.557) 100%);
                     &:hover
                     {
                         border-radius: 4px;
@@ -42,22 +176,10 @@ main
                       box-shadow: 1px 1px 20px 4px black;
                   }
             }
-        }
-        section#sec_1
-        {
-            background: 172deg, rgba(106,172,255,1) 0%, rgba(72,255,114,1) 100%;
-            div
+            &:hover
             {
-                background-image: url("https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip");
+                background-color: rgb(38, 202, 109);
             }
-        }
-        section#sec_2
-        {
-            background-image: url("https://www.thoughtco.com/thmb/PCVPjqDcfiY4az_kycvn-EJA-e8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/swarthmore-college-Eric-Behrens-flickr-5706ffe35f9b581408d48cb3.jpg");
-        }
-        section#sec_3
-        {
-            background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/ec/Dartmouth_College_campus_2007-10-20_09.JPG");
         }
     }
 }

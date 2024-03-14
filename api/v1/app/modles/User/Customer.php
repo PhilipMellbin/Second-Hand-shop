@@ -9,6 +9,7 @@ use Olssonm\Swish\Payment;
 require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/ABCustomer.php");
 class Customer extends ABCustomer
 {
+    protected $db;
     private string $sess_id;
     private string $user_name;
     private int $user_phone;
@@ -16,35 +17,14 @@ class Customer extends ABCustomer
     public string $location;
     public array $products;
     private bool $filled_credentials;
-    /*public function swish()
+    public function __construct()
     {
-        $certificate = new Certificate(
-            '/path/to/client.pem', 
-            'client-passphrase'
-        );
-        $client = new Client($certificate);
-        $payment = new Payment([
-            'callbackUrl' => 'https://callback.url',
-            'payeePaymentReference' => 'XVY77',
-            'payeeAlias' => '123xxxxx',
-            'payerAlias' => '321xxxxx',
-            'amount' => '100',
-            'currency' => 'SEK',
-            'message' => 'A purchase of my product',
-        ]);
-        
-        // Perform the request
-        $response = $client->create($payment);
-        
-        if($this->filled_credentials == true)
-        {
-            //swish and await response
-            //return response
-            //if not payed, send message
-            //if payed
-            $this->compleate_payment();
-        }
-    }*/
+        $this->db = new db;
+    }
+    public function swish(array $products)
+    {
+        $this->payment($products);
+    }
     public function fill_credentials()
     {
         $this->sess_id = session_id();
@@ -53,11 +33,34 @@ class Customer extends ABCustomer
         $this->user_email = $_POST['email'];
         $this->filled_credentials = true;
     }
-    public function payment()
+    public function payment(array $products)
     {
+        $command = "INSERT INTO recite
+        (
+            customer_sess_id,
+            customer_name,
+            customer_phone,
+            customer_email,
+            products
+        )
+        VALUES
+        (
+            '$this->sess_id',
+            '$this->user_name',
+            '$this->user_phone'
+            '$this->user_email'
+            '$products'
+        )
+        ";
+        $this->db->get_results($command);
+        $this->get_recite_info();
         /*acces recite database
         insert products
         send email
          */
+    }
+    private function get_recite_info()
+    {
+        
     }
 }

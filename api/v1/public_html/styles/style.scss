@@ -2,7 +2,10 @@
 @import "home";
 @import "footer";
 
-
+section
+{
+    box-sizing: border-box;
+}
 body
 {
     margin: 0;
