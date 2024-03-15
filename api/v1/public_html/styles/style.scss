@@ -1,5 +1,6 @@
 @import "header";
 @import "home";
+@import "products";
 @import "footer";
 
 section
@@ -16,7 +17,8 @@ header, main, footer
 {
     width: 100%;
     max-width: 3000px;
-    margin:auto
+    margin:auto;
+    overflow: hidden;
 }
 p, a, h1, h2, h3
 {

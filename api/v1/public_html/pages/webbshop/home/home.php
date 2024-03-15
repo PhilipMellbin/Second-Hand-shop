@@ -4,14 +4,13 @@
         <div>
             <h1>Woried about student dept?</h1>
             <h2>You are in the right place!</h2>
-            <a href="#products">What do we have?</a>
+            <a href="#products_view">What do we have?</a>
         </div>
     </div>
     <div class="slide" id="sec_2">
         <div>
             <h1>Best store for cheap study material</h1>
             <h2>At least acording to xxx users</h2>
-            <a href="#products_view">What do we have?</a>
         </div>
     </div>
     <div class="slide" id="sec_3">

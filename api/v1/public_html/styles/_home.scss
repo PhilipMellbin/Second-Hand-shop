@@ -13,7 +13,6 @@ main
             z-index:1;
             background-repeat: no-repeat;
             display: block;
-            position: relative;
             background-size: 100% 100%;
             height: 100%;
             margin: auto;
@@ -87,8 +86,6 @@ main
                 justify-content: space-evenly;
                 margin: 0;
                 padding: 1rem 0;
-
-                position: absolute;
         
                 list-style-type: none;
                 div
@@ -108,6 +105,11 @@ main
                 }
             }
     }
+    section.view_start
+    {
+        height: 40px;
+        margin-top: 50px;
+    }
     section.products_view
     {
         overflow: hidden;
@@ -118,26 +120,29 @@ main
     }
     section.products
     {
-        width: 70%;
+        overflow: hidden;
+        width: 90%;
         max-width: 2000px;
-        height: 40%;
-        max-height: 300px;
+        height: 60%;
+        max-height: 400px;
         background-color: whitesmoke;
         border-radius: 10px;
         margin: auto;
         display: flex;
         align-self: center;
         justify-content: space-evenly;
+        padding: 20px;
         div.product
         {
             width: 50%;
             height: 40%;
             max-width: 135px;
             max-height: 300px;
+            margin: auto;
             border-radius: 20px;
             overflow: hidden;
-            background-color: rgba(0, 128, 55, 0.781);
-            box-shadow: 5px 9px 7px 2px;
+            background-color: rgba(159, 159, 159, 0.781);
+            padding: 10px;
             h1, p
             {
                 text-align: center;
@@ -155,30 +160,10 @@ main
                     height: 70px;
                 }
             }
-            div.button
-            {
-                a {
-                    display: block;
-                    text-align: center;
-                    padding: 8px;
-                    color: white;
-                    text-decoration: none;
-                    background: linear-gradient(45deg, rgba(120, 120, 120, 0.557) 0%, rgba(201, 201, 201, 0.557) 100%);
-                    &:hover
-                    {
-                        border-radius: 4px;
-                        background: rgb(172,182,0);
-                        background: linear-gradient(45deg, rgba(172,182,0,1) 0%, rgba(2,197,185,1) 100%);
-                    }
-                  }
-                  :hover
-                  {
-                      box-shadow: 1px 1px 20px 4px black;
-                  }
-            }
             &:hover
             {
                 background-color: rgb(38, 202, 109);
+                box-shadow: 5px 9px 7px 2px;
             }
         }
     }
