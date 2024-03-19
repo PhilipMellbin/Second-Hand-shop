@@ -171,6 +171,10 @@ main section.home div.slideshow_control_panel div a {
   text-align: center;
   color: white;
 }
+main section.view_start {
+  height: 40px;
+  margin-top: 50px;
+}
 main section.products_view {
   overflow: hidden;
   height: 20%;
@@ -180,26 +184,28 @@ main section.products_view {
 }
 main section.products {
   overflow: hidden;
-  width: 70%;
+  width: 90%;
   max-width: 2000px;
-  height: 40%;
-  max-height: 300px;
+  height: 60%;
+  max-height: 400px;
   background-color: whitesmoke;
   border-radius: 10px;
   margin: auto;
   display: flex;
   align-self: center;
   justify-content: space-evenly;
+  padding: 20px;
 }
 main section.products div.product {
   width: 50%;
   height: 40%;
   max-width: 135px;
   max-height: 300px;
+  margin: auto;
   border-radius: 20px;
   overflow: hidden;
   background-color: rgba(159, 159, 159, 0.781);
-  box-shadow: 5px 9px 7px 2px;
+  padding: 10px;
 }
 main section.products div.product h1, main section.products div.product p {
   text-align: center;
@@ -215,30 +221,14 @@ main section.products div.product div.img img {
   width: 50px;
   height: 70px;
 }
-main section.products div.product div.button a {
-  display: block;
-  text-align: center;
-  padding: 8px;
-  color: white;
-  text-decoration: none;
-  background: linear-gradient(45deg, rgba(120, 120, 120, 0.557) 0%, rgba(201, 201, 201, 0.557) 100%);
-}
-main section.products div.product div.button a:hover {
-  border-radius: 4px;
-  background: rgb(172, 182, 0);
-  background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
-}
-main section.products div.product div.button :hover {
-  box-shadow: 1px 1px 20px 4px black;
-}
 main section.products div.product:hover {
   background-color: rgb(38, 202, 109);
+  box-shadow: 5px 9px 7px 2px;
 }
 
 div.productmain {
   background-color: rgb(216, 216, 216);
-  height: 100%;
-  max-height: 700px;
+  height: 70%;
   overflow: hidden;
 }
 div.productmain h2, div.productmain p, div.productmain h3 {
@@ -251,16 +241,17 @@ div.productmain h3 {
   text-align: left;
 }
 div.productmain div {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  float: left;
 }
 div.productmain div section {
-  float: left;
-  max-width: 100%;
-  max-height: 100%;
-  width: 550px;
-  height: 400px;
-  margin-top: auto;
+  width: 100%;
+  max-width: 550px;
+  height: 100%;
+  max-height: 450px;
+  margin: auto;
   background-color: rgb(219, 219, 219);
   border-radius: 20px;
   box-shadow: 1px 1px 20px 4px black;
@@ -269,7 +260,6 @@ div.productmain div section div {
   width: 500px;
   height: 500px;
   margin: auto;
-  margin-top: 25px;
 }
 div.productmain div section img {
   width: 50%;
