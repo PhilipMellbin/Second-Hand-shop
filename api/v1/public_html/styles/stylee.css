@@ -227,64 +227,76 @@ main section.products div.product:hover {
 }
 
 div.productmain {
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(247, 255, 240);
+}
+div.productmain section.images {
   height: 70%;
-  overflow: hidden;
-}
-div.productmain h2, div.productmain p, div.productmain h3 {
-  color: white;
-}
-div.productmain h2 {
-  font-size: 50px;
-}
-div.productmain h3 {
-  text-align: left;
-}
-div.productmain div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  float: left;
-}
-div.productmain div section {
-  width: 100%;
-  max-width: 550px;
-  height: 100%;
-  max-height: 450px;
+  max-height: 700px;
   margin: auto;
-  background-color: rgb(219, 219, 219);
-  border-radius: 20px;
-  box-shadow: 1px 1px 20px 4px black;
+  display: flex;
+  justify-content: center;
 }
-div.productmain div section div {
-  width: 500px;
-  height: 500px;
-  margin: auto;
-}
-div.productmain div section img {
-  width: 50%;
-  max-width: 500px;
-  height: 70%;
+div.productmain section.images div.img {
+  margin-top: 5px;
+  height: 20%;
   max-height: 500px;
+  width: 20%;
+  padding: 10px;
+  background-color: gainsboro;
+  opacity: 0.9;
+  border-radius: 10px;
 }
-div.productmain div section button {
-  width: 200px;
-  height: 70px;
-  display: block;
+div.productmain section.images div.img img {
   margin: auto;
-  padding: 8px;
-  color: white;
-  text-decoration: none;
-  background: linear-gradient(45deg, rgba(120, 120, 120, 0.557) 0%, rgba(201, 201, 201, 0.557) 100%);
-  border-radius: 50px;
-  border-width: 0px;
+  height: 100%;
+  max-height: 400px;
+  width: 100%;
 }
-div.productmain div section button:hover {
-  width: 220px;
-  height: 90px;
-  background: rgb(172, 182, 0);
-  background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
-  box-shadow: 1px 1px 20px 4px black;
+div.productmain section.images div.img:hover {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(173, 182, 0, 0.66), rgba(2, 197, 184, 0.628) 100%);
+  box-shadow: 4px 8px 14px 4px;
+  height: 21%;
+  width: 21%;
+}
+div.productmain section.content {
+  background-color: rgb(207, 214, 200);
+  border-radius: 10px;
+}
+div.productmain section.content div.title {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+div.productmain section.content div.title h2 {
+  text-align: center;
+  font-size: 45px;
+}
+div.productmain section.content div.title div.line {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+div.productmain section.content div.title .first {
+  border-bottom: 10px solid #141d1b;
+  width: 100%;
+  max-width: 700px;
+}
+div.productmain section.content div.title .second {
+  border-bottom: 10px solid #23322f;
+  width: 85%;
+  max-width: 550px;
+}
+div.productmain section.content div.descriptions {
+  height: 70%;
+  max-height: 600px;
+  display: flex;
+  justify-content: space-evenly;
+}
+div.productmain section.content div.descriptions section {
+  width: 70%;
+  max-width: 500px;
+  background-color: rgb(159, 164, 154);
 }
 
 footer {
