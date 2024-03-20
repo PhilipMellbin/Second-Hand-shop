@@ -298,6 +298,13 @@ div.productmain section.content div.descriptions section {
   max-width: 500px;
   background-color: rgb(159, 164, 154);
 }
+div.productmain section.content div.descriptions section h3 {
+  text-align: left;
+}
+div.productmain section.content div.descriptions section form button {
+  border-radius: 10px;
+  background-color: rgb(172, 61, 61);
+}
 
 footer {
   background-color: rgba(194, 194, 194, 0.897);

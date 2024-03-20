@@ -85,10 +85,16 @@ div.productmain
                 }
                 form
                 {
+                    margin: auto;
                     button
                     {
                         border-radius: 10px;
-                    background-color: rgb(172, 61, 61);
+                        border-style: none;
+                        background-color: rgb(61, 172, 128);
+                        width: 100%;
+                        max-width: 120px;
+                        padding: 15px;
+                        margin: auto;
                     }
                 }
             }
