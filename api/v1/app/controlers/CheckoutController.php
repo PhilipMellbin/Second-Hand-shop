@@ -20,6 +20,7 @@ class CheckoutController
     }
     private function get_cart_products()
     {
+        $this->view->render("/checkout/incart/incartstart");
         if($this->model->res == null)
         {
             $this->view->render("/checkout/incart/incartnoproduct");
@@ -88,8 +89,10 @@ class CheckoutController
     public function show()
     {
         $this->view->render("/standard/header"); 
+        $this->view->render("/checkout/checkoutstart");
         $this->get_cart_products();
         $this->get_swish();
+        $this->view->render("/checkout/checkoutend");
         $this->view->render("/standard/footer"); 
     }
 }

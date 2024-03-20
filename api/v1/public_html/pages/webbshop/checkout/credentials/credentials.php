@@ -1,4 +1,4 @@
-<article class="checkout credentials">
+<article class="checkout_credentials">
     <header>
     <img src="" alt="2">
         <h1>Credentials</h1>

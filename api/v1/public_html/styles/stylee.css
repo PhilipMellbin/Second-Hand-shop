@@ -332,6 +332,20 @@ div.productmain section.content div.descriptions section form button:hover p {
   color: white;
 }
 
+div.product_cart {
+  background-color: white;
+  height: 50%;
+  max-height: 80px;
+  height: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+div.product_cart img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
 footer {
   background-color: rgba(194, 194, 194, 0.897);
 }

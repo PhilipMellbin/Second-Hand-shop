@@ -1,4 +1,4 @@
-<article class="checkout credentials">
+<article class="checkout_swish">
     <header>
     <img src="" alt="3">
         <h1>Swish</h1>

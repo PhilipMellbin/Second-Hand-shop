@@ -1,0 +1,37 @@
+div.product_cart
+{
+    background-color: white;
+    height: 50%;
+    max-height: 80px;
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    img
+    {
+        max-width: 80px;
+        max-height: 80px;
+    }
+}
+div.checkout_container
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+article
+{
+    width: 70%;
+    max-width: 600px;
+}
+article.checkout_cart
+{
+    background-color: rosybrown;
+}
+article.checkout_credentials
+{
+    background-color: rgb(188, 176, 143);
+}
+article.checkout_swish
+{
+    background-color: rgb(143, 188, 160);
+}
