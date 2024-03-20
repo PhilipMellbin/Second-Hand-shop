@@ -8,9 +8,6 @@ header.top div.Title {
   display: flex;
   justify-content: center;
 }
-header.top div.Title div.pillar, header.top div.Title div.Logo {
-  float: left;
-}
 header.top div.Title div.Logo div.logo {
   width: 10%;
   height: 10%;
@@ -18,6 +15,9 @@ header.top div.Title div.Logo div.logo {
 header.top div.Title h1, header.top div.Title h2 {
   text-align: center;
   color: white;
+}
+header.top div.Title .pillar {
+  margin-top: -5px;
 }
 header.top div.Title .pillar img {
   width: 200px;
@@ -38,6 +38,7 @@ header.top .navbar {
   background-color: rgba(47, 64, 255, 0.6);
   height: 40px;
   box-shadow: -4px 8px 14px 4px;
+  margin-top: 0px;
 }
 header.top .navbar ul {
   list-style-type: none;
@@ -297,13 +298,38 @@ div.productmain section.content div.descriptions section {
   width: 70%;
   max-width: 500px;
   background-color: rgb(159, 164, 154);
+  border-radius: 10px;
 }
 div.productmain section.content div.descriptions section h3 {
   text-align: left;
 }
 div.productmain section.content div.descriptions section form button {
+  display: flex;
+  justify-content: center;
+  margin: auto;
   border-radius: 10px;
-  background-color: rgb(172, 61, 61);
+  border-style: none;
+  background-color: rgb(61, 172, 128);
+  width: 100%;
+  height: 75%;
+  max-width: 120px;
+  max-height: 50px;
+  opacity: 0.7;
+  padding: 10px;
+}
+div.productmain section.content div.descriptions section form button p {
+  text-align: center;
+  font-size: large;
+  margin: auto;
+}
+div.productmain section.content div.descriptions section form button:hover {
+  background: linear-gradient(45deg, rgba(173, 182, 0, 0.66), rgba(2, 197, 184, 0.628) 100%);
+  opacity: 1;
+  max-width: 135px;
+}
+div.productmain section.content div.descriptions section form button:hover p {
+  font-size: x-large;
+  color: white;
 }
 
 footer {

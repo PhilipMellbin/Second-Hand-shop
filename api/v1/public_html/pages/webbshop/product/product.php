@@ -22,9 +22,13 @@
                 <p>Publish date: <?=$this->publish_date?></p>
                 <h3><?=$this->price?> SEK</h3>
                 <form method="post" action="index.php?page=product&prod_id=<?=$this->prod_id?>">
-                    <button type="submit" name="action" value="add_cart">Ad to cart!</button>
+                    <button type="submit" name="action" value="add_cart"><p>Ad to cart!</p></button>
                 </form>
             </section>
         </div>
     </section>
 </div>
+<section class="view_start">
+    <h2>Or maby you're intresdet in...</h2>
+</section>
+<section class="products">
