@@ -141,7 +141,8 @@ main
             margin: auto;
             border-radius: 20px;
             overflow: hidden;
-            background-color: rgba(159, 159, 159, 0.781);
+            background: linear-gradient(119deg, rgba(177,255,106,1) 0%, rgba(70,171,120,1) 100%);
+            filter: grayscale(0.5);
             padding: 10px;
             h1, p
             {
@@ -162,7 +163,7 @@ main
             }
             &:hover
             {
-                background-color: rgb(38, 202, 109);
+                filter: grayscale(0);
                 box-shadow: 5px 9px 7px 2px;
             }
         }
