@@ -22,6 +22,8 @@ article
 {
     width: 70%;
     max-width: 600px;
+    overflow: hidden;
+    display: flex;
 }
 article.checkout_cart
 {
@@ -30,6 +32,13 @@ article.checkout_cart
 article.checkout_credentials
 {
     background-color: rgb(188, 176, 143);
+    form
+    {
+        label, input
+        {
+            align-self: center;
+        }
+    }
 }
 article.checkout_swish
 {

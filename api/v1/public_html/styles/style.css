@@ -354,6 +354,8 @@ div.checkout_container {
 article {
   width: 70%;
   max-width: 600px;
+  overflow: hidden;
+  display: flex;
 }
 
 article.checkout_cart {
@@ -362,6 +364,9 @@ article.checkout_cart {
 
 article.checkout_credentials {
   background-color: rgb(188, 176, 143);
+}
+article.checkout_credentials form label, article.checkout_credentials form input {
+  align-self: center;
 }
 
 article.checkout_swish {
