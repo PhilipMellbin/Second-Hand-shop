@@ -335,7 +335,7 @@ div.productmain section.content div.descriptions section form button:hover p {
 
 div.product_cart {
   flex: 5, 1, 0%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.68);
   height: 50%;
   width: 70%;
   max-width: 350px;
@@ -381,6 +381,9 @@ div.product_cart form button:hover p {
   font-size: x-large;
   color: white;
 }
+div.product_cart:hover {
+  background-color: rgb(255, 255, 255);
+}
 
 div.checkout_container {
   display: flex;
@@ -394,6 +397,19 @@ article {
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+article header {
+  width: 40%;
+}
+article header div {
+  width: 100%;
+  max-width: 60px;
+  margin: auto;
+}
+article header img {
+  width: 100%;
+  max-width: 60px;
+  margin: auto;
 }
 
 article.checkout_cart {
@@ -418,12 +434,18 @@ article.checkout_credentials {
 }
 article.checkout_credentials form {
   width: 70%;
-  max-width: 100px;
+  max-width: 180px;
   margin: auto;
+  background-color: rgba(255, 255, 255, 0.68);
+  padding: 20px;
+  border-radius: 10px;
 }
 article.checkout_credentials form label, article.checkout_credentials form input {
   align-self: center;
   margin: auto;
+}
+article.checkout_credentials form:hover {
+  background-color: rgb(255, 255, 255);
 }
 
 article.checkout_swish {

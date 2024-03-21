@@ -395,6 +395,14 @@ article {
   margin-left: auto;
   margin-right: auto;
 }
+article header {
+  width: 50%;
+  max-width: 300px;
+  margin: auto;
+}
+article header img {
+  width: 100%;
+}
 
 article.checkout_cart {
   background: linear-gradient(93deg, rgb(255, 106, 106) 0%, rgb(225, 72, 255) 100%);
