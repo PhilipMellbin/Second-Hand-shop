@@ -333,12 +333,15 @@ div.productmain section.content div.descriptions section form button:hover p {
 }
 
 div.product_cart {
+  flex: 5, 1, 0%;
   background-color: white;
   height: 50%;
-  max-height: 80px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+div.product_cart p, div.product_cart img, div.product_cart form {
+  flex-shrink: 2;
 }
 div.product_cart img {
   max-width: 80px;
@@ -354,22 +357,30 @@ article {
   width: 70%;
   max-width: 600px;
   overflow: hidden;
-  display: flex;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 article.checkout_cart {
-  background-color: rosybrown;
+  background-color: rgb(197, 101, 101);
 }
 
 article.checkout_credentials {
-  background-color: rgb(188, 176, 143);
+  background-color: rgb(197, 186, 101);
+}
+article.checkout_credentials form {
+  width: 70%;
+  max-width: 100px;
+  margin: auto;
 }
 article.checkout_credentials form label, article.checkout_credentials form input {
   align-self: center;
+  margin: auto;
 }
 
 article.checkout_swish {
-  background-color: rgb(147, 143, 188);
+  background-color: rgb(101, 197, 101);
 }
 
 footer {
@@ -392,7 +403,7 @@ header, main, footer {
   overflow: hidden;
 }
 
-p, a, h1, h2, h3 {
+p, a, h1, h2, h3, label {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
