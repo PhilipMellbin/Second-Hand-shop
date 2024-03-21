@@ -336,7 +336,6 @@ div.product_cart {
   background-color: white;
   height: 50%;
   max-height: 80px;
-  height: 40%;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -370,7 +369,7 @@ article.checkout_credentials form label, article.checkout_credentials form input
 }
 
 article.checkout_swish {
-  background-color: rgb(143, 188, 160);
+  background-color: rgb(147, 143, 188);
 }
 
 footer {
