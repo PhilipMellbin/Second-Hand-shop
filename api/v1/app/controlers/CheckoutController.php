@@ -4,7 +4,7 @@ require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/mod
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/Customer.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/ViewProduct.php');
-class CheckoutController
+class CheckoutController extends ABController
 {
     private $view;
     private $model;
@@ -29,14 +29,7 @@ class CheckoutController
         }
         else
         {
-            while($result = $this->model->res->fetch(PDO::FETCH_ASSOC))
-            {
-                array_push($this->products, new ViewProduct($result));
-            }
-            foreach($this->products as $product)
-            {
-                $product->render_product("cart");
-            }
+            $this->render_products("cart", $this->model->res);
             $this->view->render("/checkout/incart/incartend");
             $this->view->render("/checkout/credentials/credentials");
             //for every object in $result

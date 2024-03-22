@@ -18,14 +18,7 @@ class HomeController extends ABController
     }
     private function show_products()
     {
-        while($result = $this->model->res->fetch(PDO::FETCH_ASSOC))
-        {
-            array_push($this->products, new ViewProduct($result));
-        }
-        foreach($this->products as $product)
-        {
-            $product->render_product("small");
-        }
+        $this->render_products("small", $this->model->res);
         $this->model->end();
         //for every object in $result
         //render
