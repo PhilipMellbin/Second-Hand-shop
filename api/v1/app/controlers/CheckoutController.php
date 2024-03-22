@@ -2,20 +2,18 @@
 
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductCart.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/Customer.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
+require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php';
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/ViewProduct.php');
 class CheckoutController extends ABController
 {
     private $view;
     private $model;
     private $model_customer;
-    private array $products;
 
     public function __construct()
     {
         $this->view = new View;
         $this->model = new ProductCart();
-        $this->products = [];
         //fill in the models
     }
     private function get_cart_products()
@@ -65,10 +63,10 @@ class CheckoutController extends ABController
             $this->view->render("/checkout/swish/swishunfilled");
         }
     }
-    public function finish_payment()
+    /*public function finish_payment()
     {
         $this->model_customer->payment($this->products);
-    }
+    }*/
     public function delete_cart() //Come up with a beter alternative!!
     {
         $prod_id = $_GET['prod_id'];
