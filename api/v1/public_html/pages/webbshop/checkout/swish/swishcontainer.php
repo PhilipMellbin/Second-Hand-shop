@@ -1,6 +1,6 @@
-<article class="checkout credentials">
+<article class="checkout_swish">
     <header>
-    <img src="" alt="3">
+    <div><img src="/Second_Academia_shop/Second-Hand-shop/api/v1/public_html/img/svg/3.png" alt="2"></div>
         <h1>Swish</h1>
     </header>
     <main>

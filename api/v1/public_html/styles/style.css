@@ -8,9 +8,6 @@ header.top div.Title {
   display: flex;
   justify-content: center;
 }
-header.top div.Title div.pillar, header.top div.Title div.Logo {
-  float: left;
-}
 header.top div.Title div.Logo div.logo {
   width: 10%;
   height: 10%;
@@ -18,6 +15,9 @@ header.top div.Title div.Logo div.logo {
 header.top div.Title h1, header.top div.Title h2 {
   text-align: center;
   color: white;
+}
+header.top div.Title .pillar {
+  margin-top: -5px;
 }
 header.top div.Title .pillar img {
   width: 200px;
@@ -38,6 +38,7 @@ header.top .navbar {
   background-color: rgba(47, 64, 255, 0.6);
   height: 40px;
   box-shadow: -4px 8px 14px 4px;
+  margin-top: 0px;
 }
 header.top .navbar ul {
   list-style-type: none;
@@ -204,7 +205,8 @@ main section.products div.product {
   margin: auto;
   border-radius: 20px;
   overflow: hidden;
-  background-color: rgba(159, 159, 159, 0.781);
+  background: linear-gradient(119deg, rgb(177, 255, 106) 0%, rgb(70, 171, 120) 100%);
+  filter: grayscale(0.5);
   padding: 10px;
 }
 main section.products div.product h1, main section.products div.product p {
@@ -222,69 +224,236 @@ main section.products div.product div.img img {
   height: 70px;
 }
 main section.products div.product:hover {
-  background-color: rgb(38, 202, 109);
+  filter: grayscale(0);
   box-shadow: 5px 9px 7px 2px;
 }
 
 div.productmain {
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(247, 255, 240);
+}
+div.productmain section.images {
   height: 70%;
-  overflow: hidden;
+  max-height: 700px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
-div.productmain h2, div.productmain p, div.productmain h3 {
-  color: white;
+div.productmain section.images div.img {
+  margin-top: 5px;
+  height: 20%;
+  max-height: 500px;
+  width: 20%;
+  padding: 10px;
+  background-color: gainsboro;
+  opacity: 0.9;
+  border-radius: 10px;
 }
-div.productmain h2 {
-  font-size: 50px;
+div.productmain section.images div.img img {
+  margin: auto;
+  height: 100%;
+  max-height: 400px;
+  width: 100%;
 }
-div.productmain h3 {
+div.productmain section.images div.img:hover {
+  opacity: 1;
+  background: linear-gradient(45deg, rgba(173, 182, 0, 0.66), rgba(2, 197, 184, 0.628) 100%);
+  box-shadow: 4px 8px 14px 4px;
+  height: 21%;
+  width: 21%;
+}
+div.productmain section.content {
+  background-color: rgb(207, 214, 200);
+  border-radius: 10px;
+}
+div.productmain section.content div.title {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+div.productmain section.content div.title h2 {
+  text-align: center;
+  font-size: 45px;
+}
+div.productmain section.content div.title div.line {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+div.productmain section.content div.title .first {
+  border-bottom: 10px solid #141d1b;
+  width: 100%;
+  max-width: 700px;
+}
+div.productmain section.content div.title .second {
+  border-bottom: 10px solid #23322f;
+  width: 85%;
+  max-width: 550px;
+}
+div.productmain section.content div.descriptions {
+  height: 70%;
+  max-height: 600px;
+  display: flex;
+  justify-content: space-evenly;
+}
+div.productmain section.content div.descriptions section {
+  width: 70%;
+  max-width: 500px;
+  background-color: rgb(159, 164, 154);
+  border-radius: 10px;
+}
+div.productmain section.content div.descriptions section h3 {
   text-align: left;
 }
-div.productmain div {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  float: left;
-}
-div.productmain div section {
+div.productmain section.content div.descriptions section form button {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-radius: 10px;
+  border-style: none;
+  background-color: rgb(61, 172, 128);
   width: 100%;
-  max-width: 550px;
-  height: 100%;
-  max-height: 450px;
-  margin: auto;
-  background-color: rgb(219, 219, 219);
-  border-radius: 20px;
-  box-shadow: 1px 1px 20px 4px black;
+  height: 75%;
+  max-width: 120px;
+  max-height: 50px;
+  opacity: 0.7;
+  padding: 10px;
 }
-div.productmain div section div {
-  width: 500px;
-  height: 500px;
+div.productmain section.content div.descriptions section form button p {
+  text-align: center;
+  font-size: large;
   margin: auto;
 }
-div.productmain div section img {
-  width: 50%;
-  max-width: 500px;
-  height: 70%;
-  max-height: 500px;
+div.productmain section.content div.descriptions section form button:hover {
+  background: linear-gradient(45deg, rgba(173, 182, 0, 0.66), rgba(2, 197, 184, 0.628) 100%);
+  opacity: 1;
+  max-width: 135px;
 }
-div.productmain div section button {
-  width: 200px;
-  height: 70px;
+div.productmain section.content div.descriptions section form button:hover p {
+  font-size: x-large;
+  color: white;
+}
+
+div.product_cart {
+  flex: 5, 1, 0%;
+  background-color: rgba(255, 255, 255, 0.68);
+  height: 50%;
+  width: 70%;
+  max-width: 350px;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+div.product_cart p, div.product_cart img, div.product_cart form {
+  flex-shrink: 2;
+}
+div.product_cart img {
+  max-width: 80px;
+  max-height: 80px;
+}
+div.product_cart form button {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 25%;
+  border-radius: 10px;
+  border-style: none;
+  background-color: rgb(172, 61, 61);
+  width: 100%;
+  height: 75%;
+  max-width: 120px;
+  max-height: 50px;
+  opacity: 0.7;
+  padding: 10px;
+}
+div.product_cart form button p {
+  text-align: center;
+  font-size: large;
+  margin: auto;
+}
+div.product_cart form button:hover {
+  background: linear-gradient(119deg, rgb(255, 106, 106) 0%, rgb(217, 51, 51) 100%);
+  opacity: 1;
+  max-width: 135px;
+}
+div.product_cart form button:hover p {
+  font-size: x-large;
+  color: white;
+}
+div.product_cart:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+div.checkout_container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+article {
+  width: 70%;
+  max-width: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+article header {
+  width: 40%;
+}
+article header div {
+  width: 100%;
+  max-width: 60px;
+  margin: auto;
+}
+article header img {
+  width: 100%;
+  max-width: 60px;
+  margin: auto;
+}
+
+article.checkout_cart {
+  background: linear-gradient(93deg, rgb(255, 106, 106) 0%, rgb(225, 72, 255) 100%);
+}
+article.checkout_cart a {
   display: block;
-  margin: auto;
+  text-align: center;
   padding: 8px;
   color: white;
   text-decoration: none;
-  background: linear-gradient(45deg, rgba(120, 120, 120, 0.557) 0%, rgba(201, 201, 201, 0.557) 100%);
-  border-radius: 50px;
-  border-width: 0px;
+  filter: grayscale(0.5);
+  background: linear-gradient(119deg, rgb(167, 255, 106) 0%, rgb(51, 217, 111) 100%);
 }
-div.productmain div section button:hover {
-  width: 220px;
-  height: 90px;
-  background: rgb(172, 182, 0);
-  background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
-  box-shadow: 1px 1px 20px 4px black;
+article.checkout_cart a:hover {
+  border-radius: 4px;
+  filter: grayscale(0);
+}
+
+article.checkout_credentials {
+  background: linear-gradient(333deg, rgb(217, 255, 106) 0%, rgb(255, 117, 72) 100%);
+}
+article.checkout_credentials form {
+  width: 70%;
+  max-width: 180px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.68);
+  padding: 20px;
+  border-radius: 10px;
+}
+article.checkout_credentials form label, article.checkout_credentials form input {
+  align-self: center;
+  margin: auto;
+}
+article.checkout_credentials form:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+article.checkout_swish {
+  background: linear-gradient(333deg, rgb(106, 255, 128) 0%, rgb(72, 255, 250) 100%);
+}
+
+.unfilled {
+  filter: grayscale(0.7);
 }
 
 footer {
@@ -307,7 +476,7 @@ header, main, footer {
   overflow: hidden;
 }
 
-p, a, h1, h2, h3 {
+p, a, h1, h2, h3, label {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 

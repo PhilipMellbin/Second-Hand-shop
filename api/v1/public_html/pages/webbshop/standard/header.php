@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/styles/stylee.css">
+    <link rel="stylesheet" href="/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/styles/style.css">
 </head>
 <body>
    <header class="top">
@@ -22,7 +22,7 @@
     <div class="navbar">
         <ul>
             <li class="button"><a class="Button" href="index.php?page=home">home</a></li>
-            <li class="button"><a href="index.php?page=home">categories</a></li>
+            <li class="button"><a href="index.php?page=categories">categories</a><div class="Categories"></div></li>
             <li class="button"><a href="index.php?page=aboutus">About us</a></li>
             <li class="search">
                 <form method="get" action="index.php?search=<?$inp?>">
@@ -31,7 +31,12 @@
                     <input type="submit" value="submit">
                 </form>
             </li>
-            <li class="button"><a href="index.php?page=home">Cart</a></li>
+            <li class="button"><!--<a href="index.php?page=home">Cart</a>-->
+            <a href="index.php?page=checkout">Cart</a>
+            <div class="Cart">
+                <!--Seperate like the rest? To complex-->
+            </div>
+        </li>
             <li class="button"><a href="index.php?page=home">Region</a></li>
             <li class="button"><a href="index.php?page=home">Signup/Locin</a></li>
         </ul>

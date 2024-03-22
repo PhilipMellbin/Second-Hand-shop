@@ -1,6 +1,7 @@
 @import "header";
 @import "home";
 @import "products";
+@import "checkout";
 @import "footer";
 
 section
@@ -20,7 +21,7 @@ header, main, footer
     margin:auto;
     overflow: hidden;
 }
-p, a, h1, h2, h3
+p, a, h1, h2, h3, label
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

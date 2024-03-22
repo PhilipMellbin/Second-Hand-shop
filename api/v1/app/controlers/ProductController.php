@@ -44,15 +44,7 @@ class ProductController extends ABController
 
     private function show_similar_product() //similar products
     {
-        while($result = $this->model->res->fetch(PDO::FETCH_ASSOC))
-        {
-            array_push($this->products, new ViewProduct($result));
-        }
-        foreach($this->products as $product)
-        {
-            $product->render_product("small");
-            $this->product_subject = $product->product_subject;
-        }
+        $this->render_products("cart", $this->model->res);
         $this->model->end();
     }
 
