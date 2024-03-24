@@ -44,7 +44,7 @@ class ProductController extends ABController
 
     private function show_similar_product() //similar products
     {
-        $this->render_products("cart", $this->model->res);
+        $this->render_products("small", $this->model->res);
         $this->model->end();
     }
 

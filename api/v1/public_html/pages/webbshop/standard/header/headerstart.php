@@ -21,5 +21,5 @@
     </div>
     <div class="navbar">
         <ul>
-            <li class="button"><a class="Button" href="index.php?page=home">home</a></li>
-            <li class="button"><a href="index.php?page=categories">categories</a><div class="Categories">
+            <li class="button"><div><a class="Button" href="index.php?page=home">home</a></div></li>
+            <li class="button"><div><a href="index.php?page=categories">categories</a><div class="Categories">

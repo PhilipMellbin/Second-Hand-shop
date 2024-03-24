@@ -1,17 +1,6 @@
-##################################################
-DEV. GUIDE: Add new page
-##################################################
-Note on file structure
-home.
-productpage.
-checkout.
-signup/login.
-standart/
-    header.
-    footer.
-products/
-sides/
-    cart.
-    region.
-    
-
+section at the botom and use javascript to make them vicible?
+maby...
+I will probably have to start using javascript soon with the carousell.
+That will mean i will have to do another structural change, but i may get better results.
+Because now, the cart is in the nav and the nav expands with it. I need cart to expand
+independently of nav

@@ -36,7 +36,7 @@ header.top .navbar {
   display: flex;
   justify-content: space-around;
   background-color: rgba(47, 64, 255, 0.6);
-  height: 40px;
+  height: 80%;
   box-shadow: -4px 8px 14px 4px;
   margin-top: 0px;
 }
@@ -80,6 +80,13 @@ header.top .navbar ul li.search:hover {
   border-radius: 4px;
   background: rgb(172, 182, 0);
   background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
+}
+header.top .navbar ul li.search .Cart:hover, header.top .navbar ul li.search .Cart_btn:hover {
+  display: flex;
+}
+header.top .navbar ul li.search .Cart {
+  display: none;
+  background-color: white;
 }
 
 main section.home {
