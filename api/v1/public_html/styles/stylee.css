@@ -4,7 +4,6 @@ header.top {
 }
 header.top div.Title {
   height: 30%;
-  max-height: 190px;
   display: flex;
   justify-content: center;
 }
@@ -18,6 +17,7 @@ header.top div.Title h1, header.top div.Title h2 {
 }
 header.top div.Title .pillar {
   margin-top: -5px;
+  height: 100%;
 }
 header.top div.Title .pillar img {
   width: 200px;
@@ -89,14 +89,33 @@ header.top .navbar ul li.search .Cart {
   background-color: white;
 }
 
-.slide {
+.dropdown {
+  display: flex;
+  justify-content: end;
+}
+.dropdown .subject, .dropdown .cart {
   width: 70%;
   max-width: 350px;
   background-color: white;
+  margin-right: 0%;
 }
-.slide h3 {
+.dropdown .subject h3, .dropdown .cart h3 {
   background-color: black;
   color: white;
+}
+.dropdown .subject a {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-radius: 10px;
+  border-style: none;
+  background-color: rgb(61, 172, 128);
+  width: 100%;
+  height: 75%;
+  max-width: 120px;
+  max-height: 50px;
+  opacity: 0.7;
+  padding: 10px;
 }
 
 main section.home {
