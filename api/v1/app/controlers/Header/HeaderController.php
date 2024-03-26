@@ -5,6 +5,7 @@ class HeaderController extends ABController
 {
     private $cartccontroller;
     private $view;
+    private $comitme;
     public function __construct()
     {
         $this->cartccontroller = new CartController();
