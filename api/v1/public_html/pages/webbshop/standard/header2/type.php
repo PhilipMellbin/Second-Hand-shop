@@ -1,0 +1,1 @@
+<li><a href="index.php?page=category&t=<?=$category_title?>"><?=$category_title?></a></li>
