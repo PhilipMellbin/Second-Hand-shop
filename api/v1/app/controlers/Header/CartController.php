@@ -25,8 +25,6 @@ class CartController extends ABController
     }
     function show()
     {
-        $this->view->render("/standard/cart/cartstart");
         $this->get_cart_products();
-        $this->view->render("/standard/cart/cartend");
     }
 }

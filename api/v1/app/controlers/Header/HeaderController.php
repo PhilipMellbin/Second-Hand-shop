@@ -3,18 +3,30 @@ require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/vie
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/Header/CartController.php');
 class HeaderController extends ABController
 {
-    private $cartccontroller;
     private $view;
-    public function __construct()
+    private $model;
+    function __construct()
     {
-        $this->cartccontroller = new CartController();
-        $this->view = new View();
+        $this->view = new View;
+        $this->model = new ProductCart();
+        
+    }
+    private function get_cart_products()
+    {
+        if($this->model->res == null)
+        {
+            $this->view->render("/standard/header2/nocart");
+        }
+        else
+        {
+            $this->render_products("cart", $this->model->res);
+        }
     }
     public function show()
     {
-        $this->view->render("standard/header/headerstart");
-        $this->view->render("standard/header/headermiddle");
-        $this->cartccontroller->show();
-        $this->view->render("standard/header/headerend");
+        $this->view->render("standard/header2/headerstart");
+        $this->view->render("standard/header2/headermiddle");
+        $this->get_cart_products();
+        $this->view->render("standard/header2/headerend");
     }
 }

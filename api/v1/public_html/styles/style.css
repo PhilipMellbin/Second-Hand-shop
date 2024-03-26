@@ -89,6 +89,16 @@ header.top .navbar ul li.search .Cart {
   background-color: white;
 }
 
+.slide {
+  width: 70%;
+  max-width: 350px;
+  background-color: white;
+}
+.slide h3 {
+  background-color: black;
+  color: white;
+}
+
 main section.home {
   margin-top: 0;
   width: 100%;
