@@ -43,7 +43,7 @@
 </header>
 <div class="dropdown">
     <div class="categories">
-        <div class="subjects">
+        <div class="subject">
             <h3>subjects</h3>
             <ul>
                 <!--continue to headermiddle1.php-->

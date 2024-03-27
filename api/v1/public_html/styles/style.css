@@ -98,6 +98,8 @@ header.top .navbar ul li.search .Cart {
   max-width: 350px;
   background-color: white;
   margin-right: 0%;
+  position: absolute;
+  z-index: auto;
 }
 .dropdown .subject h3, .dropdown .cart h3 {
   background-color: black;
@@ -503,6 +505,7 @@ section {
 body {
   margin: 0;
   background-color: rgba(237, 237, 237, 0.897);
+  position: relative;
 }
 
 header, main, footer {
