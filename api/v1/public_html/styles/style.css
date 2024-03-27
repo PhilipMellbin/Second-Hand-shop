@@ -52,14 +52,14 @@ header.top .navbar ul li.button {
   width: 170px;
   border-radius: 20%;
 }
-header.top .navbar ul li.button a {
+header.top .navbar ul li.button a, header.top .navbar ul li.button p {
   display: block;
   text-align: center;
   padding: 8px;
   color: white;
   text-decoration: none;
 }
-header.top .navbar ul li.button a:hover {
+header.top .navbar ul li.button a:hover, header.top .navbar ul li.button p:hover {
   border-radius: 4px;
   background: rgb(172, 182, 0);
   background: linear-gradient(45deg, rgb(172, 182, 0) 0%, rgb(2, 197, 185) 100%);
@@ -101,6 +101,7 @@ header.top .navbar ul li.search .Cart {
   margin-right: 0%;
   position: fixed;
   z-index: 1080;
+  display: none;
 }
 .dropdown .subject h3, .dropdown .cart h3 {
   background-color: black;

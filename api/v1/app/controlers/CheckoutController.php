@@ -9,11 +9,13 @@ class CheckoutController extends ABController
     private $view;
     private $model;
     private $model_customer;
+    private $header;
 
     public function __construct()
     {
         $this->view = new View;
         $this->model = new ProductCart();
+        $this->header = new HeaderController;
         //fill in the models
     }
     private function get_cart_products()
@@ -80,7 +82,7 @@ class CheckoutController extends ABController
     }
     public function show()
     {
-        $this->view->render("/standard/header"); 
+        $this->header->show();
         $this->view->render("/checkout/checkoutstart");
         $this->get_cart_products();
         $this->get_swish();

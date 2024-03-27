@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/styles/style.css">
+    <link rel="stylesheet" href="/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/styles/stylee.css">
+    <script src="/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/scripts/main.js"></script>
 </head>
 <body>
    <header class="top">
@@ -23,9 +24,9 @@
     <!--Navbad-->
     <div class="navbar">
         <ul>
-            <li class="button"><a class="Button" href="index.php?page=home">home</a></li>
-            <li class="button"><a href="index.php?page=categories">categories</a><div class="Categories"></div></li>
-            <li class="button"><a href="index.php?page=aboutus">About us</a></li>
+            <li class="button"><p><a href="index.php?page=home">home</a></p></li>
+            <li class="button" id="cat_btn"><p><a href="#">categories</a></p></li>
+            <li class="button"><p><a href="index.php?page=aboutus">About us</a></p></li>
             <li class="search">
                 <form method="get" action="index.php?search=<?$inp?>">
                     <label for="">Search...</label>
@@ -33,11 +34,9 @@
                     <input type="submit" value="submit">
                 </form>
             </li>
-            <li class="button"><!--<a href="index.php?page=home">Cart</a>-->
-            <a href="index.php?page=checkout">Cart</a>
-        </li>
-            <li class="button"><a href="index.php?page=home">Region</a></li>
-            <li class="button"><a href="index.php?page=home">Signup/Locin</a></li>
+            <li class="button" id="cart_btn"><p><a href="#">Cart</a></p></li>
+            <li class="button"><p><a href="index.php?page=home">Region</a></p></li>
+            <li class="button"><p><a href="index.php?page=home">Signup/Locin</a></p></li>
         </ul>
     </div>
 </header>
