@@ -10,11 +10,12 @@ class ProductController extends ABController
     private $view;
     private $model;
     private $product;
-    private array $products = [];
     private $product_subject;
+    private $header;
 
     public function __construct()
     {
+        $this->header = new HeaderController;
         $this->view = new View;
         if(!isset($_GET['prod_id'])) //if there is no product id, send to error.
         {
@@ -63,7 +64,7 @@ class ProductController extends ABController
     }
     public function show()
     {
-        $this->view->render("/standard/header");
+        $this->header->show();
         $this->show_product();
         $this->view->render("/standard/footer");
     }

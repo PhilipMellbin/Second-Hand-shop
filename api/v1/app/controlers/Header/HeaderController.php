@@ -1,6 +1,5 @@
 <?php
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/Header/CartController.php');
 class HeaderController extends ABController
 {
     private $view;

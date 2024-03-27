@@ -92,20 +92,21 @@ header.top .navbar ul li.search .Cart {
 .dropdown {
   display: flex;
   justify-content: end;
+  position: relative;
 }
 .dropdown .subject, .dropdown .cart {
   width: 70%;
   max-width: 350px;
   background-color: white;
   margin-right: 0%;
-  position: absolute;
-  z-index: auto;
+  position: fixed;
+  z-index: 1080;
 }
 .dropdown .subject h3, .dropdown .cart h3 {
   background-color: black;
   color: white;
 }
-.dropdown .subject a {
+.dropdown .cart a {
   display: flex;
   justify-content: center;
   margin: auto;
@@ -505,7 +506,6 @@ section {
 body {
   margin: 0;
   background-color: rgba(237, 237, 237, 0.897);
-  position: relative;
 }
 
 header, main, footer {

@@ -2,21 +2,22 @@
 {
     display: flex;
     justify-content: end;
+    position: relative;
     .subject, .cart
     {
         width: 70%;
         max-width: 350px;
         background-color: white;
         margin-right: 0%;
-        position: absolute;
-        z-index:auto;
+        position: fixed;
+        z-index: 1080;
         h3
         {
             background-color: black;
             color: white;
         }
     }
-    .subject a
+    .cart a
     {
         display: flex;
         justify-content: center;
