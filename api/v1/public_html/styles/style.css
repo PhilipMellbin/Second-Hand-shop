@@ -95,6 +95,7 @@ header.top .navbar ul li.search .Cart {
   position: relative;
 }
 .dropdown .subject, .dropdown .cart {
+  filter: brightness(200%);
   width: 70%;
   max-width: 350px;
   background-color: white;

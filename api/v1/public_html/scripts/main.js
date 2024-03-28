@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function()
     }
     cart_exit.onclick = function()
     {
-        categories[0].style.display = "none";
+        //categories[0].style.display = "none";
         cart[0].style.display = "none";
         document.body.style.filter="brightness(100%)";
     }
