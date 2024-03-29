@@ -36,7 +36,7 @@
             </li>
             <li class="button" id="cart_btn"><p><a href="#">Cart</a></p></li>
             <li class="button"><p><a href="index.php?page=home">Region</a></p></li>
-            <li class="button"><p><a href="index.php?page=home">Signup/Locin</a></p></li>
+            <li class="button"><p><a href="index.php?page=login">Signup/Login</a></p></li>
         </ul>
     </div>
 </header>

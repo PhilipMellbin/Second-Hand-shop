@@ -4,5 +4,5 @@ require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/mod
 abstract class ABLoginUser implements IUser
 {
     abstract function fill_credentials();
-    abstract function fill_login_info($username, $password);
+    abstract function get_password($username);
 }
