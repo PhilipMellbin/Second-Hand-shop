@@ -27,9 +27,9 @@ class HomeController extends ABController
     public function show()
     {
         $this->header->show();
-        $this->view->render("/home/home");
+        $this->view->render("/webbshop/home/home");
         $this->show_products();
-        $this->view->render("/standard/footer");
+        $this->view->render("/webbshop/standard/footer");
         //
     }
 }

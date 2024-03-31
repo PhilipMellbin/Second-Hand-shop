@@ -15,13 +15,13 @@ class ErrorController extends ABController
         switch($msg)
         {
             case '404':
-                $this->view->render("/error/404"); 
+                $this->view->render("/webbshop/error/404"); 
                 break;
             case '403':
-                $this->view->render("/error/403");
+                $this->view->render("/webbshop/error/403");
                 break;
             default:
-                $this->view->render("/error/standard_error");
+                $this->view->render("/webbshop/error/standard_error");
                 break;
         }
     }
@@ -29,8 +29,8 @@ class ErrorController extends ABController
     {
        $msg = isset($_GET['msg']) ? $_GET['msg'] : '404';
        http_response_code($msg);
-       $this->view->render("/standard/header"); 
+       $this->view->render("/webbshop/standard/header"); 
        $this->render_error();
-       $this->view->render("/standard/footer"); 
+       $this->view->render("/webbshop/standard/footer"); 
     }
 }

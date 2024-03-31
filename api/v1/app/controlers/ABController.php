@@ -5,7 +5,7 @@
     {
         abstract function __Construct();
         abstract function show();
-        public function render_products(string $type, $res)
+        public function render_products(string $type, $res) //should probably change this to get content. 
         {
             $products = [];
             while($result = $res->fetch(PDO::FETCH_ASSOC))

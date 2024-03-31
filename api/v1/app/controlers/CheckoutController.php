@@ -6,11 +6,12 @@ require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/vie
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/ViewProduct.php');
 class CheckoutController extends ABController
 {
+    ##################################################(Vars)#####################################
     private $view;
     private $model;
     private $model_customer;
     private $header;
-
+    ##################################################(construct)#################################
     public function __construct()
     {
         $this->view = new View;
@@ -18,8 +19,10 @@ class CheckoutController extends ABController
         $this->header = new HeaderController;
         //fill in the models
     }
+    ##################################################(Functions)####################################
     private function get_cart_products()
     {
+        ###################
         $this->view->render("/checkout/incart/incartstart");
         if($this->model->res == null)
         {
@@ -83,10 +86,10 @@ class CheckoutController extends ABController
     public function show()
     {
         $this->header->show();
-        $this->view->render("/checkout/checkoutstart");
+        $this->view->render("/webbshop/checkout/checkoutstart");
         $this->get_cart_products();
         $this->get_swish();
-        $this->view->render("/checkout/checkoutend");
-        $this->view->render("/standard/footer"); 
+        $this->view->render("/webbshop/checkout/checkoutend");
+        $this->view->render("/webbshop/standard/footer"); 
     }
 }

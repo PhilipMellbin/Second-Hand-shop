@@ -14,7 +14,7 @@ class HeaderController extends ABController
     {
         if($this->model->res == null)
         {
-            $this->view->render("/standard/header2/nocart");
+            $this->view->render("/webbshop//standard/header2/nocart");
         }
         else
         {
@@ -23,9 +23,9 @@ class HeaderController extends ABController
     }
     public function show()
     {
-        $this->view->render("standard/header2/headerstart");
-        $this->view->render("standard/header2/headermiddle");
+        $this->view->render("/webbshop/standard/header2/headerstart");
+        $this->view->render("/webbshop/standard/header2/headermiddle");
         $this->get_cart_products();
-        $this->view->render("standard/header2/headerend");
+        $this->view->render("/webbshop/standard/header2/headerend");
     }
 }

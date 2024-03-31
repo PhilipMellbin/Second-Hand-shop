@@ -32,17 +32,17 @@ class ViewProduct extends View
         switch ($type)
         {
             case "small":
-                $this->render("standard/products");
+                $this->render("/webbshop/standard/products");
                 break;
             case "standard":
-                $this->render("product/product");
+                $this->render("/webbshop/product/product");
                 break;
             case "cart":
-                $this->render("standard/cartproducts");
+                $this->render("/webbshop/standard/cartproducts");
                 break;
-            case "recite":
+            /*case "recite":
                 $this->render("page", "dir");
-                break;
+                break;*/
     }
     }
 }

@@ -66,6 +66,6 @@ class ProductController extends ABController
     {
         $this->header->show();
         $this->show_product();
-        $this->view->render("/standard/footer");
+        $this->view->render("/webbshop/standard/footer");
     }
 }
