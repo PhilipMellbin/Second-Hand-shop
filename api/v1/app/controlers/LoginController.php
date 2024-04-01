@@ -1,7 +1,5 @@
 <?php
 
-use GuzzleHttp\Psr7\Header;
-
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php');
@@ -13,12 +11,14 @@ class LoginController extends ABController
     private $email;
     private $password;
     private $comfirm;
+    private $atempts;
     private $header;
     public function __construct()
     {
         $this->model = new LoginUser;
         $this->view = new View;  
         $this->header = new HeaderController; 
+        $this->atempts = $_SESSION['attempts'] ? null: 3;
     }
     public function login()
     {
@@ -41,12 +41,39 @@ class LoginController extends ABController
                 $this->send_email();
                 $this->comfirm = true;
                 $_POST['username'] = $this->email;
+                $_POST['msg'] = "0";
+            }
+            else
+            {
+                $POST['msg'] = "1";
+                $this->atempts = $this->atempts - 1;
+                if($this->atempts == 0)
+                {
+                    $POST['no_more_login'] = true;
+                }
+                $_SESSION['attempts'] = $this->atempts;
+
             }
         }
+        else
+        {
+            $POST['msg'] = "1";
+            $this->atempts = $this->atempts - 1;
+            if($this->atempts == 0)
+            {
+                $POST['no_more_login'] = true;
+            }
+            $_SESSION['attempts'] = $this->atempts;
+
+        }
+    }
+    private function warningmail()
+    {
+
     }
     public function fufill_login() //i made this public and not private. May be a security risk, but idk
     {
-        $_Session['email'] = $_POST['username'];
+        $SESSION['email'] = $_POST['username'];
         header('location: index.php?page=acounthome');
     }
     private function send_email()
@@ -59,7 +86,18 @@ class LoginController extends ABController
     public function show()
     {
         $this->header->show();
-        $this->view->render("/account/login");
+        if($_POST['no_more_login'] != true)
+        {
+            $this->view->render("/account/acountlogin/acountlogin");
+            if($_POST['msg'] == 0)
+            {}
+            else if ($_POST['msg'] == 1)
+            {}
+        }
+        else
+        {
+            $this->view->render("/account/acountlogin/lotalowed");
+        }
         $this->view->render("/webbshop/standard/footer");
     }
 }

@@ -5,12 +5,13 @@ session_start([
     //'cookie_secure' => true // Endast vid HTTPS
 ]);
 
-
+###########################################(Controllers)############################
 include '../app/controlers/ErrorController.php';
 include '../app/controlers/HomeController.php';
 include '../app/controlers/ProductController.php';
 include '../app/controlers/CheckoutController.php';
-
+include '../app/controlers/LoginController.php';
+#######################################################################################
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     add to cart
     remove from cart
     create recite */
-    switch($_POST['action'])
+    switch($_POST['action']) //
     {
         case 'add_cart':
             $controller->add_to_cart();
@@ -47,6 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         case 'swish':
             $controller->swish();
             break;
+        case 'login':
+            $controller->login();
+        case 'fufill_login':
+            $controller->fufill_login();
     }
 
     if ($_POST['action'] === 'register') {
