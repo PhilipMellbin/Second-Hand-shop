@@ -23,18 +23,18 @@ class CheckoutController extends ABController
     private function get_cart_products()
     {
         ###################
-        $this->view->render("/checkout/incart/incartstart");
+        $this->view->render("/webbshop/checkout/incart/incartstart");
         if($this->model->res == null)
         {
-            $this->view->render("/checkout/incart/incartnoproduct");
-            $this->view->render("/checkout/incart/incartend");
-            $this->view->render("/checkout/credentials/credentialsunfilled");
+            $this->view->render("/webbshop/checkout/incart/incartnoproduct");
+            $this->view->render("/webbshop/checkout/incart/incartend");
+            $this->view->render("/webbshop/checkout/credentials/credentialsunfilled");
         }
         else
         {
             $this->render_products("cart", $this->model->res);
-            $this->view->render("/checkout/incart/incartend");
-            $this->view->render("/checkout/credentials/credentials");
+            $this->view->render("/webbshop/checkout/incart/incartend");
+            $this->view->render("/webbshop/checkout/credentials/credentials");
             //for every object in $result
             //render
         }
@@ -65,7 +65,7 @@ class CheckoutController extends ABController
         }
         else
         {
-            $this->view->render("/checkout/swish/swishunfilled");
+            $this->view->render("/webbshop/checkout/swish/swishunfilled");
         }
     }
     /*public function finish_payment()

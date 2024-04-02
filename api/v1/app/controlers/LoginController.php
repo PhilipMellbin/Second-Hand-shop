@@ -18,7 +18,10 @@ class LoginController extends ABController
         $this->model = new LoginUser;
         $this->view = new View;  
         $this->header = new HeaderController; 
-        $this->atempts = $_SESSION['attempts'] ? null: 3;
+        $this->atempts = isset($_SESSION['attempts']) ? $_SESSION['attempts'] : 3;
+        $_POST['no_more_login'] = false;
+        $_POST['msg'] = 2;
+        
     }
     public function login()
     {
@@ -41,15 +44,15 @@ class LoginController extends ABController
                 $this->send_email();
                 $this->comfirm = true;
                 $_POST['username'] = $this->email;
-                $_POST['msg'] = "0";
+                $_POST['msg'] = 0;
             }
             else
             {
-                $POST['msg'] = "1";
+                $_POST['msg'] = 1;
                 $this->atempts = $this->atempts - 1;
                 if($this->atempts == 0)
                 {
-                    $POST['no_more_login'] = true;
+                    $_POST['no_more_login'] = true;
                 }
                 $_SESSION['attempts'] = $this->atempts;
 
@@ -57,11 +60,11 @@ class LoginController extends ABController
         }
         else
         {
-            $POST['msg'] = "1";
+            $_POST['msg'] = 1;
             $this->atempts = $this->atempts - 1;
             if($this->atempts == 0)
             {
-                $POST['no_more_login'] = true;
+                $_POST['no_more_login'] = true;
             }
             $_SESSION['attempts'] = $this->atempts;
 
@@ -86,13 +89,17 @@ class LoginController extends ABController
     public function show()
     {
         $this->header->show();
-        if($_POST['no_more_login'] != true)
+        if($_POST['no_more_login'] == null)
         {
             $this->view->render("/account/acountlogin/acountlogin");
             if($_POST['msg'] == 0)
-            {}
+            {
+                $this->view->render("");
+            }
             else if ($_POST['msg'] == 1)
-            {}
+            {
+                $this->view->render("");
+            }
         }
         else
         {

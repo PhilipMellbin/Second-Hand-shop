@@ -1,0 +1,1 @@
+<div class="msg aproved">Approved! Go to email to log in!</div>

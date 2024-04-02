@@ -14,7 +14,7 @@ class HeaderController extends ABController
     {
         if($this->model->res == null)
         {
-            $this->view->render("/webbshop//standard/header2/nocart");
+            $this->view->render("/webbshop/standard/header2/nocart");
         }
         else
         {
