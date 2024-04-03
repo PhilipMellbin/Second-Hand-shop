@@ -15,6 +15,7 @@ class LoginController extends ABController
     private $header;
     public function __construct()
     {
+        $this->comfirm = null;
         $this->model = new LoginUser;
         $this->view = new View;  
         $this->header = new HeaderController; 
@@ -38,17 +39,17 @@ class LoginController extends ABController
             while($result = $res->fetch(PDO::FETCH_ASSOC))
             {
                 $encro = $result['password'];
+                echo($this->password. $encro);
             }
             if(password_verify($this->password, $encro))
             {
                 $this->send_email();
-                $this->comfirm = true;
-                $_POST['username'] = $this->email;
+                $this->comfirm = 1;
                 $_POST['msg'] = 0;
             }
             else
             {
-                $_POST['msg'] = 1;
+                $this->comfirm = 0;
                 $this->atempts = $this->atempts - 1;
                 if($this->atempts == 0)
                 {
@@ -60,7 +61,6 @@ class LoginController extends ABController
         }
         else
         {
-            $_POST['msg'] = 1;
             $this->atempts = $this->atempts - 1;
             if($this->atempts == 0)
             {
@@ -92,11 +92,11 @@ class LoginController extends ABController
         if($_POST['no_more_login'] == null)
         {
             $this->view->render("/account/acountlogin/acountlogin");
-            if($_POST['msg'] == 0)
+            if($this->comfirm == 1)
             {
                 $this->view->render("");
             }
-            else if ($_POST['msg'] == 1)
+            else if ($this->comfirm == 0)
             {
                 $this->view->render("");
             }

@@ -1,1 +1,1 @@
-<div class="msg aproved">Approved! Go to email to log in!</div>
+<div class="msg aproved">Login successfull! Go to email to access your account!</div>
