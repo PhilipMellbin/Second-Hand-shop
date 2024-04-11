@@ -1,5 +1,5 @@
 <?php
-
+//will work on later when there are plenty of products
 class Cookie
 {
     public $estimated_bias;

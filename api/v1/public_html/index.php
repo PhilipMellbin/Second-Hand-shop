@@ -17,7 +17,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 spl_autoload_register(function ($class_name) {
-    $file = __DIR__ . '/../app/Controllers/' . $class_name . '.php';
+    $file = __DIR__ . '/../app/Controllers/' . $class_name . '.php'; //will this cause problems? I will try to coment this out
     if (!file_exists($file)) {
         $file = __DIR__ . '/../app/Views/' . $class_name . '.php';
     }
@@ -50,8 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             break;
         case 'login':
             $controller->login();
-        case 'fufill_login':
-            $controller->fufill_login();
+            break;
+        case 'create_account':
+            $controller->create_account();
+            break;
     }
 
     if ($_POST['action'] === 'register') {
