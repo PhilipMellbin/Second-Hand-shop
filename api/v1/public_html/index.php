@@ -6,17 +6,18 @@ session_start([
 ]);
 
 ###########################################(Controllers)############################
-include '../app/controlers/ErrorController.php';
-include '../app/controlers/HomeController.php';
-include '../app/controlers/ProductController.php';
-include '../app/controlers/CheckoutController.php';
-include '../app/controlers/LoginController.php';
+include '../app/controlers/standard/ErrorController.php';
+include '../app/controlers/Webbshop/HomeController.php';
+include '../app/controlers/Webbshop/ProductController.php';
+include '../app/controlers/Webbshop/CheckoutController.php';
+include '../app/controlers/Accounts/LoginController.php';
+include '../app/controlers/Accounts/AccounthomeController.php';
 #######################################################################################
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-spl_autoload_register(function ($class_name) {
+/*spl_autoload_register(function ($class_name) {
     $file = __DIR__ . '/../app/Controllers/' . $class_name . '.php'; //will this cause problems? I will try to coment this out
     if (!file_exists($file)) {
         $file = __DIR__ . '/../app/Views/' . $class_name . '.php';
@@ -24,7 +25,7 @@ spl_autoload_register(function ($class_name) {
     if (file_exists($file)) {
         require_once $file;
     }
-});
+});*/
 
 $view = new View();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';

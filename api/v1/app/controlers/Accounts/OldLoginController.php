@@ -1,5 +1,6 @@
 <?php
-
+//!This was my atempt at 2 step verification. The code is not intended to be used. I will
+//use it when i understand mercury and smtp servers
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php');
@@ -15,7 +16,7 @@ class LoginController extends ABController
     private $header;
     public function __construct()
     {
-        $this->comfirm = 2;
+        $this->comfirm = null;
         $this->model = new LoginUser;
         $this->view = new View;  
         $this->header = new HeaderController; 
@@ -39,23 +40,24 @@ class LoginController extends ABController
             while($result = $res->fetch(PDO::FETCH_ASSOC))
             {
                 $encro = $result['password'];
+                echo($this->password. $encro);
             }
-            echo(password_hash('password123', PASSWORD_DEFAULT));
-            echo($this->password);
             if(password_verify($this->password, $encro))
             {
-                $SESSION['email'] = $_POST['username'];
-                header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome');
+                $this->send_email();
+                $this->comfirm = 1;
+                $_POST['msg'] = 0;
             }
             else
             {
+                $this->comfirm = 0;
                 $this->atempts = $this->atempts - 1;
                 if($this->atempts == 0)
                 {
                     $_POST['no_more_login'] = true;
                 }
                 $_SESSION['attempts'] = $this->atempts;
-                $this->show();
+
             }
         }
         else
@@ -66,8 +68,24 @@ class LoginController extends ABController
                 $_POST['no_more_login'] = true;
             }
             $_SESSION['attempts'] = $this->atempts;
-            $this->show();
+
         }
+    }
+    private function warningmail()
+    {
+
+    }
+    public function fufill_login() //i made this public and not private. May be a security risk, but idk
+    {
+        $SESSION['email'] = $_POST['username'];
+        header('location: index.php?page=acounthome');
+    }
+    private function send_email()
+    {
+        $to = $this->email;
+        $subject = ('Login');
+        $message = include("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/pages/account/acountapproved.php");
+        mail($to, $subject, $message);
     }
     public function show()
     {
@@ -77,17 +95,16 @@ class LoginController extends ABController
             $this->view->render("/account/acountlogin/acountlogin");
             if($this->comfirm == 1)
             {
-                $this->view->render("/account/acountlogin/comfirm");
+                $this->view->render("");
             }
             else if ($this->comfirm == 0)
             {
-                $this->view->render("/account/acountlogin/denied");
+                $this->view->render("");
             }
-            $this->comfirm = 2;
         }
         else
         {
-            $this->view->render("/account/acountlogin/notalowed");
+            $this->view->render("/account/acountlogin/lotalowed");
         }
         $this->view->render("/webbshop/standard/footer");
     }

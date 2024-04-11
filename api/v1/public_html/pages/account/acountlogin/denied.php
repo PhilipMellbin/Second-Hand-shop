@@ -1,1 +1,1 @@
-<div class="msg aproved">Uh oh! Please check so the username and password is correct. ( <?= $this->atempts?>attempts left)</div>
+<div class="msg aproved">Uh oh! Please check so the username and password is correct. ( <?=$_POST['attempts']?>attempts left)</div>

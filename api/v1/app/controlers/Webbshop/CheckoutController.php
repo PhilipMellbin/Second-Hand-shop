@@ -1,5 +1,5 @@
 <?php
-
+//Under construction!
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductCart.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/Customer.php');
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php';
@@ -22,7 +22,7 @@ class CheckoutController extends ABController
     ##################################################(Functions)####################################
     private function get_cart_products()
     {
-        ###################
+        ############################(1: check if items are in cart and render acordingly)############################
         $this->view->render("/webbshop/checkout/incart/incartstart");
         if($this->model->res == null)
         {
@@ -39,25 +39,21 @@ class CheckoutController extends ABController
             //render
         }
         $this->model->end();
-        //check results
-        //if there are no results...render no_product
-        //else render as per usual
+        #############################################################################################
     }
     public function fill_credentials()
     {
+        ###############################################################(2: Fill in credentials, make shure they are filled)#############################3333
         $this->model_customer = new Customer;
         $this->model_customer->fill_credentials();
-        $_POST['credentials_filled'] = True;
-        //$this->model_customer->swish();
+        $_POST['credentials_filled'] = True; //to render the swish section
+        //$this->model_customer->swish(); <--Swish isn't working for me, will try to find alternative payment method
         header('location: Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=checkout');
-        /* 
-
-        - After fill credentials is compleated, load in this site again but with swish
-        - Indication: Use a post variable?
-        */
+        ###############################################################################################################################
     } 
     private function get_swish()
     {
+        ###################################################(3: Swish. Does not work fully yet!)########################################
         if(isset($_POST['credentials_filled']))
         {
             $this->view->render("/checkout/swish/swishcontainer");
@@ -67,29 +63,36 @@ class CheckoutController extends ABController
         {
             $this->view->render("/webbshop/checkout/swish/swishunfilled");
         }
+        ############################################################################################################################
     }
     /*public function finish_payment()
     {
+        ###############################################(4: self explanitory)###
         $this->model_customer->payment($this->products);
+        ########################################################################
     }*/
     public function delete_cart() //Come up with a beter alternative!!
     {
-        $prod_id = $_GET['prod_id'];
-        if(str_contains($prod_id, "'"))
+        #############################(Delete cart)##########################################
+        $prod_id = $_GET['prod_id']; //Unsafe method. I know. I will look further into it. Maby i can use POST in some manner for it? idk
+        if(str_contains($prod_id, "'")) //meanwhile, i will check if string contains this
         {
             header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=error&msg=403');
         }
         $this->model = new ProductCart();
         $this->model->delete();
+        ###########################################################################################
 
     }
     public function show()
     {
+        ##########################################################(Show)#############################
         $this->header->show();
         $this->view->render("/webbshop/checkout/checkoutstart");
         $this->get_cart_products();
         $this->get_swish();
         $this->view->render("/webbshop/checkout/checkoutend");
         $this->view->render("/webbshop/standard/footer"); 
+        ##########################################################(Show)#############################
     }
 }
