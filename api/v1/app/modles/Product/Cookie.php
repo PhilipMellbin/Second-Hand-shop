@@ -1,5 +1,11 @@
 <?php
 //will work on later when there are plenty of products
+/*
+
+will probably use a controler instead once i'm done whith the lazy-load.
+
+
+*/
 class Cookie
 {
     public $estimated_bias;
