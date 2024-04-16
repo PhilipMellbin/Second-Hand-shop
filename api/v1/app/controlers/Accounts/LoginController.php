@@ -17,6 +17,7 @@ class LoginController extends ABController
     private $header;
     public function __construct()
     {
+        $_SESSION['attempts'] = 3;
         $this->comfirm = 2;
         $this->model = new LoginUser;
         $this->view = new View;  
@@ -34,6 +35,20 @@ class LoginController extends ABController
         $res = $this->model->res;
         $this->check_password($res);
     }
+    private function penalty()
+    {
+        $this->atempts = $this->atempts - 1;
+        $_POST['attempts'] = $this->atempts;
+        if($this->atempts <= 0)
+        {
+            $_POST['no_more_login'] = true;
+        }
+        else
+        {
+            $_SESSION['attempts'] = $this->atempts;
+        }
+        $this->show();
+    }
     private function check_password($res)
     {
         if($res != null) //if user exists
@@ -49,26 +64,14 @@ class LoginController extends ABController
             }
             else
             {
-                $this->atempts = $this->atempts - 1;
-                if($this->atempts == 0)
-                {
-                    $_POST['no_more_login'] = true;
-                }
-                $_SESSION['attempts'] = $this->atempts; //might not be a good idea to reveal session outside of app.
-                $_POST['attempts'] = $this->atempts; //so i will use post instead
+                $this->penalty();
             }
         }
         else
         {
-            $this->atempts = $this->atempts - 1;
-            if($this->atempts == 0)
-            {
-                $_POST['no_more_login'] = true;
-            }
-            $_SESSION['attempts'] = $this->atempts;
+            $this->penalty();
         }
         $this->comfirm = 0;
-        $this->show();
     }
     public function show()
     {

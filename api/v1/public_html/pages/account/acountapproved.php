@@ -9,7 +9,7 @@
     <header class="top"><h1>Second Academia</h1><img src="" alt=""></header>
     <main>
         <section class="acountlink">
-            <h1>Hello again <?=$emall?></h1>
+            <h1>Hello again <?=$this->emall?></h1>
         <form method="post" action="index.php?page=login">
                     <button type="submit" name="action" value="add_cart"><p>Welcome back!</p></button>
                 </form>

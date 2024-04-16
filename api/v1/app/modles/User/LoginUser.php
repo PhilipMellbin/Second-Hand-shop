@@ -24,5 +24,9 @@ class LoginUser extends ABLoginUser
             $this->res = null;
         }
     }
+    public function get_user_products()
+    {
+
+    }
     
 }

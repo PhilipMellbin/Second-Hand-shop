@@ -5,16 +5,34 @@
     {
         abstract function __Construct();
         abstract function show();
-        public function render_products(string $type, $res) //should probably change this to get content. 
+        public function render_info(string $type, string $subtype, $res) //should probably change this to get content. 
         {
-            $products = [];
-            while($result = $res->fetch(PDO::FETCH_ASSOC))
+            $objects = [];
+            switch($type)
             {
-                array_push($products, new ViewProduct($result));
-            }
-            foreach($products as $product)
-            {
-                $product->render_product($type);
+                case "product":
+                    while($result = $res->fetch(PDO::FETCH_ASSOC))
+                    {
+                        array_push($objects, new ViewProduct($result));
+                    }
+                    foreach($objects as $product)
+                    {
+                        $product->render_product($subtype);
+                    }
+                    break;
+                case "user":
+                    while($result = $res->fetch(PDO::FETCH_ASSOC))
+                    {
+                        array_push($products, new ViewProduct($result));
+                    }
+                    foreach($products as $user)
+                    {
+                        $user->render_product($subtype);
+                    }
+                    break;
+                default:
+                echo("please fill in a type(user or product)");
+                break;
             }
         }
     }

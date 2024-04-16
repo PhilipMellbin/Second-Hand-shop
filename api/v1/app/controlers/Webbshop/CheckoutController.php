@@ -32,7 +32,7 @@ class CheckoutController extends ABController
         }
         else
         {
-            $this->render_products("cart", $this->model->res);
+            $this->render_info("product", "cart", $this->model->res);
             $this->view->render("/webbshop/checkout/incart/incartend");
             $this->view->render("/webbshop/checkout/credentials/credentials");
             //for every object in $result

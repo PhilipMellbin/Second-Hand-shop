@@ -17,15 +17,15 @@ include '../app/controlers/Accounts/AccounthomeController.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-/*spl_autoload_register(function ($class_name) {
-    $file = __DIR__ . '/../app/Controllers/' . $class_name . '.php'; //will this cause problems? I will try to coment this out
+spl_autoload_register(function ($class_name) {
+    $file = __DIR__ . '/../app/Controllers/' . $class_name . '.php'; //Prevents double rendering
     if (!file_exists($file)) {
         $file = __DIR__ . '/../app/Views/' . $class_name . '.php';
     }
     if (file_exists($file)) {
         require_once $file;
     }
-});*/
+});
 
 $view = new View();
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -57,11 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             break;
     }
 
-    if ($_POST['action'] === 'register') {
-        $controller->registerNewUser();
-    } elseif ($_POST['action'] === 'login') {
-        $controller->login();
-    }
 } elseif (class_exists($controllerClassName)) {
     $controller = new $controllerClassName($view);
     if (method_exists($controller, $method)) {
