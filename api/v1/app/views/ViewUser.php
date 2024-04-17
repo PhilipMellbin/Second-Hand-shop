@@ -21,6 +21,6 @@ class ViewUser extends View
     }
     public function render_user()
     {
-
+        $this->render("/account/accounthome/accounthomeheader"); //
     }
 }

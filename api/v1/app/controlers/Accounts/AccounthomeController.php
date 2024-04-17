@@ -28,16 +28,22 @@ class AccounthomeController extends ABController
     {
         $this->model->get_user_info();
         $this->render_info("user", "regular", $this->model->res);
-        
     }
     public function show_account_products()
     {
-
+        $user = $this->objects[0];
+        $username = $user['account_name'];
+        $this->model->get_user_products($username);
+        $this->render_info("product", "small", $this->model->res);
+        
     }
     public function show()
     {
         $this->header->show();
-        $this->view->render("/account/accounthome/accounthome.php");
+        $this->show_account_info();
+        $this->view->render("/account/accounthome/accounthome");
+        $this->show_account_products();
+        $this->view->render("/account/accounthome/accounthomeend");
     }
     //
 }

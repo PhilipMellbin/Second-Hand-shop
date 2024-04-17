@@ -17,6 +17,10 @@ class LoginController extends ABController
     private $header;
     public function __construct()
     {
+        if(isset($_SESSION['email']))
+        {
+            header("http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome");
+        }
         $_SESSION['attempts'] = 3;
         $this->comfirm = 2;
         $this->model = new LoginUser;
