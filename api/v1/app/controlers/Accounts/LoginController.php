@@ -59,7 +59,7 @@ class LoginController extends ABController
             }
             if(password_verify($this->password, $encro))
             {
-                $SESSION['email'] = $_POST['username'];
+                $_SESSION['email'] = $_POST['username'];
                 header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome');
             }
             else

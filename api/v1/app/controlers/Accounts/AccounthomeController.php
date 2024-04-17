@@ -1,6 +1,7 @@
 <?php
 
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductSold.php');
+require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/Client.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php');
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/Header/HeaderController.php';
@@ -19,11 +20,16 @@ class AccounthomeController extends ABController
         {
             $this->header = new HeaderController;
             $this->view = new View;
-            $this->model = new ProductSold();
+            $this->model = new Client();
         }
     }
-    private function get_sold_products()
+    public function show_account_info()
     {
+        $this->model->get_user_info();
+    }
+    public function show_account_products()
+    {
+
     }
     public function show()
     {
