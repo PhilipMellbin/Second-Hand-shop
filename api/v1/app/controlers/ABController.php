@@ -23,11 +23,11 @@
                 case "user":
                     while($result = $res->fetch(PDO::FETCH_ASSOC))
                     {
-                        array_push($products, new ViewProduct($result));
+                        array_push($objects, new ViewUser($result));
                     }
-                    foreach($products as $user)
+                    foreach($objects as $user)
                     {
-                        $user->render_product($subtype);
+                        $user->render_user($subtype);
                     }
                     break;
                 default:

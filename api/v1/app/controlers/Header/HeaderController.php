@@ -18,7 +18,7 @@ class HeaderController extends ABController
         }
         else
         {
-            $this->render_products("cart", $this->model->res);
+            $this->render_info("product", "cart", $this->model->res);
         }
     }
     public function show()

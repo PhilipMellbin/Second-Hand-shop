@@ -3,7 +3,7 @@
 require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php");
 class Client extends LoginUser
 {
-    private $db;
+    protected $db;
     public $res;
     public function __connstrict()
     {
@@ -18,7 +18,7 @@ class Client extends LoginUser
     }
     public function get_user_products($username)
     {
-        $command = "SELECT * FROM products WHERE username = '$username'";
+        $command = "SELECT * FROM product WHERE publisher = '$username'";
         $this->db->get_results($command);
         $this->res = $this->db->command;
     }

@@ -10,6 +10,7 @@ class AccounthomeController extends ABController
     private $view;
     private $model;
     private $header;
+    private $account;
     public function __construct()
     {
         if(!isset($_SESSION['email']))
@@ -26,6 +27,8 @@ class AccounthomeController extends ABController
     public function show_account_info()
     {
         $this->model->get_user_info();
+        $this->render_info("user", "regular", $this->model->res);
+        
     }
     public function show_account_products()
     {
