@@ -19,22 +19,24 @@ class LoginController extends ABController
     {
         if(isset($_SESSION['email']))
         {
-            header("location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome");
+            header("location: index.php?page=accounthome");
         }
-        $_SESSION['attempts'] = 3;
         $this->model = new LoginUser; //models and views
         $this->view = new View;  
         $this->header = new HeaderController; 
         
         $this->comfirm = 2; //prevent bruteforcing
         $this->atempts = isset($_SESSION['attempts']) ? $_SESSION['attempts'] : 3; //each user gets 3 attempts
-        $_POST['no_more_login'] = false; //may change to session for added security
         $_POST['msg'] = 2;
-        $_SESSION['pennaltytime'] = null;
+        if(!isset($_SESSION['no_more_login']))
+        {
+            $_SESSION['no_more_login'] = false;
+        };
 
         if(isset($_SESSION['pennaltytime']) and time() - $_SESSION['pennaltytime'] == 28800) //after 8 hours of failed logins, the user will be able to log in again
         {
             $_SESSION['attempts'] = 3;
+            $_SESSION['no_more_login'] = false;
         }
         
     }
@@ -51,7 +53,7 @@ class LoginController extends ABController
         $this->atempts = $this->atempts - 1;
         if($this->atempts <= 0)
         {
-            $_POST['no_more_login'] = true; //if you run out of atempts, you will be prohibited from loging in
+            $_SESSION['no_more_login'] = true; //if you run out of atempts, you will be prohibited from loging in
             //to add, a function alarming the target of ip adress and location of the attack
         }
         else
@@ -92,7 +94,11 @@ class LoginController extends ABController
     public function show()
     {
         $this->header->show();
-        if($_POST['no_more_login'] == null)
+        if(isset($_SESSION['no_more_login']) and $_SESSION['no_more_login'] == true)
+        {
+            $this->view->render("/account/acountlogin/notalowed");
+        }
+        else
         {
             $this->view->render("/account/acountlogin/acountlogin");
             if($this->comfirm == 1)
@@ -104,10 +110,6 @@ class LoginController extends ABController
                 $this->view->render("/account/acountlogin/denied");
             }
             $this->comfirm = 2;
-        }
-        else
-        {
-            $this->view->render("/account/acountlogin/notalowed");
         }
         $this->view->render("/webbshop/standard/footer");
     }

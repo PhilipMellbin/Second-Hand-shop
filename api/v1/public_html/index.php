@@ -55,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         case 'create_account':
             $controller->create_account();
             break;
+        case 'logout':
+            $controller->logout();
     }
 
 } elseif (class_exists($controllerClassName)) {

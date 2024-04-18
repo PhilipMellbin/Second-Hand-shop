@@ -20,8 +20,8 @@
             <li><form action="index.php?page=accounthome"></form></li>
             <li><a href="index.php?page=accountstats">stats</a></li> <!--is this necesary?-->
             <li><a href="index.php?page=accountsettings">settings</a></li>
-            <li><form action="accounthome.php">
-                <button name="action" value="logout"></button>
+            <li><form action="index.php?page=accounthome" method="post">
+                <button name="action" value="logout">Log out</button>
             </form></li>
         </ul>
     </section>

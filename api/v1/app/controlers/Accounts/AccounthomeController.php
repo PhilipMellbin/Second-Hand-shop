@@ -15,7 +15,7 @@ class AccounthomeController extends ABController
     {
         if(!isset($_SESSION['email']))
         {
-            header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=login');
+            header('location: index.php?page=login');
         }
         else
         {
@@ -36,6 +36,11 @@ class AccounthomeController extends ABController
         $this->model->get_user_products($username);
         $this->render_info("product", "small", $this->model->res);
         
+    }
+    public function logout()
+    {
+        $_SESSION['email'] = null;
+        header("location: index.php?page=login");
     }
     public function show()
     {
