@@ -2,14 +2,14 @@
     <div class="profile">
         <section>
             <h1><?=$this->username?></h1>
-            <p>Created in <?=$this->creationdate?></p>
+            <p>Created in <?=$this->created?></p>
         </section>
         <section>
             <div><img src="<?=$this->php?>" alt="img of <?=$this->username?>"></div>
         </section>
         <section>
             <h3><?=$this->rating?>/10</h3>
-            <h3><?=$this->profits?> kr this month</h3>
+            <h3><?=$this->profits_month?> kr this month</h3>
         </section>
     </div>
     <section class="nav">

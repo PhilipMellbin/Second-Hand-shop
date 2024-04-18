@@ -5,10 +5,13 @@ class ViewUser extends View
     public $username;
     public $email;
     public $pfp;
+    public $created;
+    public $rating;
     protected $phone;
     protected $bankcard; //to private
     protected $address;
     protected $password; //to private
+    public $profits_month;
     public function __construct($user)
     {
         $this->username = isset($user['account_name']) ? $user['account_name'] : null;
@@ -18,9 +21,13 @@ class ViewUser extends View
         $this->address = isset($user['address']) ? $user['address'] : null;
         $this->password = isset($user['password']) ? $user['password'] : null;
         $this->pfp = isset($user['pfp']) ? $user['pfp'] : null;
+        $this->created = isset($user['created']) ? $user['created'] : null;
+        $this->rating = isset($user['rating']) ? $user['rating'] : null;
+        $this->profits_month = isset($user['profits_month']) ? $user['profits_month'] : null;
+        
     }
     public function render_user()
     {
-        $this->render("/account/accounthome/accounthomeheader"); //
+        $this->render("/account/accounthome/accountheader"); //
     }
 }

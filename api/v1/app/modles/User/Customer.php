@@ -63,4 +63,8 @@ class Customer extends ABCustomer
     {
         
     }
+    public function end()
+    {
+        $this->db->close();
+    }
 }

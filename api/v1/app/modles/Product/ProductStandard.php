@@ -16,7 +16,6 @@ class ProductStandard extends Cookie implements IProduct
     }
     function add_to_cart(ViewProduct $product)
     {
-        print_r($product);
         $sess_id = session_id();
         $time = date('Y-m-d H:i:s');
         $this->db = new db;

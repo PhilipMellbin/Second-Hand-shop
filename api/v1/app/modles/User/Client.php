@@ -1,18 +1,19 @@
 <?php
 
 require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php");
+require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php");
 class Client extends LoginUser
 {
     protected $db;
     public $res;
-    public function __connstrict()
+    public function __construct()
     {
         $this->db = new db;
     }
-    public function get_user_info()
+    public function get_user_info($email)
     {
-        $email = $_SESSION['email'];
         $command = "SELECT * FROM accounts WHERE email = '$email'";
+        echo($this->db->get_results($command));
         $this->db->get_results($command);
         $this->res = $this->db->command;
     }

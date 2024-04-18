@@ -19,21 +19,28 @@ class LoginController extends ABController
     {
         if(isset($_SESSION['email']))
         {
-            header("http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome");
+            header("location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome");
         }
         $_SESSION['attempts'] = 3;
-        $this->comfirm = 2;
-        $this->model = new LoginUser;
+        $this->model = new LoginUser; //models and views
         $this->view = new View;  
         $this->header = new HeaderController; 
-        $this->atempts = isset($_SESSION['attempts']) ? $_SESSION['attempts'] : 3;
-        $_POST['no_more_login'] = false;
+        
+        $this->comfirm = 2; //prevent bruteforcing
+        $this->atempts = isset($_SESSION['attempts']) ? $_SESSION['attempts'] : 3; //each user gets 3 attempts
+        $_POST['no_more_login'] = false; //may change to session for added security
         $_POST['msg'] = 2;
+        $_SESSION['pennaltytime'] = null;
+
+        if(isset($_SESSION['pennaltytime']) and time() - $_SESSION['pennaltytime'] == 28800) //after 8 hours of failed logins, the user will be able to log in again
+        {
+            $_SESSION['attempts'] = 3;
+        }
         
     }
     public function login()
     {
-        $this->email = $_POST['email'];
+        $this->email = $_POST['email']; //get email and password
         $this->password = $_POST['password'];
         $this->model->get_password($this->email);
         $res = $this->model->res;
@@ -42,14 +49,16 @@ class LoginController extends ABController
     private function penalty()
     {
         $this->atempts = $this->atempts - 1;
-        $_POST['attempts'] = $this->atempts;
         if($this->atempts <= 0)
         {
-            $_POST['no_more_login'] = true;
+            $_POST['no_more_login'] = true; //if you run out of atempts, you will be prohibited from loging in
+            //to add, a function alarming the target of ip adress and location of the attack
         }
         else
         {
-            $_SESSION['attempts'] = $this->atempts;
+            $_POST['attempts'] = $_SESSION['attempts'] = $this->atempts;
+            $_SESSION['penaltytime'] = time();
+            $this->comfirm = 0;
         }
         $this->show();
     }
@@ -63,7 +72,9 @@ class LoginController extends ABController
             }
             if(password_verify($this->password, $encro))
             {
-                $_SESSION['email'] = $_POST['username'];
+                $_SESSION['email'] = $this->email;
+                echo($_SESSION['email']);
+                $_SESSION['attempts'] = 3;
                 header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome');
             }
             else
@@ -76,6 +87,7 @@ class LoginController extends ABController
             $this->penalty();
         }
         $this->comfirm = 0;
+        $this->model->end();
     }
     public function show()
     {
