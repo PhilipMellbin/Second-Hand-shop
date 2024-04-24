@@ -31,6 +31,15 @@
                         $user->render_user($subtype);
                     }
                     break;
+                case "options":
+                    while($result = $res->fetch(PDO::FETCH_ASSOC))
+                    {
+                        array_push($this->objects, new ViewOption($result));
+                    }
+                    foreach($this->objects as $user)
+                    {
+                        $user->render_user($subtype);
+                    }
                 default:
                 echo("please fill in a type(user or product)");
                 break;

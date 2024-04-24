@@ -43,6 +43,10 @@ class LoginController extends ABController
     public function login()
     {
         $this->email = $_POST['email']; //get email and password
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
+        {
+            header("location: index.php?page=login");   
+        }
         $this->password = $_POST['password'];
         $this->model->get_password($this->email);
         $res = $this->model->res;
@@ -77,7 +81,7 @@ class LoginController extends ABController
                 $_SESSION['email'] = $this->email;
                 echo($_SESSION['email']);
                 $_SESSION['attempts'] = 3;
-                header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=accounthome');
+                header('location: index.php?page=accounthome');
             }
             else
             {

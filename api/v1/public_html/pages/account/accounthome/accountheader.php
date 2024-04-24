@@ -16,7 +16,7 @@
         <ul>
             <li><a href="index.php?page=accounthome">home</a></li>
             <li><a href="index.php?page=accountproducts">products</a></li>
-            <li><a href="index.php?page=accountsoldproducts">sold</a></li>
+            <li><a href="index.php?page=newproduct">create</a></li>
             <li><form action="index.php?page=accounthome"></form></li>
             <li><a href="index.php?page=accountstats">stats</a></li> <!--is this necesary?-->
             <li><a href="index.php?page=accountsettings">settings</a></li>

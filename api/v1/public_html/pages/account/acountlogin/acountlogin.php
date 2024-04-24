@@ -3,9 +3,9 @@
     <section>
         <form action="index.php?page=login" method="post">
             <label for="email">Email:</label>
-            <input type="text" name="email" id="email">
+            <input type="text" name="email" id="email" placeholder="pelle.svanslos@gmail.com">
             <label for="password">Password:</label>
-            <input type="text" name="password" id="password">
+            <input type="password" name="password" id="password" placeholder="V4rtÄrmïÑ_Sx4ns?!?!?" >
             <button type="submit" name="action" value="login">Log in!</button>
         </form>
     </section>
@@ -17,7 +17,7 @@
             <label for="name">Email:</label>
             <input type="text" name="usr" id="usr">
             <label for="password">Password:</label>
-            <input type="text" name="pass" id="pass">
+            <input type="password" name="pass" id="pass">
             <label for="name">Name:</label>
             <input type="text" name="name" id="name">
             <label for="PhoneNumber">PhoneNumber:</label>
