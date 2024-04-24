@@ -49,6 +49,7 @@ class AccounthomeController extends ABController
         $this->view->render("/account/accounthome/accounthome");
         $this->show_account_products();
         $this->view->render("/account/accounthome/accounthomeend");
+        $this->view->render("/webbshop/standard/footer");
     }
     //
 }

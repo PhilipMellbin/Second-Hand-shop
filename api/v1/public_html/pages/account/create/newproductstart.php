@@ -41,27 +41,5 @@
                     <h2>Your product in small form:</h2>
                 </div>
                 <div class="type">
-                    <h2>Finaly, select type and subject</h2>
-                    <label for="subject">Subject</label>
+                    <h2>Finaly, select the subject</h2>
                     <select name="subject" id="subject">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
-                    <select name="type" id="type">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
-                </div>
-            </section>
-        </section>
-        <section>
-        </section>
-        <section class="comfirm">
-            <input type="submit" name="action" value="createproduct">
-        </section>
-    </form>
-</main>

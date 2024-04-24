@@ -12,6 +12,7 @@ include '../app/controlers/Webbshop/ProductController.php';
 include '../app/controlers/Webbshop/CheckoutController.php';
 include '../app/controlers/Accounts/LoginController.php';
 include '../app/controlers/Accounts/AccounthomeController.php';
+include '../app/controlers/Accounts/CreateproductController.php';
 #######################################################################################
 
 ini_set('display_errors', 1);
@@ -38,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     add to cart
     remove from cart
     create recite */
-    switch($_POST['action']) //
+    switch($_POST['action']) 
     {
         case 'add_cart':
             $controller->add_to_cart();
@@ -57,7 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             break;
         case 'logout':
             $controller->logout();
-    }
+            break;
+        case 'create':
+            $controller->create;
+            break;
+    }//what if i instead of using switch case instead did the folowing:
+        /*$func = $_POST['action']
+        $controller->$func
+         */
+    //I would have to redo everything, but there would be way less code and could probably run quicker. Will do this when i'm done with create
 
 } elseif (class_exists($controllerClassName)) {
     $controller = new $controllerClassName($view);
