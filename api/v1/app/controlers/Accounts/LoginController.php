@@ -2,10 +2,10 @@
 //To ad in the furure: once i get the hang of mercury, i will use it to deliver mail to the user upon login.
 //The plan was that the user would first fill in username and password, and as a second percausion, the link to
 //log in will be sent via email to the user. So two step verification. 
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php');
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/Header/HeaderController.php';
+require_once(__DIR__ . '/../../modles/User/LoginUser.php');
+require_once(__DIR__ . '/../../views/View.php');
+require_once(__DIR__ .'/../ABController.php');
+require_once (__DIR__ .'/../Header/HeaderController.php');
 class LoginController extends ABController
 {
     private $view;

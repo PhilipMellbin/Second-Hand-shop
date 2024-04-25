@@ -1,8 +1,8 @@
 <?php
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductStandard.php';
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductSmall.php';
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php';
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/ViewProduct.php';
+require_once(__DIR__ .'/../../views/View.php');
+require_once(__DIR__ .'/../../views/ViewProduct.php');
 
 
 class ProductController extends ABController

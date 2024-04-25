@@ -1,9 +1,9 @@
 <?php
 //Under construction!
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductCart.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/Customer.php');
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php';
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/ViewProduct.php');
+require_once(__DIR__ .'/../../modles/Product/ProductCart.php');
+require_once(__DIR__ .'/../../modles/User/Customer.php');
+require_once(__DIR__ .'/../../views/View.php');
+require_once(__DIR__ .'/../../views/ViewProduct.php');
 class CheckoutController extends ABController
 {
     ##################################################(Vars)#####################################

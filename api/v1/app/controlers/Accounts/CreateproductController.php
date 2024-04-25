@@ -1,9 +1,9 @@
 <?php
 require_once( __DIR__ .'/../../modles/User/Client.php');
 require_once( __DIR__ .'/../../modles/product/ProductCreate.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php');
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/Header/HeaderController.php';
+require_once(__DIR__ .'/../../views/View.php');
+require_once(__DIR__ .'/../ABController.php');
+require_once __DIR__ .'/../Header/HeaderController.php';
 class CreateProductController extends ABController
 {
     private $view;
@@ -28,7 +28,7 @@ class CreateProductController extends ABController
         $this->accountmodel->get_user_info($_SESSION['email']);
         while($result = $this->accountmodel->res->fetch(PDO::FETCH_ASSOC))
         {
-            $this->username = $result['account_name']; //<-- Could not find anny better solution. Will try to fix
+            $_SESSION['username'] = $result['account_name']; //<-- Could not find anny better solution. Will try to fix
         }
         $this->render_info("user", "regular", $this->accountmodel->res);
     }
@@ -40,7 +40,7 @@ class CreateProductController extends ABController
     }
     public function create()
     {
-        $this->productmodel->create_product($_POST['title'], $_POST['subject'], $_POST['img'], $_POST['description'], $_POST['price'], $this->username);
+        $this->productmodel->create_product($_POST['title'], $_POST['subject'], $_POST['img'], $_POST['description'], $_POST['price'], $_SESSION['username']);
     }
     public function show()
     {

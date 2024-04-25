@@ -9,6 +9,7 @@ class ProductCreate implements IProduct
 {
     protected $db;
     public $res;
+    private $atempts;
     public function get_subjects()
     {
         $this->db = new db;
@@ -42,16 +43,17 @@ class ProductCreate implements IProduct
             '$desc',
             '$price',
             '$publisher',
-            'date(Y/m/d);'
+            'date(Y/m/d)'
         )
         ";
+        echo($command);
         $this->db->get_results($command);
         $this->end();
     }
     private function random_id($n)
     {
         $check = false;
-        $chars = '1234567890+abcdefghijklmnopqrstuvwxyzABCDEFTGIJKLMNOPQRSTUVWXYZ!"#¤%&/()=?@£${[]}¨^~*,.-_<>|';
+        $chars = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFTGIJKLMNOPQRSTUVWXYZ';
         while($check == false)
         {
             $randstr = '';
@@ -65,17 +67,19 @@ class ProductCreate implements IProduct
         return $randstr;
     }
     private function id_does_not_exist(string $str)
-    {
-        $localdb = new db;
-        $command = "SELECT * FROM products WHERE prod_id = '$str'";
-        $localdb->get_results($command);
-        $res = $localdb->command;
-        if(($res) <= 0)
+    { 
+        $not_exist = false;
+        $this->db = new db;
+        $command = "SELECT * FROM product WHERE prod_id = '$str'";
+        $this->db->get_results($command);
+        $res = $this->db->command;
+        if($res->rowCount() >= 0)
         {
-            return(true);
+            $not_exist = (true);
         }
         $res->closeCursor();
-        $localdb->close();
+        $this->db->close();
+        return($not_exist);
     }
     public function end()
     {

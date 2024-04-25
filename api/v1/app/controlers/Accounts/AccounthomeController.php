@@ -1,10 +1,10 @@
 <?php
 
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductSold.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/Client.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php');
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/Header/HeaderController.php';
+require_once( __DIR__ .'/../../modles/Product/ProductSold.php');
+require_once( __DIR__ .'/../../modles/User/Client.php');
+require_once(__DIR__ .'/../../views/View.php');
+require_once(__DIR__ .'/../ABController.php');
+require_once (__DIR__ .'/../Header/HeaderController.php');
 class AccounthomeController extends ABController
 {
     private $view;

@@ -31,13 +31,13 @@ class db
     }
     public function get_results($statement)
     {
-        $this->command = $this->con->prepare($statement);
-        if (!$this->command) {
+        if (!$this->con->prepare($statement)) {
             echo "\nPDO::errorInfo():\n";
             print_r($this->con->errorInfo());
         }
         else
         {
+            $this->command = $this->con->prepare($statement);
             $this->command->execute();
         }
     }
