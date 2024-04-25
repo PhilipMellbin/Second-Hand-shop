@@ -23,29 +23,7 @@ class ProductCreate implements IProduct
         $this->db = new db;
         $str = $this->random_id(6);
         
-        $command = "INSERT INTO product
-        (
-            prod_id,
-            subject,
-            title,
-            img,
-            description,
-            price,
-            publisher,
-            publish_date,
-        )
-        VALUES
-        (
-            '$str',
-            '$subject',
-            '$title',
-            '$img',
-            '$desc',
-            '$price',
-            '$publisher',
-            'date(Y/m/d)'
-        )
-        ";
+        $command = "INSERT INTO product (prod_id, subject, title, img, description, price, publisher, publish_date) VALUES ('$str', '$subject', '$title', '$img', '$desc', '$price', '$publisher', 'date(Y/m/d)')";
         echo($command);
         $this->db->get_results($command);
         $this->end();
@@ -77,8 +55,8 @@ class ProductCreate implements IProduct
         {
             $not_exist = (true);
         }
-        $res->closeCursor();
-        $this->db->close();
+        $this->end();
+        $command = "";
         return($not_exist);
     }
     public function end()

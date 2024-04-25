@@ -31,6 +31,7 @@ class db
     }
     public function get_results($statement)
     {
+        echo("statement: " . $statement . "_");
         if (!$this->con->prepare($statement)) {
             echo "\nPDO::errorInfo():\n";
             print_r($this->con->errorInfo());
@@ -39,7 +40,10 @@ class db
         {
             $this->command = $this->con->prepare($statement);
             $this->command->execute();
+            echo("command: ");
+            print_r($this->command);
         }
+        $statement = "";
     }
     public function close()
     {
