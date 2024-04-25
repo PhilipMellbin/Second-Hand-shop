@@ -17,32 +17,31 @@ class ProductCreate implements IProduct
         $this->res = $this->db->command;
         $this->end();
     }
-    public function create_product($product)
+    public function create_product($title, $subject, $img ,$desc, $price, $publisher)
     {
         $this->db = new db;
         $str = $this->random_id(6);
         
-        $command = "INSERT INTO products 
+        $command = "INSERT INTO product
         (
             prod_id,
             subject,
-            type,
             title,
             img,
             description,
             price,
             publisher,
-            publish_date
+            publish_date,
         )
         VALUES
         (
             '$str',
-            '$product->subject',
-            '$product->type',
-            '$product->title',
-            '$product->description',
-            '$product->price',
-            '$product->publisher',
+            '$subject',
+            '$title',
+            '$img',
+            '$desc',
+            '$price',
+            '$publisher',
             'date(Y/m/d);'
         )
         ";

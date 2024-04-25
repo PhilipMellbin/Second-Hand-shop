@@ -36,9 +36,9 @@
                     {
                         array_push($this->objects, new ViewOption($result));
                     }
-                    foreach($this->objects as $user)
+                    foreach($this->objects as $option)
                     {
-                        $user->render_user($subtype);
+                        $option->render_option();
                     }
                 default:
                 echo("please fill in a type(user or product)");

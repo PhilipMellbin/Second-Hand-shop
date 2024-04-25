@@ -2,7 +2,7 @@
     <h1>Build-A-Success!</h1>
 </header>
 <main>
-    <form action="index.php?page=create" method="post">
+    <form action="index.php?page=createproduct" method="post">
         <section class="product">
             <div class="main">
                 <header class="titls">

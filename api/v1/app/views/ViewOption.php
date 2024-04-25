@@ -6,7 +6,7 @@ class ViewOption extends View
     public $option_id;
     public function __construct($subject)
     {
-        $this->option_name = $subject['subject_name'];
+        $this->option_name = $subject['subject_title'];
         $this->option_id = $subject['id'];
     }
     public function render_option()

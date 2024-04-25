@@ -11,6 +11,7 @@ class CreateProductController extends ABController
     private $accountmodel;
     public $product;
     private $header;
+    private $username;
     public function __construct()
     {
         if(!isset($_SESSION['email']))
@@ -25,6 +26,10 @@ class CreateProductController extends ABController
     private function show_account_info()
     {
         $this->accountmodel->get_user_info($_SESSION['email']);
+        while($result = $this->accountmodel->res->fetch(PDO::FETCH_ASSOC))
+        {
+            $this->username = $result['account_name']; //<-- Could not find anny better solution. Will try to fix
+        }
         $this->render_info("user", "regular", $this->accountmodel->res);
     }
     private function render_subject_options()
@@ -33,15 +38,9 @@ class CreateProductController extends ABController
         $this->render_info("options", "regular", $this->productmodel->res);
 
     }
-    public function create_product()
+    public function create()
     {
-        $this->product->subject = $_POST['subject'];
-        $this->product->type = $_POST['type'];
-        $this->product->title = $_POST['title'];
-        $this->product->description = $_POST['description'];
-        $this->product->price = $_POST['price'];
-        $this->product->publisher = $_POST['publisher'];
-        $this->productmodel->create_product($this->product);
+        $this->productmodel->create_product($_POST['title'], $_POST['subject'], $_POST['img'], $_POST['description'], $_POST['price'], $this->username);
     }
     public function show()
     {
