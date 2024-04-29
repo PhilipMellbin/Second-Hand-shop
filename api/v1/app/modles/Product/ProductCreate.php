@@ -9,25 +9,43 @@ class ProductCreate implements IProduct
 {
     protected $db;
     public $res;
-    private $atempts;
-    public function get_subjects()
+    public function __construct()
     {
         $this->db = new db;
+    }
+    public function get_subjects()
+    {
         $command = "SELECT * FROM subjects";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->res = $this->db->command;
         $this->end();
     }
-    public function create_product($title, $subject, $img ,$desc, $price, $publisher)
-    {
-        $this->db = new db;
-        $str = $this->random_id(6);
+    public function create_product($title, $subject, $img, $desc, $price, $publisher)
+{
+    $str = $this->random_id(6);
+    $publish_date = date('Y/m/d'); // Get current date
+    $command = "INSERT INTO product (prod_id, subject, title, img, description, price, publisher, publish_date) 
+                VALUES (:prod_id, :subject, :title, :img, :description, :price, :publisher, :publish_date)";
+    
+    try {
+        $stmt = $this->db->con->prepare($command);
+        $stmt->bindParam(':prod_id', $str);
+        $stmt->bindParam(':subject', $subject);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':img', $img);
+        $stmt->bindParam(':description', $desc);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':publisher', $publisher);
+        $stmt->bindParam(':publish_date', $publish_date);
         
-        $command = "INSERT INTO product (prod_id, subject, title, img, description, price, publisher, publish_date) VALUES ('$str', '$subject', '$title', '$img', '$desc', '$price', '$publisher', 'date(Y/m/d)')";
-        echo($command);
-        $this->db->get_results($command);
-        $this->end();
+        $stmt->execute();
+        echo "Product created successfully.\n";
+    } catch(PDOException $e) {
+        echo "Exception caught: " . $e->getMessage() . "\n";
     }
+
+    $this->end();
+}
     private function random_id($n)
     {
         $check = false;
@@ -47,15 +65,13 @@ class ProductCreate implements IProduct
     private function id_does_not_exist(string $str)
     { 
         $not_exist = false;
-        $this->db = new db;
         $command = "SELECT * FROM product WHERE prod_id = '$str'";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $res = $this->db->command;
         if($res->rowCount() >= 0)
         {
             $not_exist = (true);
         }
-        $this->end();
         $command = "";
         return($not_exist);
     }

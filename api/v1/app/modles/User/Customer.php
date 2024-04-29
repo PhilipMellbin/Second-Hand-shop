@@ -52,7 +52,7 @@ class Customer extends ABCustomer
             '$products'
         )
         ";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->get_recite_info();
         /*acces recite database
         insert products

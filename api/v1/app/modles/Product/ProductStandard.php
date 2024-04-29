@@ -11,7 +11,7 @@ class ProductStandard extends Cookie implements IProduct
     {
         $this->db = new db;
         $command = "SELECT * FROM product WHERE prod_id = '$prod_id'";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->res = $this->db->command;
     }
     function add_to_cart(ViewProduct $product)
@@ -39,7 +39,7 @@ class ProductStandard extends Cookie implements IProduct
             '$product->publisher',
             '$time'
         )";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
     }
     public function end()
     {

@@ -2,12 +2,12 @@
     <h1>Build-A-Success!</h1>
 </header>
 <main>
-    <form action="index.php?page=createproduct" method="post">
+    <form action="index.php?page=createproduct" method="POST" enctype="multipart/form-data">
         <section class="product">
             <div class="main">
                 <header class="titls">
                     <input type="text" name="title" id="title" placeholder="Text">
-                    <input type="file" id="img" name="img" accept="image/png, image/jpeg" />
+                    <input type="file" id="image" name="image" accept="image/png, image/jpg, image/jpeg">
                 </header>
                 <main>
                     <section>
@@ -40,6 +40,6 @@
                 <div class="small">
                     <h2>Your product in small form:</h2>
                 </div>
-                <div class="type">
+                <div class="subjects">
                     <h2>Finaly, select the subject</h2>
                     <select name="subject" id="subject">

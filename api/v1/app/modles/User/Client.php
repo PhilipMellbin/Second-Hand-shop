@@ -13,14 +13,13 @@ class Client extends LoginUser
     public function get_user_info($email)
     {
         $command = "SELECT * FROM accounts WHERE email = '$email'";
-        echo($this->db->get_results($command));
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->res = $this->db->command;
     }
     public function get_user_products($username)
     {
         $command = "SELECT * FROM product WHERE publisher = '$username'";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->res = $this->db->command;
     }
     public function eddit_credentials($username, $editted_sections)

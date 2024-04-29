@@ -13,13 +13,13 @@ class ProductSold implements IProduct
         $this->db = new db;
         $email = $_SESSION['email'];
         $command = "SELECT username FROM accounts WHERE email = '$email'";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->res = $this->db->command;
     }
     public function get_sold_products(string $name)
     {
         $command = "SELECT * FROM products WHERE publisher = '$name'";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         if($this->db->command->rowCount() > 0)
         {
             $this->res = $this->db->command; 

@@ -3,7 +3,7 @@
 include 'db.inc.php';
 class db
 {
-    protected $con;
+    public $con;
     public $command;
     public function __construct()
     {
@@ -31,19 +31,18 @@ class db
     }
     public function get_results($statement)
     {
-        echo("statement: " . $statement . "_");
-        if (!$this->con->prepare($statement)) {
-            echo "\nPDO::errorInfo():\n";
-            print_r($this->con->errorInfo());
-        }
-        else
-        {
+        try {
             $this->command = $this->con->prepare($statement);
+            if (!$this->command) {
+                echo "Prepare failed: (" . $this->con->errorCode() . ") " . implode(" ", $this->con->errorInfo()) . "\n";
+                return;
+            }
+            
             $this->command->execute();
-            echo("command: ");
-            print_r($this->command);
+            echo "Command executed successfully.\n";
+        } catch(PDOException $e) {
+            echo "Exception caught: " . $e->getMessage() . "\n";
         }
-        $statement = "";
     }
     public function close()
     {

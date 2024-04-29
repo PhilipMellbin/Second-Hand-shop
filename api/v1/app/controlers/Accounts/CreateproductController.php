@@ -36,11 +36,18 @@ class CreateProductController extends ABController
     {
         $this->productmodel->get_subjects();
         $this->render_info("options", "regular", $this->productmodel->res);
-
     }
     public function create()
     {
-        $this->productmodel->create_product($_POST['title'], $_POST['subject'], $_POST['img'], $_POST['description'], $_POST['price'], $_SESSION['username']);
+        if(!isset($_FILES['image']))
+        {
+            echo("still something wrong");
+        }
+        print_r($_FILES['image']);
+        $data = file_get_contents($_FILES['image']['tmp_name']);
+        print_r($_FILES['image']['tmp_name']);
+        echo("simple echo:" . $_FILES['image']['tmp_name']);
+        $this->productmodel->create_product($_POST['title'], $_POST['subject'], $data, $_POST['description'], $_POST['price'], $_SESSION['username']);
     }
     public function show()
     {

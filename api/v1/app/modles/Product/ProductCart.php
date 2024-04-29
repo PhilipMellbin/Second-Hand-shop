@@ -12,7 +12,7 @@ class ProductCart extends Cookie implements IProduct
         $this->db = new db;
         $sess_id = session_id();
         $command = "SELECT * FROM shoppertrack WHERE sess_id='$sess_id'";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->res = $this->db->command;
         if($this->db->command->rowCount() > 0)
         {
@@ -32,7 +32,7 @@ class ProductCart extends Cookie implements IProduct
         $prod_id = $_GET['prod_id'];
         $sess_id = session_id();
         $command = "DELETE FROM shoppertrack WHERE sess_id='$sess_id' AND prod_id = '$prod_id'";
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=checkout');
     }
     //same select function

@@ -12,7 +12,7 @@ Class ProductSmall extends Cookie implements IProduct
     protected $db;
     private function fill_results($command)
     {
-        $this->db->get_results($command);
+        $this->db->get_results($command, "");
         $this->res = $this->db->command; 
     }
 
