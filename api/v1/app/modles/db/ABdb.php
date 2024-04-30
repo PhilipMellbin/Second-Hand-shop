@@ -4,6 +4,7 @@ include 'db.inc.php';
 abstract class ABdb 
 {
     protected $con;
+    abstract function con_process();
     protected function con_start(){}
     protected function con_end()
     {
