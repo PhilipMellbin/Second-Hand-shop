@@ -1,4 +1,4 @@
-<?php
+<?php /*
 use Olssonm\Swish\Certificate;
 use Olssonm\Swish\Client;
 use Olssonm\Swish\Payment;
@@ -57,7 +57,7 @@ class Customer extends ABCustomer
         /*acces recite database
         insert products
         send email
-         */
+
     }
     private function get_recite_info()
     {
@@ -67,4 +67,4 @@ class Customer extends ABCustomer
     {
         $this->db->close();
     }
-}
+} */

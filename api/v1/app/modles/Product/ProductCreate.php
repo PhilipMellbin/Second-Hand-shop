@@ -1,11 +1,10 @@
 <?php
 
 
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php';
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
 
-class ProductCreate implements IProduct
+/*class ProductCreate implements IProduct
 {
     protected $db;
     public $res;
@@ -79,4 +78,4 @@ class ProductCreate implements IProduct
     {
         $this->db->close();
     }
-}
+}*/

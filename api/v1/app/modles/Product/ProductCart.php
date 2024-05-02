@@ -1,39 +1,28 @@
 <?php
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php';
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
-class ProductCart extends Cookie implements IProduct
+require_once __DIR__. "/../db/ABdb.php";
+class ProductCart extends ABdb
 {
     public $res;
     protected $db;
 
-    function __construct()
+    public function con_process()
     {
-        $this->db = new db;
-        $sess_id = session_id();
-        $command = "SELECT * FROM shoppertrack WHERE sess_id='$sess_id'";
-        $this->db->get_results($command, "");
-        $this->res = $this->db->command;
-        if($this->db->command->rowCount() > 0)
-        {
-            $this->res = $this->db->command; 
-        }
-        else
-        {
-            $this->res = null;
-        }
+        $this->con_start();
+        $this->res = $this->con->prepare("SELECT * FROM shoppertrack WHERE sess_id = :sess_id");
+        $this->res->bindParam(":sess_id" , session_id());
+        $this->res->execute();
+        $this->con_end();
     }
-    public function end()
+    function con_delete()
     {
-        $this->db->close(); 
-    }
-    function delete()
-    {
-        $prod_id = $_GET['prod_id'];
-        $sess_id = session_id();
-        $command = "DELETE FROM shoppertrack WHERE sess_id='$sess_id' AND prod_id = '$prod_id'";
-        $this->db->get_results($command, "");
-        header('location: http://localhost:2005/Second_Academia_Shop/Second-Hand-shop/api/v1/public_html/index.php?page=checkout');
+        $this->con_start();
+        $this->res = $this->con->prepare("DELETE FROM shoppertrack WHERE sess_id = :sess_id AND prod_id = :prod_id");
+        $this->res->bindParam(":sess_id", session_id());
+        $this->res->bindParam(":prod_id", $_GET['prod_id']);
+        $this->res->execute();
+        $this->con_end();
+
+        header('location: index.php?page=checkout'); //may add to the controllers instead
     }
     //same select function
     //maby i should have a product interface. like IProduct.php

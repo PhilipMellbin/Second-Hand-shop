@@ -1,45 +1,51 @@
 <?php
 //Need to require all of these files
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php';
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
-Class ProductSmall extends Cookie implements IProduct
+require_once __DIR__ . '/../db/ABdb.php';
+Class ProductSmall extends ABdb
 {
     //proposal:
     /*Develop on: construct 
     */
     public $res;
     protected $db;
-    private function fill_results($command)
+    private $filter;
+    private $type;
+    public function con_process()
     {
-        $this->db->get_results($command, "");
-        $this->res = $this->db->command; 
-    }
-
-    function __construct($filter, $type) {
-        $this->db = new db;
-        switch($type)
+        $this->con_start();
+        switch($this->type) 
         {
-            case "BySubject":
-                $command = "SELECT * FROM product WHERE subject = '$filter'";
+            case "subject":
+                if(!is_int($this->filter))
+                {
+                    echo("<script> console.log(Error(422): Bad input! Only int values are allowed! (contact philip.mellbin@elev.ga.lbs.se for help));</script>");
+                }
+                $this->res = $this->con->prepare("SELECT * FROM product WHERE subject = :filter");
+                $this->res->res->bindParam(':prod_id', $this->filter);
+                $this->res->execute();
                 break;
-            case "BySearch":
-                $command = "SELECT * FROM product WHERE title LIKE '$filter'";
+            case "search":
+                $this->res = $this->con->prepare("SELECT * FROM product WHERE LIKE = :filter");
+                $this->res->res->bindParam(':prod_id', $this->filter);
+                $this->res->execute();
                 break;
-            case "ByType":
-                $command = "SELECT * FROM product WHERE prod_type = '$filter'";
-           default:
-           $command = "SELECT *  FROM product LIMIT 10";
-           break;
+            default:
+            try{
+                $this->res = $this->con->prepare("SELECT * FROM product LIMIT 10"); //<--To add: check if there is a cookie value. if there is, display products that are similar to the value
+                $this->res->execute();
+            }
+            catch(PDOException $e)
+            {
+                echo("caught error!!" . $e->getMessage());
+            }
+            break;
+
         }
-        $this->fill_results($command);
+        $this->con_end();
     }
-    public function end()
-    {
-        $this->db->close(); 
+    function __construct($filter, $type) {
+        $this->filter = $filter;
+        $this->type = $type;
+        $this->con_process();
     }
-    //construct function that sets items
-    //fetch into array
-    //for every array, render product
-    //close con with model...or maby throu controler?
 }

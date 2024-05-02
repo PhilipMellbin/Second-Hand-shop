@@ -10,7 +10,6 @@ class AccounthomeController extends ABController
     private $view;
     private $model;
     private $header;
-    private $account;
     public function __construct()
     {
         if(!isset($_SESSION['email']))
@@ -21,19 +20,18 @@ class AccounthomeController extends ABController
         {
             $this->header = new HeaderController;
             $this->view = new View;
-            $this->model = new Client();
+            $this->model = new Client("");
         }
     }
     public function show_account_info()
     {
-        $this->model->get_user_info($_SESSION['email']);
+        $this->model->con_get("user");
         $this->render_info("user", "regular", $this->model->res);
     }
     public function show_account_products()
     {
-        $user = $this->objects[0];
-        $username = $user->username;
-        $this->model->get_user_products($username);
+        $_POST['username'] = $this->objects[0]->username;
+        $this->model->con_get("products");
         $this->render_info("product", "small", $this->model->res);
         
     }

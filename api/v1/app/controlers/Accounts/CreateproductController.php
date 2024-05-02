@@ -1,4 +1,4 @@
-<?php
+<?php /*
 require_once( __DIR__ .'/../../modles/User/Client.php');
 require_once( __DIR__ .'/../../modles/product/ProductCreate.php');
 require_once(__DIR__ .'/../../views/View.php');
@@ -58,4 +58,4 @@ class CreateProductController extends ABController
         $this->view->render("/account/create/newproductend");
         $this->view->render("/webbshop/standard/footer");
     }
-}
+}*/

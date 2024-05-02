@@ -3,10 +3,9 @@
 include 'db.inc.php';
 abstract class ABdb 
 {
-    protected $con;
+    public $con;
     abstract function con_process();
-    protected function con_start(){}
-    protected function con_end()
+    protected function con_start()
     {
         $attributes = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,        // Uses try catch upon error
@@ -35,4 +34,9 @@ abstract class ABdb
             Error message: " . $e->getMessage();
           } 
     }
+    protected function con_end()
+    {
+        $this->con = null;
+    }
+
 }

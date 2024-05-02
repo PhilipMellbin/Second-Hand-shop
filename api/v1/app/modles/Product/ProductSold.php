@@ -1,9 +1,7 @@
 <?php
-
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php';
+/*
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
-
 class ProductSold implements IProduct
 {
     public $res;
@@ -33,4 +31,4 @@ class ProductSold implements IProduct
     {
         $this->db->close();
     }
-}
+}*/

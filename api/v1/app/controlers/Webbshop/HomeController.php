@@ -22,7 +22,6 @@ class HomeController extends ABController
     private function show_products()
     {
         $this->render_info("product", "small", $this->model->res);
-        $this->model->end();
         //for every object in $result
         //render
     }

@@ -48,7 +48,7 @@ class LoginController extends ABController
             header("location: index.php?page=login");   
         }
         $this->password = $_POST['password'];
-        $this->model->get_password($this->email);
+        $this->model->con_process($this->email);
         $res = $this->model->res;
         $this->check_password($res);
     }
@@ -93,7 +93,6 @@ class LoginController extends ABController
             $this->penalty();
         }
         $this->comfirm = 0;
-        $this->model->end();
     }
     public function show()
     {

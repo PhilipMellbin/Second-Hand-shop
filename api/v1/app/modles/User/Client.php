@@ -1,26 +1,39 @@
 <?php
 
-require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php");
-require_once("/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/db/db.php");
+require_once(__DIR__ . "/LoginUser.php");
 class Client extends LoginUser
 {
-    protected $db;
     public $res;
-    public function __construct()
+    private $option;
+    public function con_get($option)
     {
-        $this->db = new db;
+        $this->option = $option;
+        $this->con_process();
     }
-    public function get_user_info($email)
+    public function con_process()
     {
-        $command = "SELECT * FROM accounts WHERE email = '$email'";
-        $this->db->get_results($command, "");
-        $this->res = $this->db->command;
+        $this->con_start();
+        if($this->option == "user")
+        {
+            $this->con_get_user_info();
+        }
+        else
+        {
+            $this->con_get_user_products();
+        }
+        $this->con_end();
     }
-    public function get_user_products($username)
+    public function con_get_user_info()
     {
-        $command = "SELECT * FROM product WHERE publisher = '$username'";
-        $this->db->get_results($command, "");
-        $this->res = $this->db->command;
+        $this->res = $this->con->prepare("SELECT * FROM accounts WHERE email = :email");
+        $this->res->bindParam(":email", $_SESSION['email']);
+        $this->res->execute();
+    }
+    public function con_get_user_products()
+    {
+        $this->res = $this->con->prepare("SELECT * FROM product WHERE publisher = :usr");
+        $this->res->bindParam(':usr', $_POST['username']);
+        $this->res->execute();
     }
     public function eddit_credentials($username, $editted_sections)
     {

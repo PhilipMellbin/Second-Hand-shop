@@ -39,14 +39,12 @@ class ProductController extends ABController
         $this->access_main_product();
         $this->product->render_product("standard");
         $this->product_subject = $this->product->product_subject;
-        $this->model->end();
         $this->model = new ProductSmall($this->product_subject, "BySubject");
     }
 
     private function show_similar_product() //similar products
     {
         $this->render_info("product", "small", $this->model->res);
-        $this->model->end();
     }
 
     private function show_product()
@@ -58,8 +56,7 @@ class ProductController extends ABController
     {
         $this->model = new ProductStandard($_GET['prod_id']);
         $this->access_main_product();
-        $this->model->add_to_cart($this->product);
-        $this->model->end();
+        $this->model->con_add_to_cart($this->product);
         header('location: index.php?page=checkout');
     }
     public function show()
