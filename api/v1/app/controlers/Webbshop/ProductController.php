@@ -24,9 +24,10 @@ class ProductController extends ABController
         else
         {
             $this->model = new ProductStandard($_GET['prod_id']);
+            $this->model->con_process();
         }
     }
-    private function access_main_product()
+    private function get_main_product()
     {
         while($result = $this->model->res->fetch(PDO::FETCH_ASSOC)) #!!! Should make shure that it also checks if results are valid
         {
@@ -36,7 +37,7 @@ class ProductController extends ABController
 
     private function show_main_product() //Main product info
     {
-        $this->access_main_product();
+        $this->get_main_product();
         $this->product->render_product("standard");
         $this->product_subject = $this->product->product_subject;
         $this->model = new ProductSmall($this->product_subject, "BySubject");
@@ -55,7 +56,7 @@ class ProductController extends ABController
     public function add_to_cart() #!!! Is it better to have the function in product controller, or should it be added to the checkout controller?
     {
         $this->model = new ProductStandard($_GET['prod_id']);
-        $this->access_main_product();
+        $this->get_main_product();
         $this->model->con_add_to_cart($this->product);
         header('location: index.php?page=checkout');
     }

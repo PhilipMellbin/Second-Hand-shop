@@ -4,7 +4,7 @@
 <div class="productmain">
     <section class="images">
         <div class="img">
-            <img src="<?=$this->img?>" alt="picture of <?=$this->title?>">
+            <img src="data:image/jpeg;base64, <?=base64_encode($this->img)?>" alt="image of <?= $this->title?>">
         </div>
     </section>
     <section class="content">

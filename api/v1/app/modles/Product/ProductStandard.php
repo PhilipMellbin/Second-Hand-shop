@@ -8,7 +8,6 @@ class ProductStandard extends ABdb
     public function __construct(string $prod_id)
     {
         $this->prod_id = $prod_id;
-        $this->con_start();
     }
     public function con_process()
     {
