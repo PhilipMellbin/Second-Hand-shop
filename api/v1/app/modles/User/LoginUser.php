@@ -6,11 +6,14 @@ class LoginUser extends ABUser
     protected $db;
     public $res;
     private $email;
+    public function con_set_email($email)
+    {
+        $this->email = $email;
+    }
     public function con_process()
     {
         try
         {
-            $this->email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
             $this->con_start();
             $this->res = $this->con->prepare("SELECT password FROM accounts WHERE email = :email");
             $this->res->bindParam(":email", $this->email);

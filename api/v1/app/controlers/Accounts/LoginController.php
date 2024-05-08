@@ -48,8 +48,10 @@ class LoginController extends ABController
             header("location: index.php?page=login");   
         }
         $this->password = $_POST['password'];
-        $this->model->con_process($this->email);
+        $this->model->con_set_email($this->email);
+        $this->model->con_process();
         $res = $this->model->res;
+        print_r($res);
         $this->check_password($res);
     }
     private function penalty()
@@ -72,9 +74,9 @@ class LoginController extends ABController
     {
         if($res != null) //if user exists
         {
-            $encro = "";
             while($result = $res->fetch(PDO::FETCH_ASSOC))
             {
+                echo("defining encro");
                 $encro = $result['password'];
             }
             if(password_verify($this->password, $encro))
