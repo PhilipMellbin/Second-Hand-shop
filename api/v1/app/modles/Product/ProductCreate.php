@@ -4,78 +4,72 @@
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
 
-/*class ProductCreate implements IProduct
+class ProductCreate extends ABdb
 {
-    protected $db;
     public $res;
-    public function __construct()
+    public function con_get_subjects()
     {
-        $this->db = new db;
+        $this->con_start();
+        $this->res = $this->con->prepare("SELECT * FROM subjects");
+        $this->res->execute();
+        $this->con_end();
     }
-    public function get_subjects()
+    public function con_process()
     {
-        $command = "SELECT * FROM subjects";
-        $this->db->get_results($command, "");
-        $this->res = $this->db->command;
-        $this->end();
+
     }
     public function create_product($title, $subject, $img, $desc, $price, $publisher)
 {
-    $str = $this->random_id(6);
-    $publish_date = date('Y/m/d'); // Get current date
-    $command = "INSERT INTO product (prod_id, subject, title, img, description, price, publisher, publish_date) 
-                VALUES (:prod_id, :subject, :title, :img, :description, :price, :publisher, :publish_date)";
-    
-    try {
-        $stmt = $this->db->con->prepare($command);
-        $stmt->bindParam(':prod_id', $str);
-        $stmt->bindParam(':subject', $subject);
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':img', $img);
-        $stmt->bindParam(':description', $desc);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':publisher', $publisher);
-        $stmt->bindParam(':publish_date', $publish_date);
-        
-        $stmt->execute();
-        echo "Product created successfully.\n";
-    } catch(PDOException $e) {
+    $id = $this->gen_random_id(6);
+    $this->con_start();
+    $publish_date = date('Y/m/d');
+    try
+    {
+        $this->res = $this->con->prepare("INSERT INTO product (prod_id, subject, tiltle, description, price, publisher, publish_date) 
+        VALUES (:prod_id, :subject, :title, :img, :description, :price, :publisher, :publish_date)");
+        $this->res->bindParam(':prod_id', $id);
+        $this->res->bindParam(':subject', $subject);
+        $this->res->bindParam(':title', $title);
+        $this->res->bindParam(':img', $img);
+        $this->res->bindParam(':description', $desc);
+        $this->res->bindParam(':price', $price);
+        $this->res->bindParam('publisher', $publisher);
+        $this->res->bindParam(':publish_date', $publish_date);
+        $this->res->execute();
+    }
+    catch(PDOException $e) {
         echo "Exception caught: " . $e->getMessage() . "\n";
     }
 
-    $this->end();
 }
-    private function random_id($n)
+    private function gen_random_id($n)
     {
-        $check = false;
+        $valid = false;
         $chars = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFTGIJKLMNOPQRSTUVWXYZ';
-        while($check == false)
+        while($valid == false)
         {
-            $randstr = '';
+            $prod_id = '';
 
             for ($i = 0; $i < $n; $i++) {
                 $index = rand(0, strlen($chars) - 1);
-                $randstr .= $chars[$index];
+                $prod_id .= $chars[$index];
             }
-            $check = $this->id_does_not_exist($randstr);
+            $valid = $this->valid_id($prod_id);
         }
-        return $randstr;
+        return $prod_id;
     }
-    private function id_does_not_exist(string $str)
+    private function valid_id(string $str)
     { 
-        $not_exist = false;
-        $command = "SELECT * FROM product WHERE prod_id = '$str'";
-        $this->db->get_results($command, "");
-        $res = $this->db->command;
-        if($res->rowCount() >= 0)
+        $valid = false;
+        $this->con_start();
+        $this->res = $this->con->prepare("SELECT * FROM product WHERE prod_id = :id");
+        $this->res->bindParam(":id" , $str);
+        $this->res->execute();
+        if($this->res->rowCount() >= 0)
         {
-            $not_exist = (true);
+            $valid = (true);
         }
-        $command = "";
-        return($not_exist);
+        $this->res = null;
+        return($valid);
     }
-    public function end()
-    {
-        $this->db->close();
-    }
-}*/
+}

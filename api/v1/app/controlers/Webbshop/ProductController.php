@@ -1,8 +1,8 @@
 <?php
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductStandard.php';
-require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/ProductSmall.php';
 require_once(__DIR__ .'/../../views/View.php');
 require_once(__DIR__ .'/../../views/ViewProduct.php');
+require_once(__DIR__. '/../../modles/Product/ProductStandard.php');
+require_once(__DIR__. '/../../modles/Product/ProductSmall.php');
 
 
 class ProductController extends ABController
@@ -24,11 +24,11 @@ class ProductController extends ABController
         else
         {
             $this->model = new ProductStandard($_GET['prod_id']);
-            $this->model->con_process();
         }
     }
     private function get_main_product()
     {
+        $this->model->con_process();
         while($result = $this->model->res->fetch(PDO::FETCH_ASSOC)) #!!! Should make shure that it also checks if results are valid
         {
             $this->product = new ViewProduct($result);

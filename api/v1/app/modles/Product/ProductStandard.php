@@ -30,14 +30,21 @@ class ProductStandard extends ABdb
             :sess_id, :prod_id, :title, :img, :price, :publisher, :prod_added_date
         )
         ");
-        $this->res->bindParam(":sess_id", session_id());
-        $this->res->bindParam(":prod_id", $product->prod_id);
-        $this->res->bindParam(":title", $product->title);
-        $this->res->bindParam(":img", $product->img);
-        $this->res->bindParam(":img", $product->price);
-        $this->res->bindParam(":img", $product->publisher);
-        $this->res->bindParam(":prod_added_date", date('Y-m-d H:i:s'));
-        $this->res->execute();
+        $sess_id = session_id();
+        $date = date('Y-m-d H:i:s');
+        try {
+            $this->res->bindParam(":sess_id", $sess_id);
+            $this->res->bindParam(":prod_id", $product->prod_id);
+            $this->res->bindParam(":title", $product->title);
+            $this->res->bindParam(":img", $product->img);
+            $this->res->bindParam(":price", $product->price);
+            $this->res->bindParam(":publisher", $product->publisher);
+            $this->res->bindParam(":prod_added_date", $date);
+            $this->res->execute();
+        } catch(PDOException $e) {
+            echo "Exception caught: " . $e->getMessage() . "\n";
+        }
+        echo("compleate");
         $this->con_end();
     }  
 }

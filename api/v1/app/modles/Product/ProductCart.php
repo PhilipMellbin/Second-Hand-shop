@@ -7,17 +7,19 @@ class ProductCart extends ABdb
 
     public function con_process()
     {
+        $sess_id = session_id();
         $this->con_start();
         $this->res = $this->con->prepare("SELECT * FROM shoppertrack WHERE sess_id = :sess_id");
-        $this->res->bindParam(":sess_id" , session_id());
+        $this->res->bindParam(":sess_id" , $sess_id );
         $this->res->execute();
         $this->con_end();
     }
     function con_delete()
     {
+        $sess_id = session_id();
         $this->con_start();
         $this->res = $this->con->prepare("DELETE FROM shoppertrack WHERE sess_id = :sess_id AND prod_id = :prod_id");
-        $this->res->bindParam(":sess_id", session_id());
+        $this->res->bindParam(":sess_id", $sess_id );
         $this->res->bindParam(":prod_id", $_GET['prod_id']);
         $this->res->execute();
         $this->con_end();

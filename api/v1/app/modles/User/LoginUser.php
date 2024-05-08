@@ -6,17 +6,19 @@ class LoginUser extends ABUser
     protected $db;
     public $res;
     private $email;
-    public function __construct()
-    {
-        $this->email = $_SESSION['email'];
-        $this->con_process();
-    }
     public function con_process()
     {
-        $this->con_start();
-        $this->res = $this->con->prepare("SELECT password FROM accounts WHERE email = ':email'");
-        $this->res->bindParam(":email", $this->email);
-        $this->res->execute();
+        try
+        {
+            $this->email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+            $this->con_start();
+            $this->res = $this->con->prepare("SELECT password FROM accounts WHERE email = :email");
+            $this->res->bindParam(":email", $this->email);
+            $this->res->execute();
+        }
+        catch(PDOException $e) {
+            echo "Exception caught: " . $e->getMessage() . "\n";
+        }
         $this->con_end();
     }  
     public function fill_credentials()

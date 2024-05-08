@@ -72,6 +72,7 @@ class LoginController extends ABController
     {
         if($res != null) //if user exists
         {
+            $encro = "";
             while($result = $res->fetch(PDO::FETCH_ASSOC))
             {
                 $encro = $result['password'];
