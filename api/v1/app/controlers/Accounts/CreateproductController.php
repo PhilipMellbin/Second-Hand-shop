@@ -1,4 +1,4 @@
-<?php /*
+<?php 
 require_once( __DIR__ .'/../../modles/User/Client.php');
 require_once( __DIR__ .'/../../modles/product/ProductCreate.php');
 require_once(__DIR__ .'/../../views/View.php');
@@ -25,7 +25,7 @@ class CreateProductController extends ABController
     }
     private function show_account_info()
     {
-        $this->accountmodel->get_user_info($_SESSION['email']);
+        $this->accountmodel->con_get("user");
         while($result = $this->accountmodel->res->fetch(PDO::FETCH_ASSOC))
         {
             $_SESSION['username'] = $result['account_name']; //<-- Could not find anny better solution. Will try to fix
@@ -34,7 +34,7 @@ class CreateProductController extends ABController
     }
     private function render_subject_options()
     {
-        $this->productmodel->get_subjects();
+        $this->productmodel->con_get_subj();
         $this->render_info("options", "regular", $this->productmodel->res);
     }
     public function create()
@@ -58,4 +58,4 @@ class CreateProductController extends ABController
         $this->view->render("/account/create/newproductend");
         $this->view->render("/webbshop/standard/footer");
     }
-}*/
+}

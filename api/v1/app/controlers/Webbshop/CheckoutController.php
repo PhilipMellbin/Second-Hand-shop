@@ -17,7 +17,6 @@ class CheckoutController extends ABController
         $this->view = new View;
         $this->model = new ProductCart();
         $this->header = new HeaderController;
-        //fill in the models
     }
     ##################################################(Functions)####################################
     private function get_cart_products()
@@ -25,7 +24,7 @@ class CheckoutController extends ABController
         $this->model->con_process();
         ############################(1: check if items are in cart and render acordingly)############################
         $this->view->render("/webbshop/checkout/incart/incartstart");
-        if($this->model->res == null)
+        if($this->model->res->rowCount() <= 0)
         {
             $this->view->render("/webbshop/checkout/incart/incartnoproduct");
             $this->view->render("/webbshop/checkout/incart/incartend");
