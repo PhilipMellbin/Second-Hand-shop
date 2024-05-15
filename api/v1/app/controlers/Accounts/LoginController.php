@@ -97,6 +97,17 @@ class LoginController extends ABController
         }
         $this->comfirm = 0;
     }
+    public function create_account()
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+        $this->model->con_create_account($name, $password, $email, $phone, $address);
+        $_SESSION['email'] = $_POST['email'];
+        header("location: index.php?page=accounthome");
+    }
     public function show()
     {
         $this->header->show();

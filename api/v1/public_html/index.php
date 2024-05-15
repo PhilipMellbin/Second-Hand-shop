@@ -62,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         case 'create':
             $controller->create();
             break;
+        case 'signup':
+            $controller->create_account();
     }//what if i instead of using switch case instead did the folowing:
         /*$func = $_POST['action']
         $controller->$func

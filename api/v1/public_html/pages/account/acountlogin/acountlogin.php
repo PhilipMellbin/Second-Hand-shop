@@ -14,8 +14,8 @@
     <h1>Sign Up!</h1>
     <section>
         <form action="index.php?page=login" method="post">
-            <label for="name">Email:</label>
-            <input type="text" name="usr" id="usr">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
             <label for="password">Password:</label>
             <input type="password" name="pass" id="pass">
             <label for="name">Name:</label>
@@ -24,7 +24,7 @@
             <input type="text" name="phone" id="phone">
             <label for="address">Address:</label>
             <input type="text" name="address" id="address">
-            <button type="submit" value="Signup">Sign up!</button>
+            <button type="submit" name="action" value="signup">Sign up!</button>
         </form>
     </section>
 </article>
