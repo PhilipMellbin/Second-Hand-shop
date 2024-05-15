@@ -8,11 +8,12 @@ class HeaderController extends ABController
     {
         $this->view = new View;
         $this->model = new ProductCart();
+        $this->model->con_process();
         
     }
     private function get_cart_products()
     {
-        if($this->model->res == null)
+        if($this->model->res->rowCount() <= null)
         {
             $this->view->render("/webbshop/standard/header2/nocart");
         }
