@@ -39,6 +39,26 @@
             <li class="button"><p><a href="index.php?page=login">Signup/Login</a></p></li>
         </ul>
     </div>
+    <div class="navbar_phone">
+        <section class="button"></section>
+        <section class="content">
+            <ul>
+                <li class="button"><p><a href="index.php?page=home">home</a></p></li>
+                <li class="button" id="cat_btn"><p><a href="#">categories</a></p></li>
+                <li class="button"><p><a href="index.php?page=aboutus">About us</a></p></li>
+                <li class="search">
+                    <form method="get" action="index.php?search=<?$inp?>">
+                        <label for="">Search...</label>
+                        <input type="text" name=<?$inp?>>
+                        <input type="submit" value="submit">
+                    </form>
+                </li>
+                <li class="button" id="cart_btn"><p><a href="#">Cart</a></p></li>
+                <li class="button"><p><a href="index.php?page=home">Region</a></p></li>
+                <li class="button"><p><a href="index.php?page=login">Signup/Login</a></p></li>
+            </ul>
+        </section>
+    </div>
 </header>
 <div class="dropdown">
     <div class="categories">
