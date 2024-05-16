@@ -1,5 +1,5 @@
 <?php
-######DB Settings
+// DB settings.
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASS', '');

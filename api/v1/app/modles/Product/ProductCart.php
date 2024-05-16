@@ -5,7 +5,7 @@ class ProductCart extends ABdb
     public $res;
     protected $db;
 
-    public function con_process()
+    public function con_process() //selects everything from the shoppertrack
     {
         $sess_id = session_id();
         $this->con_start();
@@ -14,7 +14,7 @@ class ProductCart extends ABdb
         $this->res->execute();
         $this->con_end();
     }
-    function con_delete()
+    function con_delete() //deletes a specific product from the cart
     {
         $sess_id = session_id();
         $this->con_start();
@@ -24,8 +24,6 @@ class ProductCart extends ABdb
         $this->res->execute();
         $this->con_end();
 
-        header('location: index.php?page=checkout'); //may add to the controllers instead
+        header('location: index.php?page=checkout'); //goes automaticaly to checkout.
     }
-    //same select function
-    //maby i should have a product interface. like IProduct.php
 }

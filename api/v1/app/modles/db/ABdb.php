@@ -1,11 +1,11 @@
 <?php
-// Not shure if this should be an abstract class or a regular class. thinking because of highrarcy, but i have no abstract functions yet.
 include 'db.inc.php';
 abstract class ABdb 
 {
+    //decided to not add an interface to ABdb since i did not see a point in it
     public $con;
-    abstract function con_process();
-    protected function con_start()
+    abstract function con_process(); //Every model nedes to have a default function caled con_process. Any other function should be labeled con_"function"();
+    protected function con_start() //start connections
     {
         $attributes = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,        // Uses try catch upon error
@@ -27,9 +27,9 @@ abstract class ABdb
             $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //$this->con->setAttribute(PDOStatement::fetch, PDO::FETCH_PROPS_LATE);
         }
-        catch(PDOException $e) 
+        catch(PDOException $e) //in case of connection errors, 
         {
-            echo "!502(Connection Error. Check ABdb.php.
+            echo "!502(Connection Error. Check ABdb.php or db.inc.php).
             If you are a customer, please contact philip.mellbin@elev.ga.lbs.se!
             Error message: " . $e->getMessage();
           } 

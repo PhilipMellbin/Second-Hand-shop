@@ -12,22 +12,42 @@ class ProductCreate extends ABdb
     private $desc;
     private $price;
     private $publisher;
-    public function con_get_subj()
+    public function con_get_subj() //selects subjects so the user can pick one of them
     {
         $this->con_start();
         $this->res = $this->con->prepare("SELECT * FROM subjects");
         $this->res->execute();
         $this->con_end();
     }
-    public function con_process()
+    public function con_process() //the actual creation process
     {
         $id = $this->gen_random_id(6);
         $publish_date = date('Y/m/d');
         $this->con_start();
         try
         {
-            $this->res = $this->con->prepare("INSERT INTO product (prod_id, subject, title, img, description, price, publisher, publish_date) 
-            VALUES (:prod_id, :subject, :title, :img, :description, :price, :publisher, :publish_date)");
+            $this->res = $this->con->prepare("INSERT INTO product 
+            (
+                prod_id, 
+                subject, 
+                title, 
+                img, 
+                description, 
+                price, 
+                publisher, 
+                publish_date
+            ) 
+            VALUES 
+            (
+                :prod_id, 
+                :subject, 
+                :title, 
+                :img, 
+                :description, 
+                :price, 
+                :publisher, 
+                :publish_date
+            )"); //use prepare statements ase a security percaution
             $this->res->bindParam(':prod_id', $id);
             $this->res->bindParam(':subject', $this->subject);
             $this->res->bindParam(':title', $this->title);
@@ -43,7 +63,7 @@ class ProductCreate extends ABdb
             echo "Exception caught: " . $e->getMessage() . "\n";
         }
     }
-    public function create_product($title, $subject, $img, $desc, $price, $publisher)
+    public function create_product($title, $subject, $img, $desc, $price, $publisher) //define local variables and initiate the creation process
     {
         $this->title = $title;
         $this->subject = $subject;
@@ -53,7 +73,7 @@ class ProductCreate extends ABdb
         $this->publisher = $publisher;
         $this->con_process();
     }
-    private function gen_random_id($n)
+    private function gen_random_id($n) //generates the prod_id
     {
         $valid = false;
         $chars = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFTGIJKLMNOPQRSTUVWXYZ';
@@ -69,7 +89,7 @@ class ProductCreate extends ABdb
         }
         return $prod_id;
     }
-    private function valid_id(string $str)
+    private function valid_id(string $str) //checks if the id already exists. would be odd if there where two prod_id:s 
     { 
         $valid = false;
         $this->con_start();

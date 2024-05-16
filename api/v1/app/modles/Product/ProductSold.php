@@ -1,5 +1,8 @@
 <?php
 /*
+NOT IN USE! May use at another date
+*/
+/*
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/Cookie.php';
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/Product/IProduct.php';
 class ProductSold implements IProduct

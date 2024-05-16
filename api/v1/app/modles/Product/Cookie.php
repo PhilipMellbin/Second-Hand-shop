@@ -1,10 +1,6 @@
 <?php
-//will work on later when there are plenty of products
 /*
-
-will probably use a controler instead once i'm done whith the lazy-load.
-
-
+NOT IN USE! May use at another date
 */
 class Cookie
 {

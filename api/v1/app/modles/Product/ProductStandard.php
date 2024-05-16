@@ -5,11 +5,11 @@ class ProductStandard extends ABdb
     public $res;
     protected $db;
     private $prod_id;
-    public function __construct(string $prod_id)
+    public function __construct(string $prod_id) //get the product id
     {
         $this->prod_id = $prod_id;
     }
-    public function con_process()
+    public function con_process() //get the main product
     {
         $this->con_start();
         $this->res = $this->con->prepare("SELECT * FROM product WHERE prod_id = :prod_id");
@@ -17,17 +17,28 @@ class ProductStandard extends ABdb
         $this->res->execute();
         $this->con_end();
     }
-    function con_add_to_cart(ViewProduct $product)
+    function con_add_to_cart(ViewProduct $product) 
     {
         $this->con_start();
-        $this->res = $this->con->prepare("INSERT INTO 
-        shoppertrack
+        $this->res = $this->con->prepare("INSERT INTO shoppertrack
         (
-            sess_id, prod_id, title, img, price, publisher, prod_added_date
+            sess_id, 
+            prod_id, 
+            title, 
+            img, 
+            price, 
+            publisher, 
+            prod_added_date
         )
         VALUES
         (
-            :sess_id, :prod_id, :title, :img, :price, :publisher, :prod_added_date
+            :sess_id, 
+            :prod_id, 
+            :title, 
+            :img, 
+            :price, 
+            :publisher, 
+            :prod_added_date
         )
         ");
         $sess_id = session_id();
