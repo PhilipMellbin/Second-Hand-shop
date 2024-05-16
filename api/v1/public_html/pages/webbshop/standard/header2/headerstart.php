@@ -59,7 +59,7 @@
             </ul>
         </section>
     </div>
-</header>
+    </header>
 <div class="dropdown">
     <div class="categories">
         <div class="subject">

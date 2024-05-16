@@ -89,6 +89,13 @@ header.top .navbar ul li.search .Cart {
   background-color: white;
 }
 
+div.navbar_phone {
+  display: none;
+}
+div.navbar_phone section {
+  display: none;
+}
+
 .dropdown {
   display: flex;
   justify-content: end;
