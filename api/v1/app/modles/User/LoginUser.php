@@ -37,7 +37,7 @@ class LoginUser extends ABUser
                 email, 
                 phone_number,
                 address,
-                created,
+                created
             ) 
             VALUES 
             (
