@@ -1,6 +1,31 @@
 div.productmain
 {
     background-color: rgb(247, 255, 240);
+    section#success
+    {
+        display: none;
+        background-color: white;
+        height: 10%;
+        h1
+        {
+            text-align: center;
+        }
+        div
+        {
+            display: flex;
+            justify-content: space-evenly;
+            a
+            {
+                text-decoration: none;
+                color: black;
+                background-color: gainsboro;
+                &.capitalism
+                {
+                    background-color: aquamarine;
+                }
+            }
+        }
+    }
     section.images
     {
         height: 70%;

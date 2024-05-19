@@ -20,16 +20,6 @@ header.top
             text-align: center;
             color: white;
         }
-        .pillar
-        {
-            margin-top: -5px;
-            height: 100%;
-            img
-            {
-                width: 200px;
-                margin:auto;
-            }
-        }
         .logo
         {
             margin-left: auto;
@@ -109,12 +99,19 @@ header.top
                         }
             }
     }
-}
-div.navbar_phone
+    div.phone
     {
         display: none;
-        section
-        {
-            display: none;
-        }
     }
+}
+@media screen and (max-width: 748px) {
+    div.phone
+    {
+        display: flex;
+        background-color: white;
+    }
+    .navbar
+    {
+        display: none;
+    }
+  }

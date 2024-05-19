@@ -5,11 +5,6 @@ document.addEventListener("DOMContentLoaded", function()
     const categories = document.getElementsByClassName("category");
 
     const header = document.getElementsByTagName("header");
-    console.log(header[0]);
-    console.log(header[0].style);
-    console.log(header[0].style.filter);
-    header[0].style.filter = "brightnes(20%)";
-    console.log(header[0].style.filter)
     const main = document.getElementsByTagName("main");
     const footer = document.getElementsByTagName("footer");
 
@@ -24,11 +19,6 @@ document.addEventListener("DOMContentLoaded", function()
         cart[0].style.display = "block";
         console.log(header[0].style.filter, main[0].style.filter, footer[0].style.filter);
     }
-    /*cat_btn.onclick = function()
-    {
-        categories[0].style.display = "block";
-        categories[0].style.filter="brightness(70%)"
-    }*/
     cart_exit.onclick = function()
     {
         cart[0].style.display = "none";

@@ -58,7 +58,8 @@ class ProductController extends ABController
         $this->model = new ProductStandard($_GET['prod_id']);
         $this->get_main_product();
         $this->model->con_add_to_cart($this->product);
-        header('location: index.php?page=checkout');
+        $this->show();
+        echo('<script>document.getElementById("success").style.display = "block"</script>');
     }
     public function show()
     {

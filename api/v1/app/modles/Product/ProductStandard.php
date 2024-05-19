@@ -55,7 +55,6 @@ class ProductStandard extends ABdb
         } catch(PDOException $e) {
             echo "Exception caught: " . $e->getMessage() . "\n";
         }
-        echo("compleate");
         $this->con_end();
     }  
 }

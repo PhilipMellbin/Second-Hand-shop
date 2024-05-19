@@ -2,6 +2,13 @@
     
 </section>
 <div class="productmain">
+    <section id="success">
+        <h1>Success! <?=$this->title?> Is now in cart!</h1>
+        <div>
+            <a class="capitalism" href="index.php?page=home">Buy more!</a>
+            <a class="let-go" href="index.php?page=checkout">To Checkout</a>
+        </div>
+    </section>
     <section class="images">
         <div class="img">
             <img src="data:image/jpeg;base64, <?=base64_encode($this->img)?>" alt="image of <?= $this->title?>">

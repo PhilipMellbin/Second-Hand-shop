@@ -15,14 +15,6 @@ header.top div.Title h1, header.top div.Title h2 {
   text-align: center;
   color: white;
 }
-header.top div.Title .pillar {
-  margin-top: -5px;
-  height: 100%;
-}
-header.top div.Title .pillar img {
-  width: 200px;
-  margin: auto;
-}
 header.top div.Title .logo {
   margin-left: auto;
   margin-right: auto;
@@ -88,14 +80,19 @@ header.top .navbar ul li.search .Cart {
   display: none;
   background-color: white;
 }
-
-div.navbar_phone {
-  display: none;
-}
-div.navbar_phone section {
+header.top div.phone {
   display: none;
 }
 
+@media screen and (max-width: 748px) {
+  div.phone {
+    display: flex;
+    background-color: white;
+  }
+  .navbar {
+    display: none;
+  }
+}
 .dropdown {
   display: flex;
   justify-content: end;
@@ -284,6 +281,26 @@ main section.products div.product:hover {
 
 div.productmain {
   background-color: rgb(247, 255, 240);
+}
+div.productmain section#success {
+  display: none;
+  background-color: white;
+  height: 10%;
+}
+div.productmain section#success h1 {
+  text-align: center;
+}
+div.productmain section#success div {
+  display: flex;
+  justify-content: space-evenly;
+}
+div.productmain section#success div a {
+  text-decoration: none;
+  color: black;
+  background-color: gainsboro;
+}
+div.productmain section#success div a.capitalism {
+  background-color: aquamarine;
 }
 div.productmain section.images {
   height: 70%;
