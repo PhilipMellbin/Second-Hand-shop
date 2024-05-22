@@ -12,13 +12,17 @@
             switch($type)
             {
                 case "product":
+                    $i = 1;
                     while($result = $res->fetch(PDO::FETCH_ASSOC))
                     {
-                        array_push($this->objects, new ViewProduct($result));
+                        $this->objects = new ViewProduct(($result)); //key $i has the value of a product. $i will be used in carousell.js in the form of an id
+                        $this->objects->render_product($subtype, $i);
+                        $i = $i + 1;
                     }
                     foreach($this->objects as $product)
                     {
-                        $product->render_product($subtype);
+                        //$product->render_product($subtype);
+                        //$i++;
                     }
                     break;
                 case "user":

@@ -4,6 +4,7 @@
 class ViewProduct extends View
 {
     ##################################(Vars)##############################
+    public $i;
     public $prod_id; //Should i make them private?
     public $title;
     public $img;
@@ -37,8 +38,9 @@ class ViewProduct extends View
         //render product
     }
     ##################################################(render specified type)####
-    public function render_product($type)
+    public function render_product($type, $i)
     {
+        $this->i = $i;
         switch ($type)
         {
             case "small":
