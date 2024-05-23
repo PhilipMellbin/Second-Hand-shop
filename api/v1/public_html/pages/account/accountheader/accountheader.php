@@ -12,7 +12,7 @@
             <h3><?=$this->profits_month?> kr this month</h3>
         </section>
     </div>
-    <section class="nav">
+    <section class="navbar">
         <ul>
             <li><a href="index.php?page=accounthome">home</a></li>
             <li><a href="index.php?page=accountproducts">products</a></li>

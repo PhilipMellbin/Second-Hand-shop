@@ -11,6 +11,9 @@
         <p></p>
     </section>
 </footer>
-
+<div class="Special">
+    <h1>What are you? Broke?</h1>
+    <h1>Go get a real phone and a real job BOZO!</h1>
+</div>
 </body>
 </html>

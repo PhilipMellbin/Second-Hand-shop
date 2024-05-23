@@ -4,6 +4,7 @@
 @import "products";
 @import "checkout";
 @import "login";
+@import "accountheader";
 @import "footer";
 section
 {
@@ -28,4 +29,35 @@ p, a, h1, h2, h3, label
 h1, h2, h3
 {
     text-align: center;
+}
+.special
+{
+    display: none;
+}
+@media screen and (max-width: 200px)
+{
+    body
+    {
+        background-color: black;
+        header
+        {
+            display: none;
+        }
+        main
+        {
+            display: none;
+        }
+        footer
+        {
+            display: none;
+        }
+        .special
+        {
+            display: block;
+            h1
+            {
+                color: white;
+            }
+        }
+    }
 }

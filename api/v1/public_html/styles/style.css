@@ -631,6 +631,34 @@ article.loginsection section#signuppage {
   display: none;
 }
 
+header .profile {
+  height: 70%;
+  max-height: 400px;
+  background: linear-gradient(rgb(120, 120, 255), rgb(203, 120, 255));
+  display: flex;
+  justify-content: space-evenly;
+}
+header .navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(47, 113, 255, 0.6);
+  height: 80%;
+  box-shadow: -4px 8px 14px 4px;
+  margin-top: 0px;
+}
+header .navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+}
+header .navbar ul li {
+  width: 70px;
+  border-radius: 20%;
+}
+
 footer {
   background-color: rgba(194, 194, 194, 0.897);
 }
@@ -657,4 +685,29 @@ p, a, h1, h2, h3, label {
 
 h1, h2, h3 {
   text-align: center;
+}
+
+.special {
+  display: none;
+}
+
+@media screen and (max-width: 200px) {
+  body {
+    background-color: black;
+  }
+  body header {
+    display: none;
+  }
+  body main {
+    display: none;
+  }
+  body footer {
+    display: none;
+  }
+  body .special {
+    display: block;
+  }
+  body .special h1 {
+    color: white;
+  }
 }/*# sourceMappingURL=style.css.map */
