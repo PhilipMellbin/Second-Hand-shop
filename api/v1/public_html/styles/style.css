@@ -687,7 +687,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.special {
+.Special {
   display: none;
 }
 
@@ -704,10 +704,10 @@ h1, h2, h3 {
   body footer {
     display: none;
   }
-  body .special {
+  body .Special {
     display: block;
   }
-  body .special h1 {
+  body .Special h1 {
     color: white;
   }
 }/*# sourceMappingURL=style.css.map */
