@@ -14,6 +14,12 @@ document.addEventListener("DOMContentLoaded", function()
     const navbutton = document.getElementsByClassName("navbutton");
     const nav = document.getElementsByClassName("navcontent");
     const exitbtn = document.getElementsByClassName("exitbtn");
+
+    const login = document.getElementById("Login");
+    const signup = document.getElementById("Signup");
+    const signuppage = document.getElementById("signuppage");
+    const loginpage = document.getElementById("loginpage");
+
     navbutton[0].onclick = function()
     {
         nav[0].style.display = "block";
@@ -41,5 +47,15 @@ document.addEventListener("DOMContentLoaded", function()
     {
         cart[0].style.display = "none";
         header[0].style.filter = main[0].style.filter = footer[0].style.filter = "brightnes(100%);";
+    }
+    signup.onclick = function()
+    {
+        signuppage.style.display = "block";
+        loginpage.style.display = "none";
+    }
+    login.onclick = function()
+    {
+        signuppage.style.display = "none";
+        loginpage.style.display = "block"
     }
 });

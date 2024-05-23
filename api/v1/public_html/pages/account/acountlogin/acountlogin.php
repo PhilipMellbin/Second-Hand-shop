@@ -4,7 +4,7 @@
         <h1>/</h1>
         <button id="Signup"><h1>Sign up!</h1></button>
     </section>
-    <section class="logincontents login">
+    <section class="logincontents" id="loginpage">
         <form action="index.php?page=login" method="post">
             <label for="email">Email:</label>
             <input type="text" name="email" id="email" placeholder="pelle.svanslos@gmail.com">
@@ -13,7 +13,7 @@
             <button type="submit" name="action" value="login">Log in!</button>
         </form>
     </section>
-    <section class="logincontents signup">
+    <section class="logincontents" id="signuppage">
         <form action="index.php?page=login" method="post">
             <label for="email">Email:</label>
             <input type="text" name="email" id="email">

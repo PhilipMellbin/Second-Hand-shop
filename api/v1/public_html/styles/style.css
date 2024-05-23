@@ -625,7 +625,7 @@ article.loginsection section.logincontents form input {
      -moz-appearance: none;
           appearance: none;
 }
-article.loginsection section.signup {
+article.loginsection section#signuppage {
   display: none;
 }
 
