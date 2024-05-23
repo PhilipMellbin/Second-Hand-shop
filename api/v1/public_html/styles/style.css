@@ -587,11 +587,46 @@ article.checkout_swish {
 }
 
 article.loginsection {
-  background-color: rgba(16, 16, 16, 0.596);
+  background-color: rgba(65, 65, 65, 0.596);
+  height: 100%;
 }
 article.loginsection section.select {
   display: flex;
   justify-content: center;
+}
+article.loginsection section.select button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-color: rgba(65, 65, 65, 0.596);
+}
+article.loginsection section.select button h1 {
+  color: white;
+}
+article.loginsection section.select button:hover {
+  background-color: white;
+}
+article.loginsection section.select button:hover h1 {
+  color: black;
+}
+article.loginsection section.logincontents {
+  width: 70%;
+  max-width: 200px;
+  margin: auto;
+}
+article.loginsection section.logincontents form label {
+  color: white;
+}
+article.loginsection section.logincontents form input {
+  height: 70%;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+article.loginsection section.signup {
+  display: none;
 }
 
 footer {

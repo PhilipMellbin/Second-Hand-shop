@@ -13,7 +13,7 @@
             <button type="submit" name="action" value="login">Log in!</button>
         </form>
     </section>
-    <section class="logincontents signin">
+    <section class="logincontents signup">
         <form action="index.php?page=login" method="post">
             <label for="email">Email:</label>
             <input type="text" name="email" id="email">
