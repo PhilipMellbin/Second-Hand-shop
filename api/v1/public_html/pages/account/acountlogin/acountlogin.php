@@ -1,6 +1,10 @@
-<article>
-    <h1>Log in</h1>
-    <section>
+<article class="loginsection">
+    <section class="select">
+        <button id="Login"><h1>Log in!</h1></button>
+        <h1>/</h1>
+        <button id="Signup"><h1>Sign up!</h1></button>
+    </section>
+    <section class="logincontents login">
         <form action="index.php?page=login" method="post">
             <label for="email">Email:</label>
             <input type="text" name="email" id="email" placeholder="pelle.svanslos@gmail.com">
@@ -9,10 +13,7 @@
             <button type="submit" name="action" value="login">Log in!</button>
         </form>
     </section>
-</article>
-<article>
-    <h1>Sign Up!</h1>
-    <section>
+    <section class="logincontents signin">
         <form action="index.php?page=login" method="post">
             <label for="email">Email:</label>
             <input type="text" name="email" id="email">

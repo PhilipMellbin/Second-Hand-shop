@@ -38,9 +38,8 @@ class ViewProduct extends View
         //render product
     }
     ##################################################(render specified type)####
-    public function render_product($type, $i)
+    public function render_product($type)
     {
-        $this->i = $i;
         switch ($type)
         {
             case "small":

@@ -105,13 +105,86 @@ header.top
     }
 }
 @media screen and (max-width: 748px) {
-    div.phone
+    header.top
     {
-        display: flex;
-        background-color: white;
-    }
-    .navbar
-    {
-        display: none;
+        div.phone
+        {
+            display: flex;
+            .navbutton
+            {
+                padding: 3%;
+                width: 10%;
+                height: 10%;
+                background-color: white;
+                border-radius: 10%;
+                position: fixed;
+                top: 50%;
+                right: 0;
+                z-index: 1080;
+                img
+                {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .navcontent
+            {
+                display: none;
+                background-color: rgb(86, 130, 180);
+                padding: 3%;
+                width: 50%;
+                height: 100%;
+                border-radius: 10px;
+                position: fixed;
+                top: 0;
+                right: 0;
+                z-index: 1080;
+                ul
+                {
+                    li
+                    {
+                        background-color: white;
+                        a , p {
+                            display: block;
+                            text-align: center;
+                            padding: 8px;
+                            text-decoration: none;
+                            &:hover
+                            {
+                                color: white;
+                                border-radius: 4px;
+                                background: rgb(172,182,0);
+                                background: linear-gradient(45deg, rgba(172,182,0,1) 0%, rgba(2,197,185,1) 100%);
+                            }
+                          }
+                          :hover
+                          {
+                              box-shadow: 1px 1px 20px 4px black;
+                          }
+                    }
+                }
+                div.exitbtn
+                {
+                    padding: 3%;
+                    width: 10%;
+                    height: 10%;
+                    background-color: white;
+                    border-radius: 10%;
+                    position: fixed;
+                    top: 0%;
+                    right: 0;
+                    z-index: 1080;
+                    img
+                    {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .navbar
+        {
+            display: none;
+        }
     }
   }
