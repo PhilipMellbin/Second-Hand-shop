@@ -6,6 +6,11 @@ Class ProductSmall extends ABdb
     protected $db;
     private $filter;
     private $type;
+    function __construct($filter, $type) {
+        $this->filter = $filter;
+        $this->type = $type;
+        $this->con_process();
+    }
     public function con_process() 
     {
         $this->con_start();
@@ -38,10 +43,5 @@ Class ProductSmall extends ABdb
 
         }
         $this->con_end();
-    }
-    function __construct($filter, $type) {
-        $this->filter = $filter;
-        $this->type = $type;
-        $this->con_process();
     }
 }

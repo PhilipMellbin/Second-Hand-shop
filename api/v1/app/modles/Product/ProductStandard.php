@@ -17,7 +17,7 @@ class ProductStandard extends ABdb
         $this->res->execute();
         $this->con_end();
     }
-    function con_add_to_cart(ViewProduct $product) 
+    public function con_add_to_cart(ViewProduct $product) 
     {
         $this->con_start();
         $this->res = $this->con->prepare("INSERT INTO shoppertrack

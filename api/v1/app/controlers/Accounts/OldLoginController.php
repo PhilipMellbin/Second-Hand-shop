@@ -1,7 +1,7 @@
 <?php
 //!This was my atempt at 2 step verification. The code is not intended to be used. I will
 //use it when i understand mercury and smtp servers
-require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php');
+/*require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/modles/User/LoginUser.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/views/View.php');
 require_once('/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/ABController.php');
 require_once '/xampp/htdocs/Second_Academia_Shop/Second-Hand-shop/api/v1/app/controlers/Header/HeaderController.php';
@@ -108,4 +108,4 @@ class LoginController extends ABController
         }
         $this->view->render("/webbshop/standard/footer");
     }
-}
+}*/

@@ -101,7 +101,7 @@ class LoginController extends ABController
     {
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $password = password_hash($_POST['pass'], PASSWORD_DEFAULT); //hash password for added security
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $this->model->con_create_account($name, $password, $email, $phone, $address);

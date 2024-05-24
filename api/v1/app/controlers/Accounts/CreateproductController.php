@@ -11,7 +11,6 @@ class CreateProductController extends ABController
     private $accountmodel;
     public $product;
     private $header;
-    private $username;
     public function __construct()
     {
         if(!isset($_SESSION['email']))

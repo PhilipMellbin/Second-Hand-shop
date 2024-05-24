@@ -4,7 +4,7 @@ class HeaderController extends ABController
 {
     private $view;
     private $model;
-    function __construct()
+    public function __construct()
     {
         $this->view = new View;
         $this->model = new ProductCart();
